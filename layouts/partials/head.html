@@ -1,5 +1,19 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--seo优化相关，只有content类的才会进行优化-->
+{{ if .IsPage }}
+{{ $items := slice .Title}}
+{{ $items = append site.Params.seoTags $items }}
+{{ $result := delimit $items "," }}
+<meta name="keywords"
+      content="{{ $result }}"/>
+<meta name="description" content="{{ .Summary }}"/>
+{{ end }}
+
+
+<!--格式: 文章名 - 站点名-->
+<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} - {{ end }}{{ end }}{{ site.Title }}</title>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}

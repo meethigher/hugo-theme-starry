@@ -7,14 +7,30 @@ title: Hello-World
 uglyURLs: false
 # 禁用hugo的generator的meta注入
 disableHugoGeneratorInject: true
-minify: true
+minify: false
+## 分页参数
+#pagination:
+#  disableAliases: false
+#  pagerSize: 2
+#  path: page
 # 指定首页的输出格式为html/json。除了首页home，还有内容section、标签term、单独页page
 outputs:
   home:
     - html
     - json
+# 自定义参数
+params:
+  seoTags:
+    - meethigher
+    - 个人网站
+    - 个人博客
+    - 生活
+    - 程序员
 permalinks:
+  # 每篇文章的格式
   archives: /:year/:filename/
+  # 每页的格式
+  page: /page/:filename/
 menus:
   main:
     - name: Home

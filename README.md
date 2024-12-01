@@ -14,6 +14,21 @@
 │  ├─css
 │  └─js
 ├─layouts: hugo主题的核心
+│  ├─partials
+│  │  │  head.html: 网页标头
+│  │  │  header.html: 网页导航栏
+│  │  │  footer.html: 网页页脚
+│  │  │
+│  │  └─head
+│  │          css.html
+│  │          js.html
+│  │
+│  └─_default
+│          baseof.html: 所有页面的底层模板
+│          home.html
+│          index.json: 索引文件模板
+│          list.html
+│          single.html
 ├─static: 存放主题的静态资源。比如favicon.ico，该内容在生成时的路径为/，不是/static，注意区分
 ├─theme.yml: 主题信息说明
 ├─content: 可删除。主题开发时的内容示例
