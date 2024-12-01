@@ -1,0 +1,21 @@
+name: starry
+license: MIT
+licenselink: https://github.com/meethigher/hugo-theme-starry/LICENSE
+description: 这是一款个人主题，由Hexo迁移至Hugo的版本。
+homepage: https://github.com/meethigher/hugo-theme-starry
+tags:
+  - blog
+  - responsive
+  - clean
+  - light
+  - dark
+  - personal
+features:
+  - gitalk
+  - tags
+  - archives
+  - about
+  - search
+author:
+  name: meethigher
+  homepage: https://meethigher.top
