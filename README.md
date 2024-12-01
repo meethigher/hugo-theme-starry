@@ -28,6 +28,7 @@
 一款适用于个人使用的简洁、轻量、响应式、暗色的博客主题。
 
 * 主题核心是基于JQuery，使用到的第三方库都是使用的离线版本
+* 支持[生成用于检索的全文json](https://www.cnblogs.com/fatedeity/p/16820325.html)
 * 支持图片懒加载、自定义图片懒加载效果
 * 支持mathjax
 * 支持sitemap、seo优化
@@ -50,8 +51,8 @@
 hugo new content archives/post-1/index.md
 ```
 
-构建网页并开启测试服务
+构建压缩网页并开启测试服务
 
 ```sh
-hugo && hugo server -p 4000
+hugo --minify && hugo server -p 4000
 ```
