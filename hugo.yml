@@ -1,6 +1,11 @@
 baseURL: https://meethigher.top/
 languageCode: zh-CN
 title: Hello-World
+# 默认值为false，可省略。若为true，则使用丑陋url。丑陋url:/index.html，美观url: /index/
+# 该内容会影响到相对路径静态资源的加载, 故不建议修改。直接省略即可
+uglyURLs: false
+permalinks:
+  archives: /:year/:filename/
 menus:
   main:
     - name: Home
@@ -15,6 +20,8 @@ menus:
     - name: About
       pageRef: /about
       weight: 40
+# 编写主题时，注释该行
+# theme: starry
 module:
   hugoVersion:
     extended: false

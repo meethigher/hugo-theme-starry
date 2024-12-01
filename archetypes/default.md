@@ -2,7 +2,9 @@
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 comments: false
 mathjax: false
-tags: [life]
+weight: 100
+top: false
+tags: []
 date: {{ .Date }}
 ---
 

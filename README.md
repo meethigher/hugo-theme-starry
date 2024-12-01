@@ -4,6 +4,25 @@
 
 因此诞生了将该主题[hexo-theme-starry](https://github.com/meethigher/hexo-theme-starry)迁移至[hugo-theme-starry](https://github.com/meethigher/hugo-theme-starry)的想法。
 
+这里面有好多兼容hexo的用法或者说是习惯。
+
+项目结构说明
+
+```sh
+├─archetypes: 创建内容时的默认模板
+├─assets: 主题的资源文件
+│  ├─css
+│  └─js
+├─layouts: hugo主题的核心
+├─static: 存放主题的静态资源。比如favicon.ico，该内容在生成时的路径为/，不是/static，注意区分
+├─theme.yml: 主题信息说明
+├─content: 可删除。主题开发时的内容示例
+│  ├─about
+│  └─archives
+├─public: 可删除。资源生成的所在路径
+├─hugo.yml: 可删除。主题开发时的配置文件示例。该文件可以拷贝出去作为生产环境的配置
+```
+
 ## Features
 
 一款适用于个人使用的简洁、轻量、响应式、暗色的博客主题。
@@ -22,3 +41,17 @@
 ## Installation
 
 ## Configuration
+
+## Usage
+
+新建文章
+
+```sh
+hugo new content archives/post-1/index.md
+```
+
+构建网页并开启测试服务
+
+```sh
+hugo && hugo server -p 4000
+```
