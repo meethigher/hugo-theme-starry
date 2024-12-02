@@ -1,0 +1,48 @@
+// scss定义变量使用$，less定义变量使用@
+$charset: "UTF-8";
+$body-font-size: 20px;
+$font-size: 17px;
+//放置顺序：优先使用字体、多平台通用字体
+$font: Georgia, times, "PingFang SC", "SimHei", "Microsoft YaHei UI", sans-serif;
+$colorDiy: #13172F;
+//感觉黑色更护眼
+//$colorDiy:#000;
+$linearColor: linear-gradient(rgb(19, 23, 47) 10%, rgb(24, 51, 100));
+$colorBar: transparent;
+$colorBg: transparent;
+//$colorFont: #F3F3F5;
+//$colorFontHover: gold;
+$fontOpacity: .85;
+$colorFont: rgba(243, 243, 245, $fontOpacity);
+$colorFontHover: rgba(255, 215, 0, $fontOpacity);
+
+$blog-bg-color: #2B2A32;
+$blog-theme-color: #FF787F;
+$blog-border-color: #3e4c42;
+$blog-font-color: #25AD87;
+$blog-title-color: #25AD87;
+$blog-github-fill-color: #25AD87;
+
+$post-catalog-bg-color: #2b2a32;
+$post-catalog-font-color: #288EAD;
+$post-table-thead-bg-color: #30303a;
+$post-table-border-color: #3e4c42;
+$post-inline-code-bg-color: #282c34;
+$post-inline-code-border-color: #3e4c42;
+$post-cnblogs-code-bg-color: #282c34;
+$post-cnblogs-code-font-color: #abb2bf;
+$post-signature-bg-color: #30303a;
+$post-blockquote-border-color: #479680;
+$post-code-body-color: #000000;
+$post-code-head-color: #30303a;
+
+$comment-font-color: #C8B735;
+$comment-bg-color: #30303a;
+$copy-color: skyblue;
+
+// 设置p标签下面的字体行高，默认是normal。输入1.5表示是正常字体的1.5倍，如果字体是20px，那么行高就是30px，注意加了rem含义就变了，自行百度
+$p-line-height: 1.5;
+
+
+
+

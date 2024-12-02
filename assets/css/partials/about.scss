@@ -1,0 +1,13 @@
+.progress {
+  width:100%;
+  height:$font-size;
+  background-color: $colorFont;
+}
+.inner-progress {
+  height:$font-size;
+  line-height:$font-size;
+  font-size:$font-size;
+  background-color: $post-catalog-font-color;
+  color:#fff;
+  text-align:center;
+}
