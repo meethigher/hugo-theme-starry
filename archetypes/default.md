@@ -6,6 +6,7 @@ weight: 100
 top: false
 tags: []
 date: {{ .Date }}
+type: post
 ---
 
 summary

@@ -1,0 +1,13 @@
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  //width:100%;
+  //height:100%;
+  //替换成下面这个，是为了解决ios滑动时，背景跟着屏幕跑的bug
+  width:100vw;
+  height:100vh;
+  z-index: -1;
+}

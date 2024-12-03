@@ -16,4 +16,3 @@
 <!--格式: 文章名 - 站点名-->
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} - {{ end }}{{ end }}{{ site.Title }}</title>
 {{ partialCached "head/css.html" . }}
-{{ partialCached "head/js.html" . }}
