@@ -16,7 +16,9 @@ minify: false
 # 指定首页的输出格式为html/json。除了首页home，还有内容section、标签term、单独页page
 outputs:
   home:
+    # 网页内容html
     - html
+    # 全文检索json
     - json
 # 自定义参数
 params:
@@ -27,7 +29,7 @@ params:
     - 生活
     - 程序员
 permalinks:
-  # 每篇文章的格式
+  # 设置archives目录下文章的链接
   archives: /:year/:filename/
   # 每页的格式
   page: /page/:filename/
