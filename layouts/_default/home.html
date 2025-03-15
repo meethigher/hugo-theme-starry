@@ -1,14 +1,24 @@
 {{ define "main" }}
-  <h1>这是Home页</h1>
   {{ .Content }}
-  {{/*
-所有内容页
-{{ range site.RegularPages }}
-根据自定义类型过滤
-{{ range where site.RegularPages "Type" "post" }}
-*/}}
-  {{ range where site.RegularPages "Type" "post" }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  {{ $paginator := .Paginate (where site.RegularPages "Type" "post") }}
+  {{ range $paginator.Pages }}
+    <h2><a href="{{ .RelPermalink }}">{{ if eq .Params.state "top" }}[置顶] {{ end }}{{ if eq .Params.state "draft" }}[未完成] {{ end }}{{ .LinkTitle }}</a></h2>
     {{ .Summary }}
   {{ end }}
+
+  <div class="pagination">
+    {{ if $paginator.HasPrev }}
+      <a href="{{ $paginator.Prev.URL }}" class="prev"><</a>
+    {{ end }}
+    {{ range $paginator.Pagers }}
+      {{ if eq . $paginator }}
+        <span class="current">{{ .PageNumber }}</span>
+      {{ else }}
+        <a href="{{ .URL }}">{{ .PageNumber }}</a>
+      {{ end }}
+    {{ end }}
+    {{ if $paginator.HasNext }}
+      <a href="{{ $paginator.Next.URL }}" class="next">></a>
+    {{ end }}
+  </div>
 {{ end }}

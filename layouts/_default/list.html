@@ -2,8 +2,9 @@
 <h1>{{ .Pages }}</h1>
   <h1>{{ .Title }}</h1>
   {{ .Content }}
-  {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  {{ range (.Pages.ByDate.Reverse) }}
+    <h2><a href="{{ .RelPermalink }}">{{ if eq .Params.state "top" }}[置顶] {{ end }}{{ if eq .Params.state "draft" }}[未完成] {{ end }}{{ .LinkTitle }}</a></h2>
+    <p class="post-date">{{ .Date.Format "2006-01-02" }}</p>
     {{ .Summary }}
   {{ end }}
 {{ end }}
