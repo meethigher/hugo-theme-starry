@@ -70,9 +70,14 @@ hugo new content archives/post-1/index.md
 构建压缩网页并开启测试服务，若进行了功能的大修改，建议先删除`public`文件夹，并重启服务
 
 ```sh
-hugo --minify && hugo server -p 4000
+hugo server -p 4000
 ```
 
+打包
+
+```sh
+hugo --minify -d dist
+```
 ## DevNotes
 
 1.) 注意[html/template](https://pkg.go.dev/html/template)中的一些特殊语法，比如

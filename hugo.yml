@@ -1,7 +1,7 @@
 # 参阅文档 https://gohugo.io/getting-started/configuration/#all-configuration-settings
-baseURL: https://meethigher.top/
+baseURL: https://meethigher.top/blog/
 languageCode: zh-CN
-title: Hello-World
+title: 站点名称
 # 默认值为false，可省略。若为true，则使用丑陋url。丑陋url:/index.html，美观url: /index/
 # 该内容会影响到相对路径静态资源的加载, 故不建议修改。直接省略即可
 uglyURLs: false
@@ -33,16 +33,16 @@ permalinks:
   page: /page/:filename/
 menus:
   main:
-    - name: Home
+    - name: 主页
       pageRef: /
       weight: 10
-    - name: Archives
+    - name: 归档
       pageRef: /archives
       weight: 30
-    - name: Tags
+    - name: 标签
       pageRef: /tags
       weight: 20
-    - name: About
+    - name: 关于
       pageRef: /about
       weight: 40
 # 开发主题时，注释该行
