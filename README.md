@@ -18,15 +18,18 @@
 │  │  │  head.html: 网页标头
 │  │  │  header.html: 网页导航栏
 │  │  │  footer.html: 网页页脚
+│  │  │  menu.html: 导航栏的菜单列表
+│  │  │  particles.html: 全局粒子动画
+│  │  │  terms.html: 标签项，集成于single.html
 │  │  │
 │  │  └─head
 │  │          css.html
 │  │          js.html
 │  │
 │  └─_default
-│          baseof.html: 所有页面的底层模板
+│          baseof.html: 整个网站的基础模板
 │          home.html:  展示首页
-│          index.json: 索引文件模板
+│          index.json: 内容检索库模板
 │          list.html: 展示列表页，如tags、archives
 │          single.html: 展示内容页
 ├─static: 存放主题的静态资源。比如favicon.ico，该内容在生成时的路径为/，不是/static，注意区分
@@ -61,7 +64,7 @@
 
 ## Usage
 
-新建文章
+新建文章，只建议如下方式，因为要兼容之前[hexo-theme-starry](https://github.com/meethigher/hexo-theme-starry)的做法
 
 ```sh
 hugo new content archives/post-1/index.md
