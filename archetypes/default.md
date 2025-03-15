@@ -7,6 +7,7 @@ top: false
 tags: []
 date: {{ .Date }}
 type: post
+headless: false
 ---
 
 summary

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
 <head>
-    {{ partial "head.html" }}
+    {{ partial "head.html" . }}
 </head>
 <body>
-{{ partial "particles.html" }}
+{{ partial "particles.html" . }}
 <header>
     {{ partial "header.html" . }}
 </header>
