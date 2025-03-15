@@ -1,7 +1,13 @@
 {{ define "main" }}
   <h1>这是Home页</h1>
   {{ .Content }}
-  {{ range site.RegularPages }}
+  {{/*
+所有内容页
+{{ range site.RegularPages }}
+根据自定义类型过滤
+{{ range where site.RegularPages "Type" "post" }}
+*/}}
+  {{ range where site.RegularPages "Type" "post" }}
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
     {{ .Summary }}
   {{ end }}

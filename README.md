@@ -88,3 +88,29 @@ hugo --minify -d dist
 <!-- 传入., 表示当前的模板上下文（context）递给 particles.html，它可以访问当前页面的数据 -->
 {{ partial "particles.html" . }}
 ```
+
+再比如注释
+
+```html
+{{/* 这是注释 */}}
+```
+
+2.) 在home.html中，展示内容列表时，注意区别
+
+展示文章`type:post`的内容列表
+
+```html
+{{ range where site.RegularPages "Type" "post" }}
+  <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  {{ .Summary }}
+{{ end }}
+```
+
+展示所有内容列表
+
+```html
+{{ range site.RegularPages }}
+  <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  {{ .Summary }}
+{{ end }}
+```
