@@ -40,6 +40,7 @@ menus:
       pageRef: /archives
       weight: 30
     - name: 标签
+      # 该路径在程序中是写死的，不建议修改
       pageRef: /tags
       weight: 20
     - name: 关于

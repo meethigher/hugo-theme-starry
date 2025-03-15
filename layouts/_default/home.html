@@ -3,6 +3,16 @@
   {{ $paginator := .Paginate (where site.RegularPages "Type" "post") }}
   {{ range $paginator.Pages }}
     <h2><a href="{{ .RelPermalink }}">{{ if eq .Params.state "top" }}[置顶] {{ end }}{{ if eq .Params.state "draft" }}[未完成] {{ end }}{{ .LinkTitle }}</a></h2>
+    <div class="post-meta">
+      <span class="post-date">{{ .Date.Format "2006-01-02 15:04:05" }}</span>
+      {{ with .Params.tags }}
+      <span class="post-tags">
+        {{ range . }}
+        <a href="{{ relURL (printf "tags/%s/" (. | urlize)) }}" class="tag">#{{ . }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
+    </div>
     {{ .Summary }}
   {{ end }}
 
