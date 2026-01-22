@@ -7,10 +7,12 @@ title: 站点名称
 uglyURLs: false
 # 禁用hugo的generator的meta注入
 disableHugoGeneratorInject: true
-minify: false
+minify:
+  minifyOutput: false
 # 分页设置
-paginate: 2
-paginatePath: page
+pagination:
+  pagerSize: 2
+  path: page
 # 指定首页的输出格式为html/json。除了首页home，还有内容section、标签term、单独页page
 outputs:
   home:
@@ -28,9 +30,9 @@ params:
     - 程序员
 permalinks:
   # 设置archives目录下文章的链接
-  archives: /:year/:filename/
+  archives: /:year/:contentbasename/
   # 每页的格式
-  page: /page/:filename/
+  page: /page/:contentbasename/
 menus:
   main:
     - name: 主页
@@ -51,4 +53,4 @@ menus:
 module:
   hugoVersion:
     extended: false
-    min: 0.116.0
+    min: 0.154.5
