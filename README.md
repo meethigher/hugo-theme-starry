@@ -1,12 +1,12 @@
 # Hugo Theme Starry
 
-使用[Hexo](https://hexo.io/)作为静态网站生成器已有接近6年，博客的数量也有300篇了，构建时要好几分钟，无法充分利用CPU多核的优势，后面尝试用[Hugo](https://gohugo.io/)进行300篇文章构建，只需要4秒，这对我来说很惊艳。
+使用 [hexo](https://hexo.io/) 作为网页生成器已有多年，300 篇的内容构建需要几分钟，原意是想着优化主题，提升性能，但其实提升并不大。最终尝试用 [hugo](https://gohugo.io/) 来进行构建，300 篇仅需 4 秒，这对我来说特别惊艳。
 
-因此诞生了将该主题[hexo-theme-starry](https://github.com/meethigher/hexo-theme-starry)迁移至[hugo-theme-starry](https://github.com/meethigher/hugo-theme-starry)的想法。
+因此诞生了将该主题 [hexo-theme-starry](https://github.com/meethigher/hexo-theme-starry) 迁移至 [hugo-theme-starry](https://github.com/meethigher/hugo-theme-starry) 的想法。
 
-这里面有好多兼容hexo的用法或者说是习惯。
+这里面有好多兼容 hexo 的用法或者说是习惯。
 
-项目结构说明
+开发环境 windows 11 + hugo v0.154.5，项目结构说明
 
 ```sh
 ├─archetypes: 创建内容时的默认模板
@@ -43,7 +43,7 @@
 
 ## Features
 
-一款适用于个人使用的简洁、轻量、响应式、暗色的博客主题。
+一款适用于个人使用的简洁、轻量、响应式、全局深浅色切换的博客主题。
 
 * 主题核心是基于Scss(Sass3引入的语法)+JQuery，使用到的第三方库都是使用的离线版本
 * 支持压缩css和js
