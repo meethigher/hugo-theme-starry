@@ -4,7 +4,7 @@
 
 因此诞生了将该主题 [hexo-theme-starry](https://github.com/meethigher/hexo-theme-starry) 迁移至 [hugo-theme-starry](https://github.com/meethigher/hugo-theme-starry) 的想法。
 
-这里面有好多兼容 hexo 的用法或者说是习惯。
+我的初衷是实现原文件内容不修改的情况下，实现无感由 hexo 切换到 hugo，故此，这里面有好多兼容 hexo 的用法，
 
 开发环境 windows 11 + hugo v0.154.5，项目结构说明
 
