@@ -1,7 +1,13 @@
 post_state_top:
   other: "Pinned"
-
 post_state_draft:
   other: "WIP"
-
+search_button:
+  other: "Search"
+theme_toggle:
+  other: "Toggle theme"
+scroll_to_top:
+  other: "Scroll to top"
+scroll_to_bottom:
+  other: "Scroll to bottom"
 

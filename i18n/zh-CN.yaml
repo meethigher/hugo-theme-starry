@@ -1,7 +1,13 @@
 post_state_top:
   other: "置顶"
-
 post_state_draft:
   other: "未完成"
-
+search_button:
+  other: "搜索"
+theme_toggle:
+  other: "切换主题"
+scroll_to_top:
+  other: "回到顶部"
+scroll_to_bottom:
+  other: "回到底部"
 
