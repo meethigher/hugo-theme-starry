@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /*.png$
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.webp$
+Disallow: /*.gif$
+Disallow: /*.mp4$
+Disallow: /*.webm$
+Disallow: /*.mp3$
+Disallow: /*.pdf$
+Disallow: /*.epub$
+Disallow: /blog/tags/
+Disallow: /blog/archives/
+Disallow: /blog/about/

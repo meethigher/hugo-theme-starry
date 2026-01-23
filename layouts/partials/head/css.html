@@ -1,17 +1,3 @@
-<!--静态引入，不受baseURL影响-->
-<!--{{ $meethigherFontCss := "/css/meethigher-font.css" | relURL }}-->
-<!--{{ $viewerCss := "/css/viewer.min.css" | relURL }}-->
-<!--<link rel="stylesheet" href="{{ $meethigherFontCss }}">-->
-<!--<link rel="stylesheet" href="{{ $viewerCss }}">-->
-{{- with resources.Get "js/layer/skin/default/layer.css" }}
-<link rel="stylesheet" href="{{ .RelPermalink }}">
-{{- end }}
-{{- with resources.Get "css/meethigher-font.css" | resources.Minify }}
-<link rel="stylesheet" href="{{ .RelPermalink }}">
-{{- end }}
-{{- with resources.Get "css/viewer.min.css" }}
-<link rel="stylesheet" href="{{ .RelPermalink }}">
-{{- end }}
 <!-- 获取scss文件，将其转为css文件，并进行压缩和添加指纹 -->
 {{- with resources.Get "css/main.scss" | css.Sass | resources.Minify }}
 <link rel="stylesheet" href="{{ .RelPermalink }}">

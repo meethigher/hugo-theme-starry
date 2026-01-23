@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body>
+<header>
+    {{ partial "header.html" . }}
+</header>
+<h1>这是{{ .Type }}页</h1>
+<main>
+    {{ block "main" . }}{{ end }}
+</main>
+<footer>
+    {{ partial "footer.html" . }}
+</footer>
+
+{{- with resources.Get "js/module/jquery-1.12.4.js" }}
+{{- $minifiedJS := . | resources.Minify }}
+<!--{{- $minifiedJS := . | resources.Minify }}-->
+<script src="{{ $minifiedJS.RelPermalink | relURL }}"></script>
+{{- end }}
+{{ partialCached "head/js.html" . }}
+</body>
+</html>
