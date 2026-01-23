@@ -6,57 +6,36 @@
 
 我的初衷是实现原文件内容不修改的情况下，实现无感由 hexo 切换到 hugo，故此，这里面有好多兼容 hexo 的用法，
 
-开发环境 windows 11 + hugo v0.154.5，项目结构说明
+开发环境 windows 11 + hugo v0.154.5
+
+项目结构说明
 
 ```sh
-├─archetypes: 创建内容时的默认模板
-├─assets: 主题的资源文件
-│  ├─css
-│  └─js
-├─layouts: hugo主题的核心
-│  ├─partials
-│  │  │  head.html: 网页标头
-│  │  │  header.html: 网页导航栏
-│  │  │  footer.html: 网页页脚
-│  │  │  menu.html: 导航栏的菜单列表
-│  │  │  particles.html: 全局粒子动画
-│  │  │  terms.html: 标签项，集成于single.html
-│  │  │
-│  │  └─head
-│  │          css.html
-│  │          js.html
-│  │
-│  └─_default
-│          baseof.html: 整个网站的基础模板
-│          home.html:  展示首页
-│          index.json: 内容检索库模板
-│          list.html: 展示列表页，如tags、archives
-│          single.html: 展示内容页
-├─static: 存放主题的静态资源。比如favicon.ico，该内容在生成时的路径为/，不是/static，注意区分
-├─theme.yml: 主题信息说明
-├─content: 可删除。主题开发时的内容示例
-│  ├─about
-│  └─archives
-├─public: 可删除。资源生成的所在路径
-├─hugo.yml: 可删除。主题开发时的配置文件示例。该文件可以拷贝出去作为生产环境的配置
+├─layouts                          # 模板目录：决定页面如何渲染（主题核心）
+│  │  baseof.html                  # 基础模板：定义 HTML 外壳、公共结构（layout）
+│  │  home.html                    # 首页模板：仅作用于站点根路径 /
+│  │  list.html                    # 列表页模板：archives / tags / categories 等
+│  │  single.html                  # 单页模板：文章页、独立页面的最终渲染
+│  │  sitemap.xml                  # 站点地图模板：生成 sitemap.xml
+│  │  index.json                   # 索引模板：常用于搜索、全文索引等 JSON 输出
+│
+├─archetypes                       # 内容原型目录：新建内容时使用的模板
+│      default.md                  # 默认文章原型
+│
+├─static                           # 静态资源目录：原样拷贝到站点根目录
+│
+├─assets                           # 资源目录：CSS / SCSS / JS / 图片（会被 Hugo 处理）
+│
+├─content                          # 内容目录：站点实际内容（Markdown 文件）
+│
+├─i18n                             # 国际化目录：多语言翻译文本（.toml / .yaml）
+│  
+│  hugo.exe                        # Hugo 可执行文件（Windows 平台）
+│  hugo.yml                        # Hugo 主配置文件（站点级配置）
+│  theme.yml                       # 主题配置文件（主题元信息与参数）
 ```
 
 ## Features
-
-一款适用于个人使用的简洁、轻量、响应式、全局深浅色切换的博客主题。
-
-* 主题核心是基于Scss(Sass3引入的语法)+JQuery，使用到的第三方库都是使用的离线版本
-* 支持压缩css和js
-* 支持[生成用于检索的全文json](https://www.cnblogs.com/fatedeity/p/16820325.html)
-* 支持图片懒加载、自定义图片懒加载效果
-* 支持mathjax
-* 支持sitemap、seo优化
-* 大纲目录显示可控
-* 文章分享与打赏
-* 基于[Gitalk](https://gitalk.github.io/)的评论体系
-* 基于[View.js](https://fengyuanchen.github.io/viewerjs/)的图片查看器，支持多端图片查看时自由缩放
-* 基于[count-for-page](https://github.com/meethigher/count-for-page)的访问统计
-* 基于[tsParticles](https://particles.js.org/)的动态粒子效果
 
 ## Installation
 
@@ -64,7 +43,9 @@
 
 ## Usage
 
-新建文章，只建议如下方式，因为要兼容之前[hexo-theme-starry](https://github.com/meethigher/hexo-theme-starry)的做法
+新建文章，只建议如下方式
+
+> 因为要兼容之前 [hexo-theme-starry](https://github.com/meethigher/hexo-theme-starry) 的做法
 
 ```sh
 hugo new content archives/post-1/index.md
@@ -76,14 +57,14 @@ hugo new content archives/post-1/index.md
 hugo server -p 4000
 ```
 
-打包
+打包并输出至 dist 目录
 
 ```sh
 hugo --minify -d dist
 ```
 ## DevNotes
 
-1.) 注意[html/template](https://pkg.go.dev/html/template)中的一些特殊语法，比如
+1.) 注意 [html/template](https://pkg.go.dev/html/template) 中的一些特殊语法，比如
 
 ```html
 {{ partial "particles.html" . }}
@@ -98,9 +79,9 @@ hugo --minify -d dist
 {{/* 这是注释 */}}
 ```
 
-2.) 在home.html中，展示内容列表时，注意区别
+2.) 在 home.html 中，展示内容列表时，注意区别
 
-展示文章`type:post`的内容列表
+展示文章 `type:post` 的内容列表
 
 ```html
 {{ range where site.RegularPages "Type" "post" }}
