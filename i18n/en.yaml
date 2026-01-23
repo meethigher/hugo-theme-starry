@@ -1,0 +1,7 @@
+post_state_top:
+  other: "Pinned"
+
+post_state_draft:
+  other: "WIP"
+
+

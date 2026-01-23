@@ -1,35 +1,35 @@
-# 参阅文档 https://gohugo.io/getting-started/configuration/#all-configuration-settings
-baseURL: https://meethigher.top/blog/
-languageCode: zh-CN
-title: 站点名称
-# 默认值为false，可省略。若为true，则使用丑陋url。丑陋url:/index.html，美观url: /index/
-# 该内容会影响到相对路径静态资源的加载, 故不建议修改。直接省略即可
-uglyURLs: false
-# 禁用hugo的generator的meta注入
-disableHugoGeneratorInject: true
-minify:
-  minifyOutput: false
-# 分页设置
-pagination:
-  pagerSize: 2
-  path: page
-# 指定首页的输出格式为html/json。除了首页home，还有内容section、标签term、单独页page
-outputs:
-  home:
-    # 网页内容html
-    - html
-    # 全文检索json
-    - json
 # 自定义参数
 params:
+  # seo meta keywords
   seoTags:
     - meethigher
     - 个人网站
     - 个人博客
     - 生活
     - 程序员
+# 以下为 hugo 内置参数，参阅文档 https://gohugo.io/getting-started/configuration/#all-configuration-settings
+title: 站点名称
+baseURL: https://meethigher.top/blog/
+# 控制 html lang 以及 i18n
+languageCode: zh-CN
+# 默认值为false，可省略。若为true，则使用丑陋url。丑陋url:/index.html，美观url: /index/
+# 该内容会影响到相对路径静态资源的加载, 故不建议修改。
+uglyURLs: false
+# 禁用hugo的generator的meta注入
+disableHugoGeneratorInject: true
+minify:
+  # false 为原始格式输出，true 为 html 压缩输出
+  minifyOutput: false
+# 分页设置
+pagination:
+  pagerSize: 2
+  path: page
+outputs:
+  home:
+    - html
+    - json
 permalinks:
-  # 设置archives目录下文章的链接
+  # 设置文章的链接
   archives: /:year/:contentbasename/
   # 每页的格式
   page: /page/:contentbasename/
@@ -52,5 +52,5 @@ menus:
 # theme: starry
 module:
   hugoVersion:
-    extended: false
+    extended: true
     min: 0.154.5
