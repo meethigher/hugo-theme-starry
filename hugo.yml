@@ -49,7 +49,18 @@ menus:
       pageRef: /about
       weight: 40
 markup:
+  # 禁用 hugo 的内置语法高亮器 https://gohugo.io/content-management/syntax-highlighting/
+  highlight:
+    # 代码高亮
+    codeFences: true
+    noClasses: false
+    # 行号
+    lineNos: true
+    lineNumbersInTable: true
   goldmark:
+    renderer:
+      # 允许渲染 markdown 中的 script
+      unsafe: true
     extensions:
       # false 表示关闭智能排版（自动把 -- 变成 –，... 变成 …，英文引号变成中文引号等）
       typographer: false
