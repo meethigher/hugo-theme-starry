@@ -48,6 +48,11 @@ menus:
     - name: 关于
       pageRef: /about
       weight: 40
+markup:
+  goldmark:
+    extensions:
+      # false 表示关闭智能排版（自动把 -- 变成 –，... 变成 …，英文引号变成中文引号等）
+      typographer: false
 # 开发主题时，注释该行
 # theme: starry
 module:
