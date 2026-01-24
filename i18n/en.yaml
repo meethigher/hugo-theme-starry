@@ -4,8 +4,13 @@ post_state_draft:
   other: "WIP"
 search_button:
   other: "Search"
-theme_toggle:
-  other: "Toggle theme"
+theme:
+  toggle:
+    other: "Toggle theme"
+  sun:
+    other: "Sun"
+  moon:
+    other: "Moon"
 scroll_to_top:
   other: "Scroll to top"
 scroll_to_bottom:
