@@ -8,11 +8,16 @@ theme:
   toggle:
     other: "Toggle theme"
   sun:
-    other: "Sun"
+    other: "Sun mode"
   moon:
-    other: "Moon"
+    other: "Moon mode"
 scroll_to_top:
   other: "Scroll to top"
 scroll_to_bottom:
   other: "Scroll to bottom"
+page:
+  prev:
+    other: "Previous page"
+  next:
+    other: "Next page"
 

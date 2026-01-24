@@ -18,7 +18,11 @@
 
   <div class="pagination">
     {{ if $paginator.HasPrev }}
-      <a href="{{ $paginator.Prev.URL }}" class="prev"><</a>
+      <a href="{{ $paginator.Prev.URL }}" class="prev" title="{{ i18n "page.prev" }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </a>
     {{ end }}
     {{ range $paginator.Pagers }}
       {{ if eq . $paginator }}
@@ -28,7 +32,11 @@
       {{ end }}
     {{ end }}
     {{ if $paginator.HasNext }}
-      <a href="{{ $paginator.Next.URL }}" class="next">></a>
+      <a href="{{ $paginator.Next.URL }}" class="next" title="{{ i18n "page.next" }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </a>
     {{ end }}
   </div>
 {{ end }}

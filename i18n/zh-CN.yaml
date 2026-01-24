@@ -15,4 +15,8 @@ scroll_to_top:
   other: "回到顶部"
 scroll_to_bottom:
   other: "回到底部"
-
+page:
+  prev:
+    other: "上一页"
+  next:
+    other: "下一页"
