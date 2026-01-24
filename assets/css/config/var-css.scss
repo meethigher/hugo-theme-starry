@@ -2,6 +2,9 @@
 
 /* 浅色主题变量 */
 :root {
+  /* starry 透明度 */
+  --starry-opacity: 0;
+
   /* 基础背景与文本颜色 */
   --color-bg: #ffffff;                     /* 主背景色，用于页面整体背景 */
   --color-text: #1a1a1a;                   /* 主文本色，用于正文内容 */
@@ -55,6 +58,9 @@
 
 /* 深色主题变量 */
 :root[starry-theme-mode="dark"] {
+  /* starry 透明度 */
+  --starry-opacity: 1;
+
   /* 基础背景与文本颜色 */
   --color-bg: #13172f;                     /* 深色主背景色，避免纯黑减轻视觉疲劳 */
   --color-text: #e2e8f0;                   /* 深色主题主文本色，避免纯白减轻眩光 */

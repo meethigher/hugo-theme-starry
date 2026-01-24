@@ -5,15 +5,54 @@
         this.config = {
             themeKey: key,
             themeValue: value,
-            themeToggleBtn: "#themeToggle"
+            themeToggleBtn: "#themeToggle",
+            starryId: "starry"
         };
         this.startTime = performance.now();
     }
 
+    Starry.prototype.starCount = 200;
+
     Starry.prototype.init = function () {
-        this.utils.printInfo(this.startTime);
         this.bindEvents();
         this.applyTheme();
+        this.utils.printInfo(this.startTime);
+    };
+
+    Starry.prototype.regenStarry = function () {
+        if (this.config.themeValue === "dark") {
+            let start = performance.now();
+            const starsContainer = document.getElementById(this.config.starryId);
+            starsContainer.innerHTML = "";
+            const starCount = this.starCount;
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement("div");
+                star.classList.add("star");
+
+                // 随机位置
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+
+                // 随机大小
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                // 随机动画持续时间
+                const duration = Math.random() * 5 + 3;
+                star.style.setProperty("--duration", `${duration}s`);
+
+                // 随机延迟
+                const delay = Math.random() * 5;
+                star.style.animationDelay = `${delay}s`;
+
+                starsContainer.appendChild(star);
+            }
+            this.utils.log(`Theme regenerated ${starCount} stars consumed ${(performance.now() - start).toFixed(2)} ms`);
+        }
+
     };
 
     Starry.prototype.bindEvents = function () {
@@ -28,6 +67,7 @@
     Starry.prototype.applyTheme = function () {
         document.documentElement.setAttribute(this.config.themeKey, this.config.themeValue);
         localStorage.setItem(this.config.themeKey, this.config.themeValue);
+        this.regenStarry();
     };
 
     Starry.prototype.toggleTheme = function () {

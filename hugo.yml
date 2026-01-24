@@ -1,5 +1,8 @@
 # 自定义参数
 params:
+  # starry 配置
+  starry:
+    starCount: 50
   # seo meta keywords
   seoTags:
     - meethigher

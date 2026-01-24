@@ -4,3 +4,7 @@
 {{- with resources.Get "js/main.js" }}
 <script src="{{ .RelPermalink }}"></script>
 {{- end }}
+<script>
+    window.Starry.prototype.starCount= {{ .Site.Params.starry.starCount }};
+</script>
+
