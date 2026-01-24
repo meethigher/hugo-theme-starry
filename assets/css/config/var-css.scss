@@ -1,0 +1,107 @@
+/* 用于存储运行时变量 */
+
+/* 浅色主题变量 */
+:root {
+  /* 基础背景与文本颜色 */
+  --color-bg: #ffffff;                     /* 主背景色，用于页面整体背景 */
+  --color-text: #1a1a1a;                   /* 主文本色，用于正文内容 */
+  --color-text-secondary: #4a5568;         /* 次要文本色，用于辅助说明文字 */
+
+  /* 边框与分割线 */
+  --color-border: #e2e8f0;                 /* 通用边框色，用于分隔线、卡片边框等 */
+  --color-hr: #cbd5e0;                     /* 水平分割线颜色 */
+  --color-img-border: #e5e7eb;             /* 图片边框颜色 */
+  --color-table-border: #cbd5e0;           /* 表格边框颜色 */
+
+  /* 主要交互颜色 */
+  --color-primary: #2563eb;                /* 主要颜色，用于链接、按钮等交互元素 */
+  --color-primary-hover: #1d4ed8;          /* 主要悬停色，鼠标悬停时使用 */
+  --color-link-underline: #93c5fd;         /* 链接下划线颜色 */
+
+  /* 辅助/状态颜色 */
+  --color-secondary: #64748b;              /* 次要颜色，用于非主要元素 */
+  --color-success: #059669;                /* 成功状态色，用于成功提示、完成状态 */
+  --color-warning: #d97706;                /* 警告状态色，用于警告提示 */
+  --color-danger: #dc2626;                 /* 危险/错误色，用于错误提示、删除操作 */
+
+  /* 代码相关 */
+  --color-code-bg: #f7fafc;                /* 代码块背景色 */
+  --color-code-text: #1a202c;              /* 代码块文本色 */
+
+  /* 引用块 */
+  --color-blockquote-border: #4299e1;      /* 引用块左侧边框色 */
+  --color-blockquote-bg: #ebf8ff;          /* 引用块背景色 */
+
+  /* 表格 */
+  --color-table-header-bg: #f8fafc;        /* 表格表头背景色 */
+
+  /* 标记/高亮 */
+  --color-mark-bg: #fef3c7;                /* 标记/高亮背景色 */
+  --color-mark-text: #92400e;              /* 标记/高亮文本色 */
+
+  /* 标题层级颜色梯度 */
+  --color-heading-1: #1e293b;              /* h1标题颜色 - 最重 */
+  --color-heading-2: #334155;              /* h2标题颜色 */
+  --color-heading-3: #475569;              /* h3标题颜色 */
+  --color-heading-4: #64748b;              /* h4标题颜色 */
+  --color-heading-5: #94a3b8;              /* h5标题颜色 */
+  --color-heading-6: #cbd5e1;              /* h6标题颜色 - 最轻 */
+
+  /* 滚动条颜色 */
+  --color-scrollbar-track: #f1f5f9;        /* 滚动条轨道背景色 */
+  --color-scrollbar-thumb: #cbd5e0;        /* 滚动条滑块颜色 */
+  --color-scrollbar-thumb-hover: #94a3b8;  /* 滚动条滑块悬停颜色 */
+}
+
+/* 深色主题变量 */
+:root[starry-theme-mode="dark"] {
+  /* 基础背景与文本颜色 */
+  --color-bg: #13172f;                     /* 深色主背景色，避免纯黑减轻视觉疲劳 */
+  --color-text: #e2e8f0;                   /* 深色主题主文本色，避免纯白减轻眩光 */
+  --color-text-secondary: #a0aec0;         /* 深色次要文本色，用于辅助内容 */
+
+  /* 边框与分割线 */
+  --color-border: #2d3748;                 /* 深色边框色，与背景形成适当对比 */
+  --color-hr: #4a5568;                     /* 深色水平分割线，比边框色稍亮 */
+  --color-img-border: #4a5568;             /* 深色图片边框颜色 */
+  --color-table-border: #4a5568;           /* 深色表格边框颜色 */
+
+  /* 主要交互颜色 */
+  --color-primary: #60a5fa;                /* 深色主题主色，比浅色主题更亮以确保可见性 */
+  --color-primary-hover: #93c5fd;          /* 深色主题悬停色，比主色更亮 */
+  --color-link-underline: #3b82f6;         /* 深色链接下划线颜色 */
+
+  /* 辅助/状态颜色 */
+  --color-secondary: #a0aec0;              /* 深色次要颜色 */
+  --color-success: #34d399;                /* 深色成功状态色，使用更亮的绿色 */
+  --color-warning: #fbbf24;                /* 深色警告状态色，使用更亮的黄色 */
+  --color-danger: #f87171;                 /* 深色危险/错误色，使用更亮的红色 */
+
+  /* 代码相关 */
+  --color-code-bg: #1a202c;                /* 深色代码块背景色，接近但不等于背景色 */
+  --color-code-text: #e2e8f0;              /* 深色代码块文本色 */
+
+  /* 引用块 */
+  --color-blockquote-border: #63b3ed;      /* 深色引用块左侧边框色 */
+  --color-blockquote-bg: #2d3748;          /* 深色引用块背景色 */
+
+  /* 表格 */
+  --color-table-header-bg: #2d3748;        /* 深色表格表头背景色 */
+
+  /* 标记/高亮 */
+  --color-mark-bg: #92400e;                /* 深色标记背景色，与浅色主题反色 */
+  --color-mark-text: #fef3c7;              /* 深色标记文本色，与浅色主题反色 */
+
+  /* 标题层级颜色梯度（反向梯度） */
+  --color-heading-1: #f7fafc;              /* h1标题颜色 - 最亮 */
+  --color-heading-2: #e2e8f0;              /* h2标题颜色 */
+  --color-heading-3: #cbd5e0;              /* h3标题颜色 */
+  --color-heading-4: #a0aec0;              /* h4标题颜色 */
+  --color-heading-5: #718096;              /* h5标题颜色 */
+  --color-heading-6: #4a5568;              /* h6标题颜色 - 最暗 */
+
+  /* 滚动条颜色 */
+  --color-scrollbar-track: #1a202c;        /* 深色滚动条轨道背景色 */
+  --color-scrollbar-thumb: #4a5568;        /* 深色滚动条滑块颜色 */
+  --color-scrollbar-thumb-hover: #718096;  /* 深色滚动条滑块悬停颜色 */
+}

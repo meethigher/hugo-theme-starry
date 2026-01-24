@@ -1,4 +1,4 @@
-console.log('Halo Wode');
-console.log('Halo Wode');
-console.log('Halo Wode');
-console.log('Halo Wode');
+document.addEventListener("DOMContentLoaded", () => {
+    const starry = new Starry();
+    starry.init();
+});
