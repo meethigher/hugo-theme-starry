@@ -53,10 +53,10 @@ markup:
   highlight:
     # 代码高亮
     codeFences: true
+    # true表示使用内联样式。false表示使用css类名
     noClasses: false
-    # 行号
+    # 展示行号
     lineNos: true
-    lineNumbersInTable: true
   goldmark:
     renderer:
       # 允许渲染 markdown 中的 script

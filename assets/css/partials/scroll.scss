@@ -13,7 +13,6 @@
   background-color: var(--color-scrollbar-thumb);
   border-radius: $scrollbar-border-radius;
   border: $scrollbar-thumb-border solid var(--color-scrollbar-track);
-  transition: background-color $scrollbar-transition-duration ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
