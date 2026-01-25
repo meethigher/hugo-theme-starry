@@ -27,7 +27,7 @@ uglyURLs: false
 disableHugoGeneratorInject: true
 minify:
   # false 为原始格式输出，true 为 html 压缩输出
-  minifyOutput: false
+  minifyOutput: true
 # 分页设置
 pagination:
   pagerSize: 2
@@ -79,4 +79,5 @@ markup:
 module:
   hugoVersion:
     extended: true
+    max: 0.154.5
     min: 0.154.5

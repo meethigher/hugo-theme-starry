@@ -5,7 +5,6 @@
         this.config = {
             themeKey: key,
             themeValue: value,
-            themeToggleBtn: "#themeToggle",
             starryId: "starry"
         };
         this.startTime = performance.now();
@@ -17,16 +16,16 @@
 
     Starry.prototype.varStarryEnable = true;
 
-    Starry.prototype.init = function () {
-        this.bindEvents();
-        this.applyTheme();
-        this.utils.printInfo(this.startTime);
-        this.utils.log(`Theme configuration: varProgressEnable=${this.varProgressEnable}`);
-        this.utils.log(`Theme configuration: varStarryEnable=${this.varStarryEnable}`);
-        this.utils.log(`Theme configuration: varStarCount=${this.varStarCount}`);
+    Starry.prototype.funcInit = function () {
+        this.funcBindEvents();
+        this.funcApplyTheme();
+        this.funcUtils.printInfo(this.startTime);
+        this.funcUtils.log(`Theme configuration: varProgressEnable=${this.varProgressEnable}`);
+        this.funcUtils.log(`Theme configuration: varStarryEnable=${this.varStarryEnable}`);
+        this.funcUtils.log(`Theme configuration: varStarCount=${this.varStarCount}`);
     };
 
-    Starry.prototype.startProgress = function (url) {
+    Starry.prototype.funcStartProgress = function (url) {
         if (this.varProgressEnable) {
             const container = document.getElementById("progress-container");
             const bar = document.getElementById("progress-bar");
@@ -40,7 +39,7 @@
         }
     };
 
-    Starry.prototype.regenStarry = function () {
+    Starry.prototype.funcRegenStarry = function () {
         if (this.config.themeValue === "dark" && this.varStarryEnable) {
             let start = performance.now();
             const starsContainer = document.getElementById(this.config.starryId);
@@ -71,17 +70,17 @@
 
                 starsContainer.appendChild(star);
             }
-            this.utils.log(`Theme regenerated ${starCount} stars consumed ${(performance.now() - start).toFixed(2)} ms`);
+            this.funcUtils.log(`Theme regenerated ${starCount} stars consumed ${(performance.now() - start).toFixed(2)} ms`);
         }
 
     };
 
-    Starry.prototype.bindEvents = function () {
+    Starry.prototype.funcBindEvents = function () {
         // 主题切换
-        const toggleBtn = document.querySelector(this.config.themeToggleBtn);
+        const toggleBtn = document.getElementById("themeToggle");
         if (toggleBtn) {
             toggleBtn.addEventListener("click", () => {
-                this.toggleTheme();
+                this.funcToggleTheme();
             });
         }
 
@@ -107,25 +106,32 @@
                 const target = a.getAttribute("target");
                 if (href && target !== "_blank" && self.varProgressEnable) {
                     e.preventDefault();
-                    self.startProgress(href);
+                    self.funcStartProgress(href);
                 }
             });
         });
     };
 
-    Starry.prototype.applyTheme = function () {
+    Starry.prototype.funcApplyTheme = function () {
         document.documentElement.setAttribute(this.config.themeKey, this.config.themeValue);
         localStorage.setItem(this.config.themeKey, this.config.themeValue);
-        this.regenStarry();
+        if (this.config.themeValue === "dark") {
+            document.getElementById("moon-icon").style.display = "block";
+            document.getElementById("sun-icon").style.display = "none";
+        } else {
+            document.getElementById("moon-icon").style.display = "none";
+            document.getElementById("sun-icon").style.display = "block";
+        }
+        this.funcRegenStarry();
     };
 
-    Starry.prototype.toggleTheme = function () {
+    Starry.prototype.funcToggleTheme = function () {
         this.config.themeValue = this.config.themeValue === "light" ? "dark" : "light";
-        this.applyTheme();
-        this.utils.log(`Theme switched to ${this.config.themeValue}`);
+        this.funcApplyTheme();
+        this.funcUtils.log(`Theme switched to ${this.config.themeValue}`);
     };
 
-    Starry.prototype.utils = {
+    Starry.prototype.funcUtils = {
         formatTime: function () {
             const now = new Date();
             const year = now.getFullYear();
