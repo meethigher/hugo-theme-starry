@@ -10,6 +10,7 @@
   --progress-bar-color: #0066cc;                     /* 进度条颜色 */
   --progress-stripe-color: rgba(255, 255, 255, 0.8); /* 冲击条颜色 */
 
+
   /* 基础背景与文本颜色 */
   --color-bg: #ffffff;                     /* 主背景色，用于页面整体背景 */
   --color-text: #1a1a1a;                   /* 主文本色，用于正文内容 */
@@ -25,6 +26,7 @@
   --color-primary: #2563eb;                /* 主要颜色，用于链接、按钮等交互元素 */
   --color-primary-hover: #1d4ed8;          /* 主要悬停色，鼠标悬停时使用 */
   --color-link-underline: #93c5fd;         /* 链接下划线颜色 */
+  --color-shadow: rgba(0, 0, 0, 0.1);      /* 阴影色 */
 
   /* 辅助/状态颜色 */
   --color-secondary: #64748b;              /* 次要颜色，用于非主要元素 */
@@ -86,6 +88,7 @@
   --color-primary: #60a5fa;                /* 深色主题主色，比浅色主题更亮以确保可见性 */
   --color-primary-hover: #93c5fd;          /* 深色主题悬停色，比主色更亮 */
   --color-link-underline: #3b82f6;         /* 深色链接下划线颜色 */
+  --color-shadow: rgba(0, 0, 0, 0.6);      /* 阴影色 */
 
   /* 辅助/状态颜色 */
   --color-secondary: #a0aec0;              /* 深色次要颜色 */
