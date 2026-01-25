@@ -11,9 +11,11 @@
         this.startTime = performance.now();
     }
 
-    Starry.prototype.starCount = 200;
+    Starry.prototype.varProgressEnable = true;
 
-    Starry.prototype.starryEnable = true;
+    Starry.prototype.varStarCount = 200;
+
+    Starry.prototype.varStarryEnable = true;
 
     Starry.prototype.init = function () {
         this.bindEvents();
@@ -21,12 +23,26 @@
         this.utils.printInfo(this.startTime);
     };
 
+    Starry.prototype.startProgress = function (url) {
+        if (this.varProgressEnable) {
+            const container = document.getElementById("progress-container");
+            const bar = document.getElementById("progress-bar");
+            container.style.display = "block";
+            requestAnimationFrame(() => {
+                bar.style.width = "100%";
+            });
+            setTimeout(() => {
+                window.location.href = url;
+            }, 300);
+        }
+    };
+
     Starry.prototype.regenStarry = function () {
-        if (this.config.themeValue === "dark" && this.starryEnable) {
+        if (this.config.themeValue === "dark" && this.varStarryEnable) {
             let start = performance.now();
             const starsContainer = document.getElementById(this.config.starryId);
             starsContainer.innerHTML = "";
-            const starCount = this.starCount;
+            const starCount = this.varStarCount;
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement("div");
                 star.classList.add("star");
@@ -58,12 +74,26 @@
     };
 
     Starry.prototype.bindEvents = function () {
+        // 主题切换
         const toggleBtn = document.querySelector(this.config.themeToggleBtn);
         if (toggleBtn) {
             toggleBtn.addEventListener("click", () => {
                 this.toggleTheme();
             });
         }
+
+        // 跳转进度条
+        document.querySelectorAll("a").forEach(a => {
+            const self = this;
+            a.addEventListener("click", e => {
+                const href = a.getAttribute("href");
+                const target = a.getAttribute("target");
+                if (href && target !== "_blank") {
+                    e.preventDefault();
+                    self.startProgress(href);
+                }
+            });
+        });
     };
 
     Starry.prototype.applyTheme = function () {

@@ -5,6 +5,11 @@
   /* starry 透明度 */
   --starry-opacity: 0;
 
+  /* 进度条 */
+  --progress-bg: #e0e0e0;                            /* 进度条底色 */
+  --progress-bar-color: #0066cc;                     /* 进度条颜色 */
+  --progress-stripe-color: rgba(255, 255, 255, 0.8); /* 冲击条颜色 */
+
   /* 基础背景与文本颜色 */
   --color-bg: #ffffff;                     /* 主背景色，用于页面整体背景 */
   --color-text: #1a1a1a;                   /* 主文本色，用于正文内容 */
@@ -60,6 +65,11 @@
 :root[starry-theme-mode="dark"] {
   /* starry 透明度 */
   --starry-opacity: 1;
+
+  /* 进度条 */
+  --progress-bg: rgba(255, 255, 255, 0.15);          /* 进度条底色 */
+  --progress-bar-color: #00d4ff;                     /* 进度条颜色  */
+  --progress-stripe-color: rgba(255, 255, 255, 0.9); /* 冲击条颜色  */
 
   /* 基础背景与文本颜色 */
   --color-bg: #13172f;                     /* 深色主背景色，避免纯黑减轻视觉疲劳 */
