@@ -96,10 +96,10 @@
         printInfo: function (startTime) {
             const loadTime = (performance.now() - startTime).toFixed(2);
             const info = {
-                author: "Kit Chen",
+                author: "https://meethigher.top",
                 createdDate: "2026-02-02",
                 github: "https://github.com/meethigher/hugo-theme-starry",
-                loadTime: `${loadTime}ms`
+                loadTime: `${loadTime} ms`
             };
 
             const separator = "=".repeat(50);
