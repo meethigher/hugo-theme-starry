@@ -1,7 +1,10 @@
 # 自定义参数
 params:
-  # starry 配置
+  # 背景 starry 配置
   starry:
+    # true 表示启用背景 starry
+    enable: true
+    # 配置 star 数量
     starCount: 50
   # seo meta keywords
   seoTags:
@@ -15,10 +18,10 @@ title: 站点名称
 baseURL: https://meethigher.top/blog/
 # 控制 html lang 以及 i18n
 languageCode: zh-CN
-# 默认值为false，可省略。若为true，则使用丑陋url。丑陋url:/index.html，美观url: /index/
+# 默认值为 false，可省略。若为 true，则使用丑陋 url。丑陋 url:/index.html，美观 url: /index/
 # 该内容会影响到相对路径静态资源的加载, 故不建议修改。
 uglyURLs: false
-# 禁用hugo的generator的meta注入
+# 禁用 hugo 的 generator 的 meta 注入
 disableHugoGeneratorInject: true
 minify:
   # false 为原始格式输出，true 为 html 压缩输出
@@ -56,11 +59,11 @@ markup:
   highlight:
     # 代码高亮
     codeFences: true
-    # true表示使用内联样式。false表示使用css类名
+    # true 表示使用内联样式。false 表示使用 css 类名
     noClasses: false
     # 展示行号
     lineNos: true
-    # false表示关闭语言自动检测
+    # false 表示关闭语言自动检测
     guessSyntax: false
   goldmark:
     renderer:

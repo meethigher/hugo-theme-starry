@@ -13,6 +13,8 @@
 
     Starry.prototype.starCount = 200;
 
+    Starry.prototype.starryEnable = true;
+
     Starry.prototype.init = function () {
         this.bindEvents();
         this.applyTheme();
@@ -20,7 +22,7 @@
     };
 
     Starry.prototype.regenStarry = function () {
-        if (this.config.themeValue === "dark") {
+        if (this.config.themeValue === "dark" && this.starryEnable) {
             let start = performance.now();
             const starsContainer = document.getElementById(this.config.starryId);
             starsContainer.innerHTML = "";
