@@ -2,6 +2,10 @@
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
+html {
+  overflow-y: scroll; // 控制滚动条始终展示
+}
+
 body {
   font-family: "Microsoft YaHei UI", sans-serif;
   background-color: var(--color-bg);
