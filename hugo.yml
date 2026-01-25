@@ -60,6 +60,8 @@ markup:
     noClasses: false
     # 展示行号
     lineNos: true
+    # false表示关闭语言自动检测
+    guessSyntax: false
   goldmark:
     renderer:
       # 允许渲染 markdown 中的 script
