@@ -21,6 +21,9 @@
         this.bindEvents();
         this.applyTheme();
         this.utils.printInfo(this.startTime);
+        this.utils.log(`Theme configuration: varProgressEnable=${this.varProgressEnable}`);
+        this.utils.log(`Theme configuration: varStarryEnable=${this.varStarryEnable}`);
+        this.utils.log(`Theme configuration: varStarCount=${this.varStarCount}`);
     };
 
     Starry.prototype.startProgress = function (url) {
@@ -79,6 +82,20 @@
         if (toggleBtn) {
             toggleBtn.addEventListener("click", () => {
                 this.toggleTheme();
+            });
+        }
+
+        // 返回顶部与返回底部
+        const scrollToTop = document.getElementById("scrollToTop");
+        if (scrollToTop) {
+            scrollToTop.addEventListener("click", () => {
+                window.scrollTo({top: 0, behavior: "smooth"});
+            });
+        }
+        const scrollToBottom = document.getElementById("scrollToBottom");
+        if (scrollToBottom) {
+            scrollToBottom.addEventListener("click", () => {
+                window.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"});
             });
         }
 

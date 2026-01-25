@@ -3,9 +3,11 @@ params:
   # 背景 starry 配置
   starry:
     # true 表示启用背景 starry
-    enable: true
+    varStarryEnable: true
     # 配置 star 数量
-    starCount: 50
+    varStarCount: 50
+    # true 表示启用 a 标签跳转时展示进度条
+    varProgressEnable: true
   # seo meta keywords
   seoTags:
     - meethigher

@@ -5,7 +5,8 @@
 <script src="{{ .RelPermalink }}"></script>
 {{- end }}
 <script>
-    window.Starry.prototype.starCount= {{ .Site.Params.starry.starCount }};
-    window.Starry.prototype.starryEnable= {{ .Site.Params.starry.enable }};
+    window.Starry.prototype.varStarCount= {{ .Site.Params.starry.varStarCount }};
+    window.Starry.prototype.varStarryEnable= {{ .Site.Params.starry.varStarryEnable }};
+    window.Starry.prototype.varProgressEnable= {{ .Site.Params.starry.varProgressEnable }};
 </script>
 
