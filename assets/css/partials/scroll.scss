@@ -1,4 +1,3 @@
-/* 滚动条样式 - WebKit 浏览器（Chrome、Safari、Edge） */
 ::-webkit-scrollbar {
   width: $scrollbar-size;
   height: $scrollbar-size;
@@ -21,24 +20,4 @@
 
 ::-webkit-scrollbar-corner {
   background-color: var(--color-scrollbar-track);
-}
-
-/* 滚动条样式 - Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
-}
-
-/* 为可滚动元素添加滚动条样式 */
-pre {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
-}
-
-pre::-webkit-scrollbar {
-  height: $scrollbar-pre-height;
-}
-
-pre::-webkit-scrollbar-thumb {
-  border: $scrollbar-pre-thumb-border solid var(--color-scrollbar-track);
 }

@@ -1,5 +1,11 @@
 /* 用于存储编译时变量 */
 
+$default-font-family: "Microsoft YaHei UI", sans-serif;
+$default-font-size: 16px;
+$default-line-height: 1.6; // 实际行高=$default-font-size * $default-line-height
+$default-border-size: 1px;
+$default-transition-time: 0.3s;
+
 /* 滚动条变量 */
 $scrollbar-size: 12px;
 $scrollbar-border-radius: 6px;
