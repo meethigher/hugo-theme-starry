@@ -1,3 +1,21 @@
+#sun-icon {
+  display: block;
+}
+
+#moon-icon {
+  display: none;
+}
+
+:root[starry-theme-mode="dark"] {
+  #sun-icon {
+    display: none;
+  }
+
+  #moon-icon {
+    display: block;
+  }
+}
+
 .sidebar-tools {
   position: fixed;
   right: 20px;

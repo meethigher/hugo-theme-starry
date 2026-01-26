@@ -115,13 +115,6 @@
     Starry.prototype.funcApplyTheme = function () {
         document.documentElement.setAttribute(this.config.themeKey, this.config.themeValue);
         localStorage.setItem(this.config.themeKey, this.config.themeValue);
-        if (this.config.themeValue === "dark") {
-            document.getElementById("moon-icon").style.display = "block";
-            document.getElementById("sun-icon").style.display = "none";
-        } else {
-            document.getElementById("moon-icon").style.display = "none";
-            document.getElementById("sun-icon").style.display = "block";
-        }
         this.funcRegenStarry();
     };
 
