@@ -8,3 +8,10 @@
 @import "partials/starry";
 @import "partials/progress";
 @import "partials/sidebar";
+@import "partials/header";
+
+header, main, footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
