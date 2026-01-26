@@ -27,8 +27,8 @@
 
     Starry.prototype.funcStartProgress = function (url) {
         if (this.varProgressEnable) {
-            const container = document.getElementById("progress-container");
-            const bar = document.getElementById("progress-bar");
+            const container = document.getElementById("progressContainer");
+            const bar = document.getElementById("progressBar");
             container.style.display = "block";
             requestAnimationFrame(() => {
                 bar.style.width = "100%";

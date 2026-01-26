@@ -1,5 +1,5 @@
 /* 顶部进度条容器 */
-#progress-container {
+#progressContainer {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   display: none;
 }
 
-#progress-bar {
+#progressBar {
   height: 100%;
   width: 0;
   background-color: var(--progress-bar-color);
@@ -20,7 +20,7 @@
 }
 
 /* 内部动态冲击条 */
-#progress-bar::after {
+#progressBar::after {
   content: "";
   display: block;
   width: 200%;

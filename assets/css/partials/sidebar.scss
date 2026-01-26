@@ -1,17 +1,17 @@
-#sun-icon {
+.sun-icon {
   display: block;
 }
 
-#moon-icon {
+.moon-icon {
   display: none;
 }
 
 :root[starry-theme-mode="dark"] {
-  #sun-icon {
+  .sun-icon {
     display: none;
   }
 
-  #moon-icon {
+  .moon-icon {
     display: block;
   }
 }
