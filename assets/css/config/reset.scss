@@ -21,6 +21,10 @@
   transition: background-color $default-transition-time ease, color $default-transition-time ease, border-color $default-transition-time ease;
 }
 
+svg {
+  transition: none;
+}
+
 html, body {
   /*[HTML文本界面英文无法自动换行的解决办法_周小航.的博客-CSDN博客_html文本不自动换行](https://blog.csdn.net/weixin_64103049/article/details/127960824)*/
   word-break: break-all;
