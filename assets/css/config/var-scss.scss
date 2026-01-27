@@ -3,16 +3,24 @@
 
 $breakpoint-mobile: 768px;
 
+$z-index-sidebar-tools: 999;
+$z-index-progress-container: 9999;
+
 $default-font-family: "Microsoft YaHei UI", sans-serif;
 $default-font-size: 16px;
 $default-line-height: 1.6; // 实际行高=$default-font-size * $default-line-height
-$default-border-size: 1px;
+$default-border-size: 0.0625rem;
 $default-transition-time: 0.3s;
 
 /* 滚动条变量 */
-$scrollbar-size: 12px;
-$scrollbar-border-radius: 6px;
-$scrollbar-thumb-border: 2px;
+$scrollbar-size: 0.5rem;
+$scrollbar-border-radius: 0.375rem;
+$scrollbar-thumb-border: 0.125rem;
 $scrollbar-transition-duration: 0.3s;
-$scrollbar-pre-height: 8px;
-$scrollbar-pre-thumb-border: 1px;
+$scrollbar-pre-height: 0.5rem;
+$scrollbar-pre-thumb-border: 0.0625rem;
+
+/* 进度条 */
+$progress-container-height: 0.1875rem;
+$progress-bar-shadow-size: 0.625rem;
+

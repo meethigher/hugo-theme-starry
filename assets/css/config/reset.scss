@@ -32,11 +32,11 @@ html, body {
 
 html {
   overflow-y: scroll; // 控制滚动条始终展示
+  font-family: $default-font-family;
+  font-size: $default-font-size;
 }
 
 body {
-  font-family: $default-font-family;
-  font-size: $default-font-size;
   background-color: var(--color-bg);
   color: var(--color-text);
 }

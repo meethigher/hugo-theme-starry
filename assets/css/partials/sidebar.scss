@@ -18,32 +18,32 @@
 
 .sidebar-tools {
   position: fixed;
-  right: 20px;
-  bottom: 100px;
-  z-index: 999;
+  right: 1.25rem;
+  bottom: 6.25rem;
+  z-index: $z-index-sidebar-tools;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0.9375rem;
 }
 
 .tool-btn {
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  height: 3.125rem;
   background-color: var(--color-bg);
   color: var(--text-color);
-  border: 1px solid var(--color-border);
+  border: $default-border-size solid var(--color-border);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px var(--color-shadow);
+  box-shadow: 0 0.125rem 0.5rem var(--color-shadow);
+  transition: transform $default-transition-time ease;
 }
 
 .tool-btn:hover {
   background-color: var(--color-primary-hover);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px var(--color-shadow);
-  transition: none;
+  transform: translateY(-0.1875rem);
+  box-shadow: 0 0.25rem 0.75rem var(--color-shadow);
 }
