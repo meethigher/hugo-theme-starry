@@ -84,6 +84,16 @@
             });
         }
 
+        // 导航栏移动端菜单按钮
+        let mobileHeaderMenu = document.getElementById("mobileHeaderMenu");
+        if (mobileHeaderMenu) {
+            mobileHeaderMenu.addEventListener("click", () => {
+                const expanded = mobileHeaderMenu.getAttribute("aria-expanded") === "true";
+                mobileHeaderMenu.setAttribute("aria-expanded", String(!expanded));
+                document.getElementById("headerNav").classList.toggle("open", !expanded);
+            });
+        }
+
         // 返回顶部与返回底部
         const scrollToTop = document.getElementById("scrollToTop");
         if (scrollToTop) {

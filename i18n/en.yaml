@@ -4,6 +4,11 @@ post_state_draft:
   other: "WIP"
 search_button:
   other: "Search"
+header_menu:
+  list:
+    other: "Open menu list"
+  close:
+    other: "Close menu list"
 theme:
   toggle:
     other: "Toggle theme"

@@ -4,6 +4,11 @@ post_state_draft:
   other: "未完成"
 search_button:
   other: "搜索"
+header_menu:
+  list:
+    other: "打开菜单列表"
+  close:
+    other: "关闭菜单列表"
 theme:
   toggle:
     other: "切换主题"

@@ -1,52 +1,95 @@
 .header {
-  height: 3.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  border-bottom: $default-border-size solid var(--color-border);
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--color-border);
+  z-index: $z-index-header;
+}
 
-  nav {
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 2rem;
-    }
+.header-title {
+  font-weight: 600;
+  color: var(--color-text);
+}
 
-    li {
-      margin: 0;
-    }
-  }
+/* ====== Nav ====== */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--color-text);
+}
+
+.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+
+.mobile-header-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.header-menu-list-icon {
+  display: block;
+}
+
+.header-menu-close-icon {
+  display: none;
+}
+
+.mobile-header-menu[aria-expanded="true"] .header-menu-list-icon {
+  display: none;
+}
+
+.mobile-header-menu[aria-expanded="true"] .header-menu-close-icon {
+  display: block;
+}
+
+/* ====== Mobile Style ====== */
+@media (max-width: 768px) {
 
   .mobile-header-menu {
-    display: none;
-  }
-
-  @media (max-width: $breakpoint-mobile) {
-    .mobile-header-menu {
-      display: block;
-    }
-  }
-
-
-  .header-menu-list-icon {
     display: block;
   }
 
-  .header-menu-close-icon {
-    display: none;
+  nav {
+    background-color: var(--color-bg);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
   }
 
-  .mobile-header-menu[aria-expanded="true"] {
-    .header-menu-list-icon {
-      display: none;
-    }
-
-    .header-menu-close-icon {
-      display: block;
-    }
+  nav.open {
+    max-height: 300px;
   }
 
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav li {
+    border-top: 1px solid var(--color-border);
+  }
+
+  nav a {
+    display: block;
+    padding: 1rem;
+  }
 }
