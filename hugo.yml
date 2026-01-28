@@ -43,7 +43,7 @@ permalinks:
   page: /page/:contentbasename/
 menus:
   main:
-    - name: 主页
+    - name: 首页
       pageRef: /
       weight: 10
     - name: 归档

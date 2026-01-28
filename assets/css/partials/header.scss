@@ -1,22 +1,36 @@
 .header {
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
+  background-color: var(--color-bg);
+
+  z-index: $z-index-header;
+}
+
+.header-container {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  height: 60px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  border-bottom: 1px solid var(--color-border);
-  z-index: $z-index-header;
 }
 
 .header-title {
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: var(--color-text);
 }
 
-/* ====== Nav ====== */
+nav a:hover, nav a.active {
+  color: var(--color-text);
+  border-bottom-color: transparent;
+  background-color: var(--color-btn-bg);
+}
+
 nav ul {
   list-style: none;
   display: flex;
@@ -24,12 +38,15 @@ nav ul {
 }
 
 nav a {
+  padding: 0.5rem 1rem;
+  border-radius: 0.3125rem;
   color: var(--color-text);
 }
 
-.active {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
+nav a:hover, nav a.active {
+  color: var(--color-text);
+  border-bottom-color: transparent;
+  background-color: var(--color-btn-bg);
 }
 
 
@@ -69,7 +86,6 @@ nav a {
     top: 60px;
     left: 0;
     width: 100%;
-    border-bottom: 1px solid var(--color-border);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
