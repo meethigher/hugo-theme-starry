@@ -8,10 +8,10 @@
 <main>
     {{ block "main" . }}{{ end }}
 </main>
+{{ partial "footer.html" . }}
 {{ partial "starry.html" . }}
 {{ partial "progress.html" . }}
 {{ partial "sidebar.html" . }}
-{{ partial "footer.html" . }}
 {{ partialCached "head/js.html" . }}
 </body>
 </html>
