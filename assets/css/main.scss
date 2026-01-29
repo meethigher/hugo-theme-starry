@@ -10,9 +10,9 @@
 @import "partials/sidebar";
 @import "partials/header";
 
-main {
-  max-width: 1200px;
+.header-container, .main-container, .footer-container {
+  max-width: 75rem;
   margin: 0 auto;
-  padding: 0 1rem;
   position: relative;
+  padding: 0 1rem;
 }

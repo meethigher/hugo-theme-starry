@@ -8,14 +8,10 @@ header {
 }
 
 .header-container {
-  max-width: 75rem;
-  margin: 0 auto;
-  position: relative;
   height: $header-height;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1rem;
 }
 
 .header-title {
