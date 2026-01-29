@@ -1,24 +1,66 @@
 .main-container {
+
   .article {
-    display: grid;
-    grid-template-columns: 1fr 300px; //左侧自适应，右侧固定宽度
-    gap: 20px;
     margin: 50px auto;
+    gap: 20px;
+  }
+
+  .left,
+  .right {
+    border: 1px solid #000;
+  }
+
+  .one-col {
+    width: 100%;
+
+    .left {
+      width: 848px;
+      margin: 0 auto;
+    }
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 848px 300px;
+    width: 100%;
 
     .left {
       position: relative;
-      max-width: 100%;
       overflow: hidden;
     }
 
-
+    .right {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
+
   .main-container {
-    .article {
+    .one-col {
+      .left {
+        max-width: 100%;
+      }
+    }
+
+    .two-col {
       grid-template-columns: 1fr;
+      grid-template-areas:
+        "right"
+        "left";
+
+      .left {
+        grid-area: left;
+      }
+
+      .right {
+        grid-area: right;
+        position: relative;
+        top: 0;
+      }
     }
   }
 }

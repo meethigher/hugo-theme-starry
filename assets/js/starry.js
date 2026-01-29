@@ -137,7 +137,7 @@
             a.addEventListener("click", e => {
                 const href = a.getAttribute("href");
                 const target = a.getAttribute("target");
-                if (href && target !== "_blank" && self.varProgressEnable) {
+                if (href && !href.startsWith("#") && target !== "_blank" && self.varProgressEnable) {
                     e.preventDefault();
                     self.funcStartProgress(href);
                 }

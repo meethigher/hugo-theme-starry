@@ -1,5 +1,7 @@
 {{ define "main" }}
-<div class="article">
+<!-- 如果内容为空，hugo 会给生成不含内容的 nav，长度刚好为 32 -->
+{{ if gt (len .TableOfContents) 32 }}
+<div class="article two-col">
     <div class="left">
         <h1>{{ .Title }}</h1>
         {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
@@ -8,11 +10,22 @@
         {{ .Content }}
         {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
     </div>
-<!--    {{ if .TableOfContents }}-->
-<!--    <div id="toc" class="right">-->
-<!--        {{ .TableOfContents | safeHTML }}-->
-<!--    </div>-->
-<!--    {{ end }}-->
+    <div id="toc" class="right">
+        {{ .TableOfContents | safeHTML }}
+    </div>
+</div>
+{{ else }}
+<div class="article one-col">
+    <div class="left">
+        <h1>{{ .Title }}</h1>
+        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ $dateHuman := .Date | time.Format ":date_long" }}
+        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        {{ .Content }}
+        {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    </div>
 </div>
 {{ end }}
+{{ end }}
+
 
