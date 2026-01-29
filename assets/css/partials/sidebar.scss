@@ -19,7 +19,7 @@
 .sidebar-tools {
   position: fixed;
   right: 1.25rem;
-  bottom: 6.25rem;
+  bottom: $header-height;
   z-index: $z-index-sidebar-tools;
   display: flex;
   flex-direction: column;
@@ -46,4 +46,23 @@
   color: white;
   transform: translateY(-0.1875rem);
   box-shadow: 0 0.25rem 0.75rem var(--color-shadow);
+}
+
+.expand-icon {
+  display: block;
+}
+
+.collapse-icon {
+  display: none;
+}
+
+#toolMenuSwitcher[aria-expanded="true"] {
+  .expand-icon {
+    display: none;
+  }
+
+  .collapse-icon {
+    display: block;
+  }
+
 }

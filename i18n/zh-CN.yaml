@@ -20,6 +20,13 @@ scroll_to_top:
   other: "回到顶部"
 scroll_to_bottom:
   other: "回到底部"
+tool_menu:
+  expand:
+    other: "展开工具栏"
+  collapse:
+    other: "收起工具栏"
+  switcher:
+    other: "工具栏展开/收起"
 page:
   prev:
     other: "上一页"

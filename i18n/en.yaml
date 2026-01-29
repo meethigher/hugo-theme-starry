@@ -20,6 +20,13 @@ scroll_to_top:
   other: "Scroll to top"
 scroll_to_bottom:
   other: "Scroll to bottom"
+tool_menu:
+  expand:
+    other: "Expand toolbar"
+  collapse:
+    other: "Collapse toolbar"
+  switcher:
+    other: "Expand/Collapse toolbar"
 page:
   prev:
     other: "Previous page"

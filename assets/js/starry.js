@@ -5,6 +5,7 @@
         this.config = {
             themeKey: key,
             themeValue: value,
+            toolExpanded: true,
             starryId: "starry"
         };
         this.startTime = performance.now();
@@ -105,6 +106,28 @@
         if (scrollToBottom) {
             scrollToBottom.addEventListener("click", () => {
                 window.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"});
+            });
+        }
+
+        // 侧边工具栏展开/收起
+        let toolMenuSwitcher = document.getElementById("toolMenuSwitcher");
+        if (toolMenuSwitcher) {
+            const ids = ["searchBtn", "themeToggle", "scrollToTop", "scrollToBottom"];
+            toolMenuSwitcher.addEventListener("click", () => {
+                toolMenuSwitcher.setAttribute("aria-expanded", String(!this.config.toolExpanded));
+                if (this.config.toolExpanded) {
+                    this.config.toolExpanded = false;
+                    ids.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.style.opacity = 0;
+                    });
+                } else {
+                    ids.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.style.opacity = 1;
+                    });
+                    this.config.toolExpanded = true;
+                }
             });
         }
 
