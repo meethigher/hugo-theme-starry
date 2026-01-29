@@ -77,6 +77,10 @@ menus:
       pageRef: /about
       weight: 40
 markup:
+  # 生成目录 h 标签 level
+  tableOfContents:
+    startLevel: 1
+    endLevel: 6
   # 禁用 hugo 的内置语法高亮器 https://gohugo.io/content-management/syntax-highlighting/
   # highlight 中的如下参数，在主题中不建议修改
   highlight:
