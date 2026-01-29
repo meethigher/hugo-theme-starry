@@ -1,0 +1,24 @@
+.main-container {
+  .article {
+    display: grid;
+    grid-template-columns: 1fr 300px; //左侧自适应，右侧固定宽度
+    gap: 20px;
+    margin: 50px auto;
+
+    .left {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .main-container {
+    .article {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # 自定义参数
 params:
+  logoTitle: "让我们相逢在更高处"
+  logoSubTitle: "我一路攀登，只期望与你在更高处相逢"
   # 背景 starry 配置
   starry:
     # true 表示启用背景 starry
@@ -16,7 +18,7 @@ params:
     - 生活
     - 程序员
 # 以下为 hugo 内置参数，参阅文档 https://gohugo.io/getting-started/configuration/#all-configuration-settings
-title: 站点名称
+title: 让我们相逢在更高处
 baseURL: https://meethigher.top/blog/
 # 控制 html lang 以及 i18n
 languageCode: zh-CN
@@ -56,15 +58,34 @@ menus:
     - name: 关于
       pageRef: /about
       weight: 40
+    - name: 关于1
+      pageRef: /about
+      weight: 40
+    - name: 关于2
+      pageRef: /about
+      weight: 40
+    - name: 关于3
+      pageRef: /about
+      weight: 40
+    - name: 关于4
+      pageRef: /about
+      weight: 40
+    - name: 关于5
+      pageRef: /about
+      weight: 40
+    - name: 关于6
+      pageRef: /about
+      weight: 40
 markup:
   # 禁用 hugo 的内置语法高亮器 https://gohugo.io/content-management/syntax-highlighting/
+  # highlight 中的如下参数，在主题中不建议修改
   highlight:
     # 代码高亮
     codeFences: true
     # true 表示使用内联样式。false 表示使用 css 类名
     noClasses: false
     # 展示行号
-    lineNos: true
+    lineNos: false
     # false 表示关闭语言自动检测
     guessSyntax: false
   goldmark:
