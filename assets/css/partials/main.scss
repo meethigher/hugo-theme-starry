@@ -1,5 +1,13 @@
 .main-container {
 
+  #toc {
+    padding: 10px 0;
+
+    ul {
+      padding-left: 4px;
+    }
+  }
+
   .article {
     margin: 50px auto;
     gap: 20px;
