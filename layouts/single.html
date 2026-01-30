@@ -11,6 +11,7 @@
         {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
     </div>
     <div id="toc" class="right">
+        <div class="toc-title">目录</div>
         {{ .TableOfContents | safeHTML }}
     </div>
 </div>
