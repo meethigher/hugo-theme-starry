@@ -1,21 +1,30 @@
 .main-container {
 
-  #toc {
-    padding: 10px 0;
-
-    ul {
-      padding-left: 4px;
-    }
-  }
 
   .article {
-    margin: 50px auto;
+    margin: $header-height/2 auto;
     gap: 20px;
   }
 
   .left,
   .right {
-    border: 1px solid #000;
+    //border: 1px solid #000;
+    border-radius: 1rem;
+    box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
+    background-color: var(--color-bg);
+  }
+
+  .left {
+    padding: 2rem;
+  }
+
+  .right {
+    padding: 1.5rem;
+
+    ul {
+      padding-left: 0.5rem;
+    }
+
   }
 
   .one-col {
@@ -39,7 +48,7 @@
 
     .right {
       position: sticky;
-      top: 100px;
+      top: 90px;
       height: fit-content;
     }
   }

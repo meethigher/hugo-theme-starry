@@ -33,7 +33,7 @@ header {
 
   nav a {
     padding: 0.5rem 1rem;
-    border-radius: 0.3125rem;
+    border-radius: $default-border-radius;
     color: var(--color-text);
   }
 
