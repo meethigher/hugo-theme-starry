@@ -32,3 +32,5 @@ page:
     other: "上一页"
   next:
     other: "下一页"
+toc:
+  other: "目录大纲"

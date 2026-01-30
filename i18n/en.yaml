@@ -32,3 +32,5 @@ page:
     other: "Previous page"
   next:
     other: "Next page"
+toc:
+  other: "Outline"
