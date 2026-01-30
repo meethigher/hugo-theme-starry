@@ -1,7 +1,7 @@
 # 自定义参数
 params:
   logoTitle: "让我们相逢在更高处"
-  logoSubTitle: "我一路攀登，只期望与你在更高处相逢"
+  logoSubTitle: "我一路攀登，只为与你在更高处相逢"
   # 背景 starry 配置
   starry:
     # true 表示启用背景 starry
@@ -10,6 +10,8 @@ params:
     varStarCount: 50
     # true 表示启用 a 标签跳转时展示进度条
     varProgressEnable: true
+    # true 表示默认侧边栏展开
+    varToolExpanded: false
   # seo meta keywords
   seoTags:
     - meethigher

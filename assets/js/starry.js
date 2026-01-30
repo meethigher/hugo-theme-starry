@@ -5,29 +5,30 @@
         this.config = {
             themeKey: key,
             themeValue: value,
-            toolExpanded: true,
             starryId: "starry"
         };
         this.startTime = performance.now();
     }
 
-    Starry.prototype.varProgressEnable = true;
-
-    Starry.prototype.varStarCount = 200;
-
-    Starry.prototype.varStarryEnable = true;
+    Starry.prototype.varConfiguration = {
+        varProgressEnable: true,
+        varStarCount: 200,
+        varStarryEnable: true,
+        varToolExpanded: true
+    };
 
     Starry.prototype.funcInit = function () {
         this.funcBindEvents();
         this.funcApplyTheme();
         this.funcUtils.printInfo(this.startTime);
-        this.funcUtils.log(`Theme configuration: varProgressEnable=${this.varProgressEnable}`);
-        this.funcUtils.log(`Theme configuration: varStarryEnable=${this.varStarryEnable}`);
-        this.funcUtils.log(`Theme configuration: varStarCount=${this.varStarCount}`);
+        this.funcUtils.log(`Theme configuration: varProgressEnable=${this.varConfiguration.varProgressEnable}`);
+        this.funcUtils.log(`Theme configuration: varStarryEnable=${this.varConfiguration.varStarryEnable}`);
+        this.funcUtils.log(`Theme configuration: varStarCount=${this.varConfiguration.varStarCount}`);
+        this.funcUtils.log(`Theme configuration: varToolExpanded=${this.varConfiguration.varToolExpanded}`);
     };
 
     Starry.prototype.funcStartProgress = function (url) {
-        if (this.varProgressEnable) {
+        if (this.varConfiguration.varProgressEnable) {
             const container = document.getElementById("progressContainer");
             const bar = document.getElementById("progressBar");
             container.style.display = "block";
@@ -41,11 +42,11 @@
     };
 
     Starry.prototype.funcRegenStarry = function () {
-        if (this.config.themeValue === "dark" && this.varStarryEnable) {
+        if (this.config.themeValue === "dark" && this.varConfiguration.varStarryEnable) {
             let start = performance.now();
             const starsContainer = document.getElementById(this.config.starryId);
             starsContainer.innerHTML = "";
-            const starCount = this.varStarCount;
+            const starCount = this.varConfiguration.varStarCount;
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement("div");
                 star.classList.add("star");
@@ -111,23 +112,11 @@
 
         // 侧边工具栏展开/收起
         let toolMenuSwitcher = document.getElementById("toolMenuSwitcher");
-        if (toolMenuSwitcher) {
-            const ids = ["searchBtn", "themeToggle", "scrollToTop", "scrollToBottom"];
+        let sidebarTools = document.getElementById("sidebarTools");
+        if (toolMenuSwitcher && sidebarTools) {
             toolMenuSwitcher.addEventListener("click", () => {
-                toolMenuSwitcher.setAttribute("aria-expanded", String(!this.config.toolExpanded));
-                if (this.config.toolExpanded) {
-                    this.config.toolExpanded = false;
-                    ids.forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) el.style.opacity = 0;
-                    });
-                } else {
-                    ids.forEach(id => {
-                        const el = document.getElementById(id);
-                        if (el) el.style.opacity = 1;
-                    });
-                    this.config.toolExpanded = true;
-                }
+                sidebarTools.setAttribute("aria-expanded", String(!this.varConfiguration.varToolExpanded));
+                this.varConfiguration.varToolExpanded = !this.varConfiguration.varToolExpanded;
             });
         }
 

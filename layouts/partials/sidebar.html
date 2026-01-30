@@ -1,5 +1,5 @@
 <!-- 侧边工具栏 -->
-<div class="sidebar-tools" id="sidebarTools">
+<div class="sidebar-tools" id="sidebarTools"  aria-expanded="{{ .Site.Params.starry.varToolExpanded }}" >
     <button class="tool-btn" id="searchBtn" aria-label="{{ i18n "search_button" }}">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <title>{{ i18n "search_button" }}</title>
@@ -37,7 +37,7 @@
             <path d="M6 9l6 6 6-6"/>
         </svg>
     </button>
-    <button class="tool-btn" id="toolMenuSwitcher" aria-expanded="true" aria-label="{{ i18n "tool_menu.switcher" }}">
+    <button class="tool-btn" id="toolMenuSwitcher" aria-label="{{ i18n "tool_menu.switcher" }}">
         <svg class="expand-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <title>{{ i18n "tool_menu.expand" }}</title>
             <line x1="3" y1="12" x2="21" y2="12"></line>

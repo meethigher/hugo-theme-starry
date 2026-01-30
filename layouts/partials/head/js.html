@@ -5,8 +5,11 @@
 <script src="{{ .RelPermalink }}"></script>
 {{- end }}
 <script>
-    window.Starry.prototype.varStarCount= {{ .Site.Params.starry.varStarCount }};
-    window.Starry.prototype.varStarryEnable= {{ .Site.Params.starry.varStarryEnable }};
-    window.Starry.prototype.varProgressEnable= {{ .Site.Params.starry.varProgressEnable }};
+    window.Starry.prototype.varConfiguration = {
+        varProgressEnable: {{ .Site.Params.starry.varProgressEnable }},
+        varStarCount: {{ .Site.Params.starry.varStarCount }},
+        varStarryEnable: {{ .Site.Params.starry.varStarryEnable }},
+        varToolExpanded: {{ .Site.Params.starry.varToolExpanded }}
+    };
 </script>
 

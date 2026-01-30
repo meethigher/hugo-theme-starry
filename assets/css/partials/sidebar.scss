@@ -24,29 +24,34 @@
   display: flex;
   flex-direction: column;
   gap: 0.9375rem;
+
+  .tool-btn {
+    width: 3.125rem;
+    height: 3.125rem;
+    background-color: var(--color-bg);
+    color: var(--text-color);
+    border: $default-border-size solid var(--color-border);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0.125rem 0.5rem var(--color-shadow);
+    transition: transform $default-transition-time ease;
+  }
+
+  .tool-btn:hover {
+    background-color: var(--color-btn-bg);
+    color: white;
+    transform: translateY(-0.1875rem);
+    box-shadow: 0 0.25rem 0.75rem var(--color-shadow);
+  }
+
+  #searchBtn, #themeToggle, #scrollToTop, #scrollToBottom {
+    opacity: 0;
+  }
 }
 
-.tool-btn {
-  width: 3.125rem;
-  height: 3.125rem;
-  background-color: var(--color-bg);
-  color: var(--text-color);
-  border: $default-border-size solid var(--color-border);
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0.125rem 0.5rem var(--color-shadow);
-  transition: transform $default-transition-time ease;
-}
-
-.tool-btn:hover {
-  background-color: var(--color-btn-bg);
-  color: white;
-  transform: translateY(-0.1875rem);
-  box-shadow: 0 0.25rem 0.75rem var(--color-shadow);
-}
 
 .expand-icon {
   display: block;
@@ -56,7 +61,8 @@
   display: none;
 }
 
-#toolMenuSwitcher[aria-expanded="true"] {
+
+.sidebar-tools[aria-expanded="true"] {
   .expand-icon {
     display: none;
   }
@@ -65,4 +71,7 @@
     display: block;
   }
 
+  #searchBtn, #themeToggle, #scrollToTop, #scrollToBottom {
+    opacity: 1;
+  }
 }
