@@ -1,5 +1,6 @@
 (function (global) {
     function Starry() {
+        this.funcUtils.log(`Welcome! You’re using hugo-theme-starry`);
         let key = "starry-theme-mode";
         let value = localStorage.getItem(key);
         this.config = {
@@ -126,7 +127,7 @@
             a.addEventListener("click", e => {
                 const href = a.getAttribute("href");
                 const target = a.getAttribute("target");
-                if (href && !href.startsWith("#") && target !== "_blank" && self.varProgressEnable) {
+                if (href && !href.startsWith("#") && target !== "_blank" && self.varConfiguration.varProgressEnable) {
                     e.preventDefault();
                     self.funcStartProgress(href);
                 }
@@ -179,7 +180,7 @@
             const timeStyle = "color: #FF9800;";
 
             console.log(
-                `%c${separator}\n%chugo-theme-starry\n%c${separator}\n%c作者: %c${info.author}\n%c创建日期: %c${info.createdDate}\n%cGitHub: %c${info.github}\n%c加载时间: %c${info.loadTime}\n%c${separator}`,
+                `%c${separator}\n%chugo-theme-starry\n%c${separator}\n%cAuthor: %c${info.author}\n%cGitHub: %c${info.github}\n%cCreated: %c${info.createdDate}\n%cLoadTime: %c${info.loadTime}\n%c${separator}`,
                 greenStyle,
                 blueTitleStyle,
                 greenStyle,
