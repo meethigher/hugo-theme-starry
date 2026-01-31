@@ -4,18 +4,19 @@ licenselink: https://github.com/meethigher/hugo-theme-starry/LICENSE
 description: 轻量的个人博客主题，由 Hexo 迁移至 Hugo 的版本。
 homepage: https://github.com/meethigher/hugo-theme-starry
 tags:
-  - blog
-  - responsive
   - starry
+  - blog
+  - card
+  - responsive
   - light
   - dark
-  - personal
 features:
-  - gitalk
-  - tags
-  - archives
-  - about
-  - search
+  - starry
+  - blog
+  - card
+  - responsive
+  - light
+  - dark
 author:
   name: meethigher
   homepage: https://meethigher.top

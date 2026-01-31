@@ -1,7 +1,7 @@
 # 自定义参数
 params:
-  logoTitle: "让我们相逢在更高处"
-  logoSubTitle: "我一路攀登，只为与你在更高处相逢"
+  logoTitle: "hugo-theme-starry"
+  logoSubTitle: "夜空把所有的光都藏了起来，只留下星星，在黑暗里一遍一遍地想你"
   # 背景 starry 配置
   starry:
     # true 表示启用背景 starry
@@ -14,13 +14,22 @@ params:
     varToolExpanded: false
   # seo meta keywords
   seoTags:
-    - meethigher
-    - 个人网站
-    - 个人博客
-    - 生活
-    - 程序员
+    - hugo
+    - starry
+    - blog
+    - card
+    - responsive
+    - light
+    - dark
+  footer:
+    # 网站开始运行的时间，格式"YYYY/MM/DD HH:mm:ss"，不填写，默认时间为2020年4月1日
+    siteBegin: "2019/09/15 19:57:09"
+    # 网站统计服务
+    statsService:
+      enable: true
+      url: https://meethigher.top/census/count
 # 以下为 hugo 内置参数，参阅文档 https://gohugo.io/getting-started/configuration/#all-configuration-settings
-title: 让我们相逢在更高处
+title: "hugo-theme-starry"
 baseURL: https://meethigher.top/blog/
 # 控制 html lang 以及 i18n
 languageCode: zh-CN
