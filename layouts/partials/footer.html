@@ -1,14 +1,14 @@
 <footer>
     <div class="footer-container">
         <div class="info">
-            <div class="item" title="当前页面访客数（IP 去重）" id="stats" aria-expanded="{{ .Site.Params.starry.varStatsServiceEnable }}">
-                <div class="item-key">访客人数</div>
+            <div class="item" title="{{ i18n "footer.stats.title" }}" id="stats" aria-expanded="{{ .Site.Params.starry.varStatsServiceEnable }}">
+                <div class="item-key">{{ i18n "footer.stats.key" }}</div>
                 <div class="item-value" id="statsValue">99</div>
             </div>
-            <div class="item" title="{{ .Site.Params.starry.varSiteBegin }} 至今运行时间">
-                <div class="item-key">运行时间</div>
+            <div class="item" title="{{ .Site.Params.starry.varSiteBegin }} {{ i18n "footer.time.title" }}">
+                <div class="item-key">{{ i18n "footer.time.key" }}</div>
                 <div class="item-value" id="timeValue" data-site-begin="{{ .Site.Params.starry.varSiteBegin }}">
-                    <span id="timeYear">99</span><span> 年 </span><span id="timeDay">99</span><span> 天 </span><span id="timeHour">99</span><span> 时 </span>
+                    <span id="timeYear">99</span><span> {{ i18n "footer.time.year" }} </span><span id="timeDay">99</span><span> {{ i18n "footer.time.day" }} </span><span id="timeHour">99</span><span> {{ i18n "footer.time.hour" }} </span>
                 </div>
             </div>
         </div>

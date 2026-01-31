@@ -34,3 +34,20 @@ page:
     other: "Next page"
 toc:
   other: "Outline"
+footer:
+  stats:
+    key:
+      other: "Visitors"
+    title:
+      other: "Unique visitors on this page (IP deduplicated)"
+  time:
+    key:
+      other: "Uptime"
+    title:
+      other: "Time running until now"
+    year:
+      other: "year"
+    day:
+      other: "day"
+    hour:
+      other: "hour"

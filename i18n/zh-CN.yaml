@@ -34,3 +34,20 @@ page:
     other: "下一页"
 toc:
   other: "目录大纲"
+footer:
+  stats:
+    key:
+      other: "访客人数"
+    title:
+      other: "当前页面访客数（IP 去重）"
+  time:
+    key:
+      other: "运行时间"
+    title:
+      other: "至今运行时间"
+    year:
+      other: "年"
+    day:
+      other: "天"
+    hour:
+      other: "时"
