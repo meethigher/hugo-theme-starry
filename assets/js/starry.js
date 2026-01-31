@@ -192,13 +192,16 @@
         }
 
         // 获取访问信息
-        const statsValue = document.getElementById("statsValue");
-        this.funcGetStats(this.varConfiguration.varStatsServiceUrl,
-            window.location.href.replace(/http:\/\/|https:\/\//, ""), function (err, data) {
-                if (!err && statsValue) {
-                    statsValue.innerText = data;
-                }
-            });
+        if (this.varConfiguration.varStatsServiceEnable) {
+            const statsValue = document.getElementById("statsValue");
+            this.funcGetStats(this.varConfiguration.varStatsServiceUrl,
+                window.location.href.replace(/http:\/\/|https:\/\//, ""), function (err, data) {
+                    if (!err && statsValue) {
+                        statsValue.innerText = data;
+                    }
+                });
+        }
+
     };
 
     Starry.prototype.funcApplyTheme = function () {
