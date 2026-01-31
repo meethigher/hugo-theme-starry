@@ -1,5 +1,43 @@
 .main-container {
-  .home {
+  .post {
+    margin: $header-height/2 auto;
+    border-radius: 1rem;
+    box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
+    border: $default-border-size solid var(--color-border);
+    background-color: var(--color-bg);
+    padding: 2rem;
+  }
 
+  .pagination {
+    font-size: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+
+    a {
+      border-radius: $default-border-radius;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
+      border: $default-border-size solid var(--color-border);
+      text-decoration: none;
+      color: var(--color-text);
+      font-weight: normal;
+    }
+
+    a.current {
+      background-color: var(--color-btn-bg);
+      font-weight: bold;
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-mobile) {
+  .main-container {
+    .post {
+      margin: 1rem auto;
+    }
   }
 }
