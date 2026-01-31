@@ -6,6 +6,11 @@
     border: $default-border-size solid var(--color-border);
     background-color: var(--color-bg);
     padding: 2rem;
+    transition: transform $default-transition-time ease;
+  }
+
+  .post:hover {
+    transform: translateY(-0.1875rem);
   }
 
   .pagination {
