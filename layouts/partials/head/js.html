@@ -5,11 +5,13 @@
 <script src="{{ .RelPermalink }}"></script>
 {{- end }}
 <script>
-    window.Starry.prototype.varConfiguration = {
-        varProgressEnable: {{ .Site.Params.starry.varProgressEnable }},
-        varStarCount: {{ .Site.Params.starry.varStarCount }},
-        varStarryEnable: {{ .Site.Params.starry.varStarryEnable }},
-        varToolExpanded: {{ .Site.Params.starry.varToolExpanded }}
-    };
+    const ct = window.Starry.prototype.varConfiguration;
+    ct.varProgressEnable = {{ .Site.Params.starry.varProgressEnable }};
+    ct.varStarCount = {{ .Site.Params.starry.varStarCount }};
+    ct.varStarryEnable = {{ .Site.Params.starry.varStarryEnable }};
+    ct.varToolExpanded = {{ .Site.Params.starry.varToolExpanded }};
+    ct.varSiteBegin = {{ .Site.Params.starry.varSiteBegin }};
+    ct.varStatsServiceEnable = {{ .Site.Params.starry.varStatsServiceEnable }};
+    ct.varStatsServiceUrl = {{ .Site.Params.starry.varStatsServiceUrl }};
 </script>
 

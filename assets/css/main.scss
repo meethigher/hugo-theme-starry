@@ -11,10 +11,15 @@
 @import "partials/header";
 @import "partials/main-post";
 @import "partials/main-home";
+@import "partials/footer";
 
 .header-container, .main-container, .footer-container {
   max-width: 75rem;
   margin: 0 auto;
   position: relative;
   padding: 0 1rem;
+}
+
+main {
+  min-height: calc(100vh - #{$header-height});
 }

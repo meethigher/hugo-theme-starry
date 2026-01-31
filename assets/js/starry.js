@@ -15,8 +15,29 @@
         varProgressEnable: true,
         varStarCount: 200,
         varStarryEnable: true,
-        varToolExpanded: true
+        varToolExpanded: true,
+        varSiteBegin: "2019/09/15 19:57:09",
+        varStatsServiceEnable: true,
+        varStatsServiceUrl: "https://meethigher.top/census/count"
     };
+
+    Starry.prototype.funcGetStats = function (target, href, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", target, true);
+        xhr.setRequestHeader("origin-referer", document.referrer);
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                callback(null, xhr.response);
+            } else {
+                callback(new Error("Request failed with status " + xhr.status));
+            }
+        };
+        xhr.onerror = function () {
+            callback(new Error("Network error"));
+        };
+        xhr.send(href);
+    };
+
 
     Starry.prototype.funcInit = function () {
         this.funcBindEvents();
@@ -26,7 +47,32 @@
         this.funcUtils.log(`Theme configuration: varStarryEnable=${this.varConfiguration.varStarryEnable}`);
         this.funcUtils.log(`Theme configuration: varStarCount=${this.varConfiguration.varStarCount}`);
         this.funcUtils.log(`Theme configuration: varToolExpanded=${this.varConfiguration.varToolExpanded}`);
+        this.funcUtils.log(`Theme configuration: varSiteBegin=${this.varConfiguration.varSiteBegin}`);
+        this.funcUtils.log(`Theme configuration: varStatsServiceEnable=${this.varConfiguration.varStatsServiceEnable}`);
+        this.funcUtils.log(`Theme configuration: varStatsServiceUrl=${this.varConfiguration.varStatsServiceUrl}`);
     };
+
+    Starry.prototype.funcDiffDaysHours = function (startTime) {
+        const start = new Date(startTime.replace(/-/g, "/")).getTime();
+        const now = Date.now();
+
+        let diffMs = now - start;
+
+        const hourMs = 60 * 60 * 1000;
+        const dayMs = 24 * hourMs;
+        const yearMs = 365 * dayMs;
+
+        const years = Math.floor(diffMs / yearMs);
+        diffMs %= yearMs;
+
+        const days = Math.floor(diffMs / dayMs);
+        diffMs %= dayMs;
+
+        const hours = Math.floor(diffMs / hourMs);
+
+        return {years, days, hours};
+    };
+
 
     Starry.prototype.funcStartProgress = function (url) {
         if (this.varConfiguration.varProgressEnable) {
@@ -133,6 +179,26 @@
                 }
             });
         });
+
+        // 更新底部栏时间
+        let diff = this.funcDiffDaysHours(this.varConfiguration.varSiteBegin);
+        let timeYear = document.getElementById("timeYear");
+        let timeDay = document.getElementById("timeDay");
+        let timeHour = document.getElementById("timeHour");
+        if (diff && timeYear && timeDay && timeHour) {
+            timeYear.innerText = diff.years;
+            timeDay.innerText = diff.days;
+            timeHour.innerText = diff.hours;
+        }
+
+        // 获取访问信息
+        const statsValue = document.getElementById("statsValue");
+        this.funcGetStats(this.varConfiguration.varStatsServiceUrl,
+            window.location.href.replace(/http:\/\/|https:\/\//, ""), function (err, data) {
+                if (!err && statsValue) {
+                    statsValue.innerText = data;
+                }
+            });
     };
 
     Starry.prototype.funcApplyTheme = function () {

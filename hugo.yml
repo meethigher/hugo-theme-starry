@@ -2,7 +2,6 @@
 params:
   logoTitle: "hugo-theme-starry"
   logoSubTitle: "夜空把所有的光都藏了起来，只留下星星，在黑暗里一遍一遍地想你"
-  # 背景 starry 配置
   starry:
     # true 表示启用背景 starry
     varStarryEnable: true
@@ -12,6 +11,11 @@ params:
     varProgressEnable: true
     # true 表示默认侧边栏展开
     varToolExpanded: false
+    # 网站开始运行的时间，格式"yyyy/MM/dd HH:mm:ss"，不填写，默认时间为"2019/09/15 19:57:09"
+    varSiteBegin: "2019/09/15 19:57:09"
+    # 网站统计服务，参考实现 https://github.com/meethigher/count-for-page
+    varStatsServiceEnable: true
+    varStatsServiceUrl: https://meethigher.top/census/count
   # seo meta keywords
   seoTags:
     - hugo
@@ -21,13 +25,6 @@ params:
     - responsive
     - light
     - dark
-  footer:
-    # 网站开始运行的时间，格式"YYYY/MM/DD HH:mm:ss"，不填写，默认时间为2020年4月1日
-    siteBegin: "2019/09/15 19:57:09"
-    # 网站统计服务
-    statsService:
-      enable: true
-      url: https://meethigher.top/census/count
 # 以下为 hugo 内置参数，参阅文档 https://gohugo.io/getting-started/configuration/#all-configuration-settings
 title: "hugo-theme-starry"
 baseURL: https://meethigher.top/blog/
