@@ -18,18 +18,36 @@
     {{ end }}
 
     <div class="pagination">
-      {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}" class="prev" title="">{{ i18n "page.prev" }}</a>
-      {{ end }}
-      {{ range $paginator.Pagers }}
-        {{ if eq . $paginator }}
-          <a class="current">{{ .PageNumber }}</a>
-        {{ else }}
-          <a href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{ $total := $paginator.TotalPages }}
+        {{ $current := $paginator.PageNumber }}
+        
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="prev">{{ i18n "page.prev" }}</a>
         {{ end }}
-      {{ end }}
-      {{ if $paginator.HasNext }}
-          <a href="{{ $paginator.Next.URL }}" class="next" title="">{{ i18n "page.next" }}</a>
-      {{ end }}
+
+        {{ if ne $current 1 }}
+        {{ $firstPage := index $paginator.Pagers 0 }}
+        <a href="{{ $firstPage.URL }}">1</a>
+        {{ end }}
+
+        {{ if gt $current 2 }}
+        <span class="dots">...</span>
+        {{ end }}
+
+        <a class="current">{{ $current }}</a>
+
+        {{ if lt $current (sub $total 1) }}
+        <span class="dots">...</span>
+        {{ end }}
+
+        {{ if ne $current $total }}
+        {{ $lastPage := index $paginator.Pagers (sub $total 1) }}
+        <a href="{{ $lastPage.URL }}">{{ $total }}</a>
+        {{ end }}
+
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="next">{{ i18n "page.next" }}</a>
+        {{ end }}
+
     </div>
 {{ end }}
