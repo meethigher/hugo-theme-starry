@@ -6,19 +6,21 @@
 {{ .Content }}
 <div class="article-nav">
     {{ with .NextInSection }}
-    <a class="article-nav-next" href="{{ .RelPermalink }}">
-        {{ .Title }}
-    </a>
+    <div class="item">
+        <div class="item-key">上一篇</div>
+        <a class="item-value" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </div>
     {{ end }}
 
     {{ with .PrevInSection }}
-    <a class="article-nav-prev" href="{{ .RelPermalink }}">
-        {{ .Title }}
-    </a>
+    <div class="item">
+        <div class="item-key">下一篇</div>
+        <a class="item-value" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </div>
     {{ end }}
 </div>
 <div class="article-btn">
-    <button>打赏</button>
-    <button>分享</button>
+    <button class="btn">打赏</button>
+    <button class="btn">分享</button>
 </div>
 

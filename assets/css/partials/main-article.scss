@@ -6,6 +6,82 @@
     gap: 20px;
   }
 
+  .article-nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .article-nav .item {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    min-width: 0;
+    border-radius: $default-border-radius;
+    border: $default-border-size solid var(--color-border);
+    background-color: var(--color-bg);
+    transition: transform $default-transition-time ease;
+  }
+
+  .article-nav .item:hover {
+    transform: translateY(-0.1875rem);
+  }
+
+  .article-nav .item:first-child {
+    text-align: left;
+  }
+
+  .article-nav .item:last-child {
+    text-align: right;
+  }
+
+  .item-key {
+    font-size: 0.5rem;
+    margin-bottom: 0.5re;
+  }
+
+  .item-value {
+    display: inline-block;
+    font-size: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    border-color: transparent;
+    color: var(--color-text);
+    font-weight: normal;
+  }
+
+  .item-value:hover {
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+
+  .article-btn {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .article-btn .btn {
+    padding: 0.5rem 1rem;
+    border-radius: $default-border-radius;
+    border: $default-border-size solid var(--color-border);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: normal;
+    cursor: pointer;
+    transition: transform $default-transition-time ease;
+  }
+
+  .article-btn .btn:hover {
+    transform: translateY(-0.1875rem);
+  }
+
   .left,
   .right {
     border-radius: 1rem;
@@ -88,6 +164,23 @@
     .article {
       margin: 1rem auto;
       gap: 1rem;
+    }
+
+    .article-nav {
+      flex-direction: column;
+    }
+
+    .article-nav .item {
+      text-align: left;
+    }
+
+    .article-btn {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .article-btn .btn {
+      width: 100%;
     }
 
     .one-col {
