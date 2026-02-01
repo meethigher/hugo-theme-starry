@@ -1,0 +1,24 @@
+<h1>{{ .Title }}</h1>
+{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $dateHuman := .Date | time.Format "2006-01-02 15:04:05" }}
+<time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+{{ .Content }}
+<div class="article-nav">
+    {{ with .NextInSection }}
+    <a class="article-nav-next" href="{{ .RelPermalink }}">
+        {{ .Title }}
+    </a>
+    {{ end }}
+
+    {{ with .PrevInSection }}
+    <a class="article-nav-prev" href="{{ .RelPermalink }}">
+        {{ .Title }}
+    </a>
+    {{ end }}
+</div>
+<div class="article-btn">
+    <button>打赏</button>
+    <button>分享</button>
+</div>
+

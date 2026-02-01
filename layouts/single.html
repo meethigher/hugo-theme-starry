@@ -3,12 +3,7 @@
 {{ if gt (len .TableOfContents) 32 }}
 <div class="article two-col">
     <div class="left">
-        <h1>{{ .Title }}</h1>
-        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-        {{ $dateHuman := .Date | time.Format ":date_long" }}
-        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-        {{ .Content }}
-        {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+        {{ partial "article-content.html" . }}
     </div>
     <div id="toc" class="right">
         <div class="toc-title">{{ i18n "toc"}}</div>
@@ -18,12 +13,7 @@
 {{ else }}
 <div class="article one-col">
     <div class="left">
-        <h1>{{ .Title }}</h1>
-        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-        {{ $dateHuman := .Date | time.Format ":date_long" }}
-        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-        {{ .Content }}
-        {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+        {{ partial "article-content.html" . }}
     </div>
 </div>
 {{ end }}
