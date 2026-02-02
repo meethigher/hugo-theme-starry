@@ -1,9 +1,15 @@
-{{- with resources.Get "js/starry.js" }}
-<script src="{{ .RelPermalink }}"></script>
+{{ $js := slice "js/starry.js" "js/main.js" }}
+
+{{ $resources := slice }}
+{{- range $js }}
+{{ $r := resources.Get . }}
+{{ $resources = $resources | append $r }}
 {{- end }}
-{{- with resources.Get "js/main.js" }}
-<script src="{{ .RelPermalink }}"></script>
-{{- end }}
+
+{{ $bundle := $resources | resources.Concat "js/main.js" | resources.Minify }}
+
+<script src="{{ $bundle.RelPermalink }}"></script>
+
 <script>
     const ct = window.Starry.prototype.varConfiguration;
     ct.varProgressEnable = {{ .Site.Params.starry.varProgressEnable }};

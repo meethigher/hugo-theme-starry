@@ -14,8 +14,19 @@ params:
     # 网站开始运行的时间，格式"yyyy/MM/dd HH:mm:ss"，不填写，默认时间为"2019/09/15 19:57:09"
     varSiteBegin: "2019/09/15 19:57:09"
     # 网站统计服务，参考实现 https://github.com/meethigher/count-for-page
-    varStatsServiceEnable: true
+    varStatsServiceEnable: false
     varStatsServiceUrl: https://meethigher.top/census/count
+    # 使用说明参考 https://github.com/gitalk/gitalk/blob/master/readme-cn.md
+    varGitalkEnable: true
+    varGitalk:
+      clientId: "e46f6dec7c07145c652c"
+      clientSecret: "d1a0b627f9b76d21bd3080d1777d0aa0ad55dd83"
+      accessToken: "6a2f4d91a1f188a2089e70c2a7b63628f3e9e664"
+      repo: "gitalk"
+      owner: "gitalk"
+      admin:
+        - "booxood"
+        - "mamborer"
   # seo meta keywords
   seoTags:
     - hugo
@@ -40,7 +51,7 @@ minify:
   minifyOutput: true
 # 分页设置
 pagination:
-  pagerSize: 2
+  pagerSize: 7
   path: page
 outputs:
   home:
