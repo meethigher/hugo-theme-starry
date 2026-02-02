@@ -6,14 +6,14 @@
 {{ .Content }}
 <div class="article-nav">
     {{ with .NextInSection }}
-    <div class="item">
+    <div class="item" onclick="this.querySelector('a').click()">
         <div class="item-key">上一篇</div>
         <a class="item-value" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </div>
     {{ end }}
 
     {{ with .PrevInSection }}
-    <div class="item">
+    <div class="item" onclick="this.querySelector('a').click()">
         <div class="item-key">下一篇</div>
         <a class="item-value" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </div>
@@ -37,7 +37,7 @@
         repo: {{ .Site.Params.Starry.VarGitalk.repo }},
         owner: {{ .Site.Params.Starry.VarGitalk.owner }},
         admin: {{ .Site.Params.Starry.VarGitalk.admin  }},
-        id: location.pathname
+        id: "Demo"
     });
     gitalk.render("article-gitalk");
 </script>
