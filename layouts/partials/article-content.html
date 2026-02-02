@@ -4,6 +4,7 @@
 {{ $dateHuman := .Date | time.Format "2006-01-02 15:04:05" }}
 <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
 {{ .Content }}
+<hr class="content-end">
 <div class="article-nav">
     {{ with .NextInSection }}
     <div class="item" onclick="this.querySelector('a').click()">
@@ -20,8 +21,8 @@
     {{ end }}
 </div>
 <div class="article-btn">
-    <button class="btn">打赏</button>
-    <button class="btn">分享</button>
+    <button class="btn">打赏作者</button>
+    <button class="btn">分享链接</button>
 </div>
 {{- if and .Site.Params.Starry.varGitalkEnable .Params.comments }}
 <div id="article-gitalk"></div>
