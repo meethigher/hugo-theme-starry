@@ -1,3 +1,86 @@
+:root {
+  --gitalk-primary-color: #6190e8;
+  --gitalk-primary-hover: #81a6ed;
+
+  --gitalk-text-primary: #24292e;
+  --gitalk-text-secondary: #6a737d;
+  --gitalk-text-tertiary: #a1a1a1;
+  --gitalk-text-light: #444d56;
+
+  --gitalk-border-light: #eaecef;
+  --gitalk-border-medium: #e1e4e8;
+  --gitalk-border-dark: #dfe2e5;
+  --gitalk-border-gray: #c6cbd1;
+  --gitalk-border-darker: #d1d5da;
+
+  --gitalk-bg-primary: #fff;
+  --gitalk-bg-secondary: #f6f8fa;
+  --gitalk-bg-tertiary: #f9f9f9;
+  --gitalk-bg-light: #f6f6f6;
+  --gitalk-bg-hover: #fbfbfb;
+  --gitalk-bg-disabled: #f2f2f2;
+  --gitalk-bg-shadow: #f4f4f4;
+
+  --gitalk-success-color: #22863a;
+  --gitalk-success-bg: #f0fff4;
+  --gitalk-warning-color: #e36209;
+  --gitalk-warning-bg: #ffebda;
+  --gitalk-error-color: #d73a49;
+  --gitalk-error-bg: #ffeef0;
+  --gitalk-error-border: #b31d28;
+  --gitalk-danger-color: #ff3860;
+
+  --gitalk-code-bg: rgba(27, 31, 35, 0.05);
+  --gitalk-kbd-bg: #fafbfc;
+  --gitalk-header-bg: #f6f9fe;
+  --gitalk-overlay-bg: rgba(0, 0, 0, 0.6);
+  --gitalk-border-input: rgba(0, 0, 0, 0.1);
+}
+
+
+:root[starry-theme-mode="dark"] {
+
+  --gitalk-primary-color: #5c9df9;
+  --gitalk-primary-hover: #7bb1fc;
+
+  --gitalk-text-primary: #e5e8f0;
+  --gitalk-text-secondary: #a0a8b7;
+  --gitalk-text-tertiary: #7a8190;
+  --gitalk-text-light: #b0b8c8;
+
+  --gitalk-border-light: #2b334b;
+  --gitalk-border-medium: #3a405b;
+  --gitalk-border-dark: #454b66;
+  --gitalk-border-gray: #596177;
+  --gitalk-border-darker: #50576b;
+
+
+  --gitalk-bg-primary: #13172f;
+  --gitalk-bg-secondary: #1c213c;
+  --gitalk-bg-tertiary: #1f2445;
+  --gitalk-bg-light: #1a1f38;
+  --gitalk-bg-hover: #202642;
+  --gitalk-bg-disabled: #171c2e;
+  --gitalk-bg-shadow: #191f33;
+
+
+  --gitalk-success-color: #28a745;
+  --gitalk-success-bg: #1e3221;
+  --gitalk-warning-color: #e36209;
+  --gitalk-warning-bg: #3a2818;
+  --gitalk-error-color: #d73a49;
+  --gitalk-error-bg: #3b1e24;
+  --gitalk-error-border: #a12a38;
+  --gitalk-danger-color: #ff3860;
+
+  --gitalk-code-bg: rgba(255, 255, 255, 0.05);
+  --gitalk-kbd-bg: #2a2e40;
+  --gitalk-header-bg: #161b32;
+  --gitalk-overlay-bg: rgba(0, 0, 0, 0.6);
+  --gitalk-border-input: rgba(255, 255, 255, 0.15);
+}
+
+
 @font-face {
   font-family: octicons-link;
   src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
@@ -7,7 +90,7 @@
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   line-height: 1.5;
-  color: #24292e;
+  color: var(--gitalk-text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   line-height: 1.5;
@@ -15,7 +98,7 @@
 }
 
 .markdown-body .pl-c {
-  color: #6a737d;
+  color: var(--gitalk-text-secondary);
 }
 
 .markdown-body .pl-c1,
@@ -30,15 +113,15 @@
 
 .markdown-body .pl-smi,
 .markdown-body .pl-s .pl-s1 {
-  color: #24292e;
+  color: var(--gitalk-text-primary);
 }
 
 .markdown-body .pl-ent {
-  color: #22863a;
+  color: var(--gitalk-success-color);
 }
 
 .markdown-body .pl-k {
-  color: #d73a49;
+  color: var(--gitalk-error-color);
 }
 
 .markdown-body .pl-s,
@@ -53,21 +136,21 @@
 
 .markdown-body .pl-v,
 .markdown-body .pl-smw {
-  color: #e36209;
+  color: var(--gitalk-warning-color);
 }
 
 .markdown-body .pl-bu {
-  color: #b31d28;
+  color: var(--gitalk-error-border);
 }
 
 .markdown-body .pl-ii {
   color: #fafbfc;
-  background-color: #b31d28;
+  background-color: var(--gitalk-error-border);
 }
 
 .markdown-body .pl-c2 {
   color: #fafbfc;
-  background-color: #d73a49;
+  background-color: var(--gitalk-error-color);
 }
 
 .markdown-body .pl-c2::before {
@@ -76,7 +159,7 @@
 
 .markdown-body .pl-sr .pl-cce {
   font-weight: bold;
-  color: #22863a;
+  color: var(--gitalk-success-color);
 }
 
 .markdown-body .pl-ml {
@@ -92,31 +175,31 @@
 
 .markdown-body .pl-mi {
   font-style: italic;
-  color: #24292e;
+  color: var(--gitalk-text-primary);
 }
 
 .markdown-body .pl-mb {
   font-weight: bold;
-  color: #24292e;
+  color: var(--gitalk-text-primary);
 }
 
 .markdown-body .pl-md {
-  color: #b31d28;
-  background-color: #ffeef0;
+  color: var(--gitalk-error-border);
+  background-color: var(--gitalk-error-bg);
 }
 
 .markdown-body .pl-mi1 {
-  color: #22863a;
-  background-color: #f0fff4;
+  color: var(--gitalk-success-color);
+  background-color: var(--gitalk-success-bg);
 }
 
 .markdown-body .pl-mc {
-  color: #e36209;
-  background-color: #ffebda;
+  color: var(--gitalk-warning-color);
+  background-color: var(--gitalk-warning-bg);
 }
 
 .markdown-body .pl-mi2 {
-  color: #f6f8fa;
+  color: var(--gitalk-bg-secondary);
   background-color: #005cc5;
 }
 
@@ -234,7 +317,7 @@
   overflow: hidden;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #dfe2e5;
+  border-bottom: 1px solid var(--gitalk-border-dark);
 }
 
 .markdown-body hr::before {
@@ -423,14 +506,14 @@
   height: 0.25em;
   padding: 0;
   margin: 24px 0;
-  background-color: #e1e4e8;
+  background-color: var(--gitalk-border-medium);
   border: 0;
 }
 
 .markdown-body blockquote {
   padding: 0 1em;
-  color: #6a737d;
-  border-left: 0.25em solid #dfe2e5;
+  color: var(--gitalk-text-secondary);
+  border-left: 0.25em solid var(--gitalk-border-dark);
 }
 
 .markdown-body blockquote > :first-child {
@@ -446,10 +529,10 @@
   padding: 3px 5px;
   font-size: 11px;
   line-height: 10px;
-  color: #444d56;
+  color: var(--gitalk-text-light);
   vertical-align: middle;
-  background-color: #fafbfc;
-  border: solid 1px #c6cbd1;
+  background-color: var(--gitalk-kbd-bg);
+  border: solid 1px var(--gitalk-border-gray);
   border-bottom-color: #959da5;
   border-radius: 3px;
   -webkit-box-shadow: inset 0 -1px 0 #959da5;
@@ -500,13 +583,13 @@
 .markdown-body h1 {
   padding-bottom: 0.3em;
   font-size: 2em;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 1px solid var(--gitalk-border-light);
 }
 
 .markdown-body h2 {
   padding-bottom: 0.3em;
   font-size: 1.5em;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 1px solid var(--gitalk-border-light);
 }
 
 .markdown-body h3 {
@@ -523,7 +606,7 @@
 
 .markdown-body h6 {
   font-size: 0.85em;
-  color: #6a737d;
+  color: var(--gitalk-text-secondary);
 }
 
 .markdown-body ul,
@@ -577,23 +660,23 @@
 .markdown-body table th,
 .markdown-body table td {
   padding: 6px 13px;
-  border: 1px solid #dfe2e5;
+  border: 1px solid var(--gitalk-border-dark);
 }
 
 .markdown-body table tr {
-  background-color: #fff;
-  border-top: 1px solid #c6cbd1;
+  background-color: var(--gitalk-bg-primary);
+  border-top: 1px solid var(--gitalk-border-gray);
 }
 
 .markdown-body table tr:nth-child(2n) {
-  background-color: #f6f8fa;
+  background-color: var(--gitalk-bg-secondary);
 }
 
 .markdown-body img {
   max-width: 100%;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  background-color: #fff;
+  background-color: var(--gitalk-bg-primary);
 }
 
 .markdown-body code {
@@ -602,7 +685,7 @@
   padding-bottom: 0.2em;
   margin: 0;
   font-size: 85%;
-  background-color: rgba(27, 31, 35, 0.05);
+  background-color: var(--gitalk-code-bg);
   border-radius: 3px;
 }
 
@@ -641,7 +724,7 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f6f8fa;
+  background-color: var(--gitalk-bg-secondary);
   border-radius: 3px;
 }
 
@@ -672,14 +755,14 @@
   padding: 3px 5px;
   font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   line-height: 10px;
-  color: #444d56;
+  color: var(--gitalk-text-light);
   vertical-align: middle;
-  background-color: #fafbfc;
-  border: solid 1px #d1d5da;
-  border-bottom-color: #c6cbd1;
+  background-color: var(--gitalk-kbd-bg);
+  border: solid 1px var(--gitalk-border-darker);
+  border-bottom-color: var(--gitalk-border-gray);
   border-radius: 3px;
-  -webkit-box-shadow: inset 0 -1px 0 #c6cbd1;
-  box-shadow: inset 0 -1px 0 #c6cbd1;
+  -webkit-box-shadow: inset 0 -1px 0 var(--gitalk-border-gray);
+  box-shadow: inset 0 -1px 0 var(--gitalk-border-gray);
 }
 
 .markdown-body :checked + .radio-label {
@@ -731,12 +814,12 @@
 }
 
 .gt-container a {
-  color: #6190e8;
+  color: var(--gitalk-primary-color);
 }
 
 .gt-container a:hover {
-  color: #81a6ed;
-  border-color: #81a6ed;
+  color: var(--gitalk-primary-hover);
+  border-color: var(--gitalk-primary-hover);
 }
 
 .gt-container a.is--active {
@@ -762,7 +845,7 @@
 .gt-container .gt-svg svg {
   width: 100%;
   height: 100%;
-  fill: #6190e8;
+  fill: var(--gitalk-primary-color);
 }
 
 .gt-container .gt-ico {
@@ -803,7 +886,7 @@
   margin-left: -0.375em;
   border-radius: 50%;
   border: 1px solid #fff;
-  border-top-color: #6190e8;
+  border-top-color: var(--gitalk-primary-color);
   -webkit-animation: gt-kf-rotate 0.6s linear infinite;
   animation: gt-kf-rotate 0.6s linear infinite;
 }
@@ -874,9 +957,9 @@
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
-  border: 1px solid #6190e8;
+  border: 1px solid var(--gitalk-primary-color);
   border-radius: 5px;
-  background-color: #6190e8;
+  background-color: var(--gitalk-primary-color);
   color: #fff;
   outline: none;
   font-size: 0.75em;
@@ -905,24 +988,24 @@
 }
 
 .gt-container .gt-btn-preview {
-  background-color: #fff;
-  color: #6190e8;
+  background-color: var(--gitalk-bg-primary);
+  color: var(--gitalk-primary-color);
 }
 
 .gt-container .gt-btn-preview:hover {
-  background-color: #f2f2f2;
-  border-color: #81a6ed;
+  background-color: var(--gitalk-bg-disabled);
+  border-color: var(--gitalk-primary-hover);
 }
 
 .gt-container .gt-btn-public:hover {
-  background-color: #81a6ed;
-  border-color: #81a6ed;
+  background-color: var(--gitalk-primary-hover);
+  border-color: var(--gitalk-primary-hover);
 }
 
 .gt-container .gt-error {
   text-align: center;
   margin: 0.625em;
-  color: #ff3860;
+  color: var(--gitalk-danger-color);
 }
 
 .gt-container .gt-initing {
@@ -941,7 +1024,7 @@
 }
 
 .gt-container .gt-link {
-  border-bottom: 1px dotted #6190e8;
+  border-bottom: 1px dotted var(--gitalk-primary-color);
 }
 
 .gt-container .gt-link-counts,
@@ -1000,11 +1083,11 @@
 }
 
 .gt-container .gt-user .is--poping .gt-ico svg {
-  fill: #6190e8;
+  fill: var(--gitalk-primary-color);
 }
 
 .gt-container .gt-version {
-  color: #a1a1a1;
+  color: var(--gitalk-text-tertiary);
   margin-left: 0.375em;
 }
 
@@ -1018,7 +1101,7 @@
   position: absolute;
   right: 0;
   top: 2.375em;
-  background: #fff;
+  background: var(--gitalk-bg-primary);
   display: inline-block;
   border: 1px solid #e9e9e9;
   padding: 0.625em 0;
@@ -1039,7 +1122,7 @@
   content: '';
   width: 0.25em;
   height: 0.25em;
-  background: #6190e8;
+  background: var(--gitalk-primary-color);
   position: absolute;
   left: 0.5em;
   top: 0.4375em;
@@ -1074,25 +1157,25 @@
   min-height: 5.125em;
   max-height: 15em;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--gitalk-border-input);
   font-size: 0.875em;
   word-wrap: break-word;
   resize: vertical;
-  background-color: #f6f6f6;
+  background-color: var(--gitalk-bg-light);
   outline: none;
   -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
 
 .gt-container .gt-header-textarea:hover {
-  background-color: #fbfbfb;
+  background-color: var(--gitalk-bg-hover);
 }
 
 .gt-container .gt-header-preview {
   padding: 0.75em;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #f6f6f6;
+  border: 1px solid var(--gitalk-border-input);
+  background-color: var(--gitalk-bg-light);
 }
 
 .gt-container .gt-header-controls {
@@ -1118,7 +1201,7 @@
 
 .gt-container .gt-header-controls-tip {
   font-size: 0.875em;
-  color: #6190e8;
+  color: var(--gitalk-primary-color);
   text-decoration: none;
   vertical-align: sub;
 }
@@ -1163,7 +1246,7 @@
   left: 0;
   right: 0;
   top: 0;
-  background: #000;
+  background: var(--gitalk-overlay-bg);
   opacity: 0.6;
   -webkit-transition: opacity 0.3s, bottom 0s;
   transition: opacity 0.3s, bottom 0s;
@@ -1201,15 +1284,16 @@
   flex: 1;
   margin-left: 1.25em;
   padding: 0.75em 1em;
-  background-color: #f9f9f9;
+  border-radius: 3px;
+  background-color: var(--gitalk-bg-tertiary);
   overflow: auto;
   -webkit-transition: all ease 0.25s;
   transition: all ease 0.25s;
 }
 
 .gt-container .gt-comment-content:hover {
-  -webkit-box-shadow: 0 0.625em 3.75em 0 #f4f4f4;
-  box-shadow: 0 0.625em 3.75em 0 #f4f4f4;
+  -webkit-box-shadow: 0 0.625em 3.75em 0 var(--gitalk-bg-shadow);
+  box-shadow: 0 0.625em 3.75em 0 var(--gitalk-bg-shadow);
 }
 
 @media (max-width: 479px) {
@@ -1239,7 +1323,7 @@
 
 .gt-container .gt-comment-username {
   font-weight: 500;
-  color: #6190e8;
+  color: var(--gitalk-primary-color);
   text-decoration: none;
 }
 
@@ -1249,12 +1333,12 @@
 
 .gt-container .gt-comment-text {
   margin-left: 0.5em;
-  color: #a1a1a1;
+  color: var(--gitalk-text-tertiary);
 }
 
 .gt-container .gt-comment-date {
   margin-left: 0.5em;
-  color: #a1a1a1;
+  color: var(--gitalk-text-tertiary);
 }
 
 .gt-container .gt-comment-like,
@@ -1292,15 +1376,15 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 6px;
-  color: #444d56;
+  color: var(--gitalk-text-light);
   text-decoration: none;
   vertical-align: middle;
-  background: #dfe2e5;
+  background: var(--gitalk-border-dark);
   border-radius: 1px;
 }
 
 .gt-container .gt-comment-body .email-hidden-toggle a:hover {
-  background-color: #c6cbd1;
+  background-color: var(--gitalk-border-gray);
 }
 
 .gt-container .gt-comment-body .email-hidden-reply {
@@ -1312,7 +1396,7 @@
   padding: 0 15px;
   margin: 15px 0;
   color: #586069;
-  border-left: 4px solid #dfe2e5;
+  border-left: 4px solid var(--gitalk-border-dark);
 }
 
 .gt-container .gt-comment-body .email-hidden-reply.expanded {
@@ -1320,7 +1404,7 @@
 }
 
 .gt-container .gt-comment-admin .gt-comment-content {
-  background-color: #f6f9fe;
+  background-color: var(--gitalk-header-bg);
 }
 
 @-webkit-keyframes gt-kf-rotate {
@@ -1344,3 +1428,4 @@
     transform: rotate(360deg);
   }
 }
+
