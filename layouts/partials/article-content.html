@@ -25,7 +25,9 @@
 </div>
 {{- if and .Site.Params.Starry.varGitalkEnable .Params.comments }}
 <div id="starry-gitalk"></div>
-<link rel="stylesheet" href="{{ "css/gitalk.min.css" | relURL }}">
+{{- with resources.Get "css/gitalk-theme.scss" | css.Sass | resources.Minify }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{- end }}
 <script src="{{ "js/gitalk.min.js" | relURL }}" ></script>
 <script >
     const gitalk = new Gitalk({
