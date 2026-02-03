@@ -42,6 +42,8 @@
         background-color: var(--color-btn-bg);
         border-radius: 12px;
         font-size: 0.5rem;
+
+        @include hover-lift;
       }
     }
 

@@ -1,20 +1,12 @@
 {{- /*
-For a given taxonomy, renders a list of terms assigned to the page.
-
-@context {page} page The current page.
-@context {string} taxonomy The taxonomy.
-
-@example: {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+.LinkTitle 会自动对术语进行规范化（Canonicalize）。比如 hugo --> Hugo
 */}}
 
 {{- $page := .page }}
 {{- $taxonomy := .taxonomy }}
 
 {{- with $page.GetTerms $taxonomy }}
-  {{- $label := (index . 0).Parent.LinkTitle }}
-  <div class="post-tags">
-    {{- range . }}
-    <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-    {{- end }}
-  </div>
+{{- range . }}
+<a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+{{- end }}
 {{- end }}

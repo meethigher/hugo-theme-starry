@@ -1,10 +1,5 @@
 .main-container {
-  @mixin hover-lift {
-    transition: transform $default-transition-time ease;
-    &:hover {
-      transform: translateY(-0.1875rem);
-    }
-  }
+
 
   @mixin box-style($radius: $default-border-radius, $bg: var(--color-btn-bg), $border: $default-border-size solid var(--color-border)) {
     border-radius: $radius;
@@ -21,6 +16,93 @@
       height: 0.0625rem;
       background: linear-gradient(to right, transparent, var(--color-border), transparent);
     }
+  }
+
+  .article-title {
+    font-size: 2rem;
+    color: var(--color-text);
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-bottom: .5rem;
+    border-bottom: .0625rem solid var(--color-border);
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 24px;
+    padding-top: 16px;
+
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+      max-width: 100%;
+
+      .tag {
+        border: 0.0625rem solid var(--color-border);
+        padding: 4px 12px;
+        background-color: var(--color-btn-bg);
+        border-radius: 12px;
+        font-size: 0.5rem;
+
+        @include hover-lift;
+      }
+
+    }
+
+
+    .article-dates {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 180px;
+
+      .article-date-item {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: var(--color-text)
+      }
+
+      .article-date-item::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: var(--primary);
+        border-radius: 50%;
+        margin-right: 8px;
+        color: var(--color-text)
+      }
+
+    }
+  }
+
+
+  .article-note {
+    background-color: var(--color-blockquote-bg);
+    padding: 16px 20px;
+    border-radius: $default-border-radius;
+    margin: 24px 0 32px;
+    font-size: 0.95rem;
+    position: relative;
+  }
+
+  .article-note::before {
+    content: '"';
+    position: absolute;
+    top: -12px;
+    left: 4px;
+    font-size: 3rem;
+    color: var(--color-blockquote-border);
+    font-family: Georgia, serif;
+    line-height: 1;
   }
 
   .article-nav {
@@ -182,8 +264,8 @@
     .article-two-col {
       grid-template-columns: 1fr;
       grid-template-areas:
-        "right"
-        "left";
+    "right"
+    "left";
 
       .article-left {
         grid-area: left;

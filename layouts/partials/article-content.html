@@ -1,16 +1,19 @@
 <div class="article-title">{{ .Title }}</div>
 <div class="article-meta">
-    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-    {{ $createDateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-    {{ $createDateHuman := .Date | time.Format "2006-01-02 15:04:05" }}
-    {{ $filePath := .File.Path }}
-    {{ $stat := os.Stat $filePath }}
-    {{ $updateDateMachine := $stat.ModTime | time.Format "2006-01-02T15:04:05-07:00" }}
-    {{ $updateDateHuman := $stat.ModTime | time.Format "2006-01-02 15:04:05"  }}
-    <time class="post-date" datetime="{{ $createDateMachine }}">{{ $createDateHuman }}</time>
-    <time class="post-date" datetime="{{ $updateDateMachine }}">{{ $updateDateHuman }}</time>
+    <div class="article-dates">
+        {{ $createDateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ $createDateHuman := .Date | time.Format "2006-01-02 15:04:05" }}
+        {{ $filePath := .File.Path }}
+        {{ $stat := os.Stat $filePath }}
+        {{ $updateDateMachine := $stat.ModTime | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ $updateDateHuman := $stat.ModTime | time.Format "2006-01-02 15:04:05"  }}
+        <time class="article-date-item" datetime="{{ $createDateMachine }}">创建 {{ $createDateHuman }}</time>
+        <time class="article-date-item" datetime="{{ $updateDateMachine }}">更新 {{ $updateDateHuman }}</time>
+    </div>
+    <div class="article-tags">{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
+
 </div>
-<div class="article-note">本文内容将不定期修订完善，引用或转载时，敬请标注内容更新时间，并明确注明原作者及来源信息。</div>
+<div class="article-note">本文内容将不定期修订完善，引用或转载时，请以本文最新版本为准，并明确注明作者及地址。</div>
 <div class="article-divider"></div>
 <div class="article-content">{{ .Content }}</div>
 <div class="article-divider"></div>
