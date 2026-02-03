@@ -51,3 +51,18 @@ footer:
       other: "天"
     hour:
       other: "时"
+article:
+  prevPost:
+    other: "上一篇"
+  nextPost:
+    other: "下一篇"
+  reward:
+    other: "支持作者"
+  share:
+    other: "分享文章"
+  note:
+    other: "本文内容将不定期修订与完善，请以最新版本为准。转载或引用本文内容时，请明确注明作者及原文链接。"
+  createdTime:
+    other: "创建时间"
+  updatedTime:
+    other: "更新时间"

@@ -51,3 +51,18 @@ footer:
       other: "day"
     hour:
       other: "hour"
+article:
+  prevPost:
+    other: "Previous"
+  nextPost:
+    other: "Next"
+  reward:
+    other: "Donate"
+  share:
+    other: "Share"
+  note:
+    other: "This article is continuously updated and revised. The latest version shall prevail. Reproduction or citation requires clear attribution to the author and a link to the original source."
+  createdTime:
+    other: "Published"
+  updatedTime:
+    other: "Updated"

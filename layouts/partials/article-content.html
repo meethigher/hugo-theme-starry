@@ -7,34 +7,34 @@
         {{ $stat := os.Stat $filePath }}
         {{ $updateDateMachine := $stat.ModTime | time.Format "2006-01-02T15:04:05-07:00" }}
         {{ $updateDateHuman := $stat.ModTime | time.Format "2006-01-02 15:04:05"  }}
-        <time class="article-date-item" datetime="{{ $createDateMachine }}">创建 {{ $createDateHuman }}</time>
-        <time class="article-date-item" datetime="{{ $updateDateMachine }}">更新 {{ $updateDateHuman }}</time>
+        <time class="article-date-item" datetime="{{ $createDateMachine }}">{{ i18n "article.createdTime" }} {{ $createDateHuman }}</time>
+        <time class="article-date-item" datetime="{{ $updateDateMachine }}">{{ i18n "article.updatedTime" }} {{ $updateDateHuman }}</time>
     </div>
     <div class="article-tags">{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
 
 </div>
-<div class="article-note">本文内容将不定期修订完善，引用或转载时，请以本文最新版本为准，并明确注明作者及地址。</div>
+<div class="article-note">{{ i18n "article.note" }}</div>
 <div class="article-divider"></div>
 <div class="article-content">{{ .Content }}</div>
 <div class="article-divider"></div>
 <div class="article-nav">
     {{ with .NextInSection }}
     <div class="item" onclick="this.querySelector('a').click()">
-        <div class="item-key">上一篇</div>
+        <div class="item-key">{{ i18n "article.prevPost" }}</div>
         <a class="item-value" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </div>
     {{ end }}
 
     {{ with .PrevInSection }}
     <div class="item" onclick="this.querySelector('a').click()">
-        <div class="item-key">下一篇</div>
+        <div class="item-key">{{ i18n "article.nextPost" }}</div>
         <a class="item-value" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </div>
     {{ end }}
 </div>
 <div class="article-btn">
-    <button class="btn">打赏作者</button>
-    <button class="btn">分享链接</button>
+    <button class="btn">{{ i18n "article.reward" }}</button>
+    <button class="btn">{{ i18n "article.share" }}</button>
 </div>
 {{- if and .Site.Params.Starry.varGitalkEnable .Params.comments }}
 <div id="article-gitalk"></div>
