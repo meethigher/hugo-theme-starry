@@ -1,9 +1,14 @@
 .main-container {
 
-
   .article {
     margin: $header-height/2 auto;
     gap: 20px;
+  }
+
+  .article-divider {
+    margin: 2rem auto;
+    height: 0.0625rem;
+    background: linear-gradient(to right, transparent, var(--color-border), transparent);
   }
 
   .article-nav {
@@ -19,7 +24,7 @@
     min-width: 0;
     border-radius: $default-border-radius;
     border: $default-border-size solid var(--color-border);
-    background-color: var(--color-bg);
+    background-color: var(--color-btn-bg);
     transition: transform $default-transition-time ease;
   }
 
@@ -72,7 +77,7 @@
     min-width: 0;
     border-radius: $default-border-radius;
     border: $default-border-size solid var(--color-border);
-    background-color: var(--color-bg);
+    background-color: var(--color-btn-bg);
     transition: transform $default-transition-time ease;
   }
 

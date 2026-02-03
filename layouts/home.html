@@ -1,51 +1,52 @@
 {{ define "main" }}
   {{ $paginator := .Paginate (where site.RegularPages "Type" "post") }}
-    {{ range $paginator.Pages }}
+    <div class="posts">
+        {{ range $paginator.Pages }}
         <div class="post">
             <a class="post-title" href="{{ .RelPermalink }}">{{ if eq .Params.state "top" }}[{{ i18n "post_state_top" }}] {{ end }}{{ if eq .Params.state "draft" }}[{{ i18n "post_state_draft" }}] {{ end }}{{ .LinkTitle }}</a>
-            <div class="post-date">{{ .Date.Format "2006-01-02 15:04:05" }}</div>
+            <time class="post-date" datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2006-01-02 15:04:05" }}</time>
             {{ with .Params.tags }}
             <div class="post-tags">
-                  {{ range . }}
-                  <a href="{{ relURL (printf "tags/%s/" (. | urlize)) }}" class="tag">{{ . }}</a>
+                {{ range . }}
+                <a href="{{ relURL (printf "tags/%s/" (. | urlize)) }}" class="tag">{{ . }}</a>
                 {{ end }}
-              </div>
+            </div>
             {{ end }}
             <div class="post-summary">{{ .Summary }}</div>
         </div>
-    {{ end }}
-
-    <div class="pagination">
-        {{ $total := $paginator.TotalPages }}
-        {{ $current := $paginator.PageNumber }}
-
-        {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}" class="prev">{{ i18n "page.prev" }}</a>
         {{ end }}
+        <div class="pagination">
+            {{ $total := $paginator.TotalPages }}
+            {{ $current := $paginator.PageNumber }}
 
-        {{ if ne $current 1 }}
-        {{ $firstPage := index $paginator.Pagers 0 }}
-        <a href="{{ $firstPage.URL }}">1</a>
-        {{ end }}
+            {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}" class="prev">{{ i18n "page.prev" }}</a>
+            {{ end }}
 
-        {{ if gt $current 2 }}
-        <span class="dots">...</span>
-        {{ end }}
+            {{ if ne $current 1 }}
+            {{ $firstPage := index $paginator.Pagers 0 }}
+            <a href="{{ $firstPage.URL }}">1</a>
+            {{ end }}
 
-        <a class="current">{{ $current }}</a>
+            {{ if gt $current 2 }}
+            <span class="dots">...</span>
+            {{ end }}
 
-        {{ if lt $current (sub $total 1) }}
-        <span class="dots">...</span>
-        {{ end }}
+            <a class="current">{{ $current }}</a>
 
-        {{ if ne $current $total }}
-        {{ $lastPage := index $paginator.Pagers (sub $total 1) }}
-        <a href="{{ $lastPage.URL }}">{{ $total }}</a>
-        {{ end }}
+            {{ if lt $current (sub $total 1) }}
+            <span class="dots">...</span>
+            {{ end }}
 
-        {{ if $paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}" class="next">{{ i18n "page.next" }}</a>
-        {{ end }}
+            {{ if ne $current $total }}
+            {{ $lastPage := index $paginator.Pagers (sub $total 1) }}
+            <a href="{{ $lastPage.URL }}">{{ $total }}</a>
+            {{ end }}
 
+            {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}" class="next">{{ i18n "page.next" }}</a>
+            {{ end }}
+
+        </div>
     </div>
 {{ end }}
