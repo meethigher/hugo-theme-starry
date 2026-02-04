@@ -33,8 +33,8 @@
     {{ end }}
 </div>
 <div class="article-btn">
-    <button class="btn">{{ i18n "article.reward" }}</button>
-    <button class="btn">{{ i18n "article.share" }}</button>
+    <button class="btn" id="rewardBtn">{{ i18n "article.reward" }}</button>
+    <button class="btn" id="shareBtn">{{ i18n "article.share" }}</button>
 </div>
 {{- if and .Site.Params.Starry.varGitalkEnable .Params.comments }}
 <div id="article-gitalk"></div>

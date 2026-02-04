@@ -1,7 +1,7 @@
+@import "config/var-scss";
 @import "config/var-css";
 @import "config/var-css-code-light";
 @import "config/var-css-code-dark";
-@import "config/var-scss";
 @import "config/reset";
 
 @import "partials/scroll";
@@ -12,6 +12,7 @@
 @import "partials/main-article";
 @import "partials/main-posts";
 @import "partials/footer";
+@import "partials/interaction";
 
 .header-container, .main-container, .footer-container {
   max-width: 75rem;

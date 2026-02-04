@@ -38,7 +38,6 @@
         xhr.send(href);
     };
 
-
     Starry.prototype.funcInit = function () {
         this.funcBindEvents();
         this.funcApplyTheme();
@@ -73,6 +72,22 @@
         return {years, days, hours};
     };
 
+    Starry.prototype.funcShowToast = function (toastId, duration = 1, message) {
+        var toast = document.getElementById(toastId);
+        if (!toast) {
+            return;
+        }
+        if (toast.classList.contains("active")) {
+            return;
+        }
+        if (message) {
+            toast.querySelector("span").textContent = message;
+        }
+        toast.classList.add("active");
+        setTimeout(function () {
+            toast.classList.remove("active");
+        }, duration * 1000);
+    };
 
     Starry.prototype.funcStartProgress = function (url) {
         if (this.varConfiguration.varProgressEnable) {
@@ -200,6 +215,21 @@
                         statsValue.innerText = data;
                     }
                 });
+        }
+
+        // 分享按钮
+        let shareBtn = document.getElementById("shareBtn");
+        if (shareBtn) {
+            shareBtn.addEventListener("click", e => {
+                const self = this;
+                navigator.clipboard.writeText(`${document.title}: ${window.location.href}`)
+                    .then(function () {
+                        self.funcShowToast("shareBtnToastSuccess");
+                    })
+                    .catch(function () {
+                        self.funcShowToast("shareBtnToastError");
+                    });
+            });
         }
 
     };
