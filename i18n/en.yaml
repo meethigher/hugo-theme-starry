@@ -46,11 +46,11 @@ footer:
     title:
       other: "Time running until now"
     year:
-      other: "year"
+      other: "y"
     day:
-      other: "day"
+      other: "d"
     hour:
-      other: "hour"
+      other: "h"
 article:
   prevPost:
     other: "Previous"
@@ -66,3 +66,9 @@ article:
     other: "Published"
   updatedTime:
     other: "Updated"
+interaction:
+  share:
+    success:
+      other: "Link copied successfully"
+    error:
+      other: "Failed to copy the link. Please try again or use a different browser"
