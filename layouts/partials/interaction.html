@@ -5,4 +5,13 @@
     <div class="toast toast-error" id="shareBtnToastError">
         <span>{{ i18n "interaction.share.error" }}</span>
     </div>
+    <div class="modal-overlay" id="rewardBtnModal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-title">感谢您的认可</div>
+            <div class="model-subtitle">扫描二维码支持作者</div>
+            <img src="{{ "reward.jpg" | relURL }}" class="qrcode">
+            <div class="modal-note">当您觉得本文有价值时，再打赏（备注文章内容），这会是一种鼓励与肯定</div>
+        </div>
+    </div>
 </div>
