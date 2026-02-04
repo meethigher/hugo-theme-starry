@@ -17,6 +17,7 @@
 <div class="article-divider"></div>
 <div class="article-content">{{ .Content }}</div>
 <div class="article-divider"></div>
+{{ if or .NextInSection .PrevInSection }}
 <div class="article-nav">
     {{ with .NextInSection }}
     <div class="item" onclick="this.querySelector('a').click()">
@@ -32,6 +33,8 @@
     </div>
     {{ end }}
 </div>
+{{ end }}
+
 <div class="article-btn">
     <button class="btn" id="rewardBtn">{{ i18n "article.reward" }}</button>
     <button class="btn" id="shareBtn">{{ i18n "article.share" }}</button>
