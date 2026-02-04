@@ -6,7 +6,9 @@
         this.config = {
             themeKey: key,
             themeValue: value,
-            starryId: "starry"
+            starryId: "starry",
+            lockedScrollTopPoint: 0,
+            locked: false
         };
         this.startTime = performance.now();
     }
@@ -72,8 +74,30 @@
         return {years, days, hours};
     };
 
+    Starry.prototype.funcLockScrollTop = function () {
+        if (!this.config.locked) {
+            this.config.locked = true;
+            this.config.lockedScrollTopPoint = global.scrollY;
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${this.config.lockedScrollTopPoint}px`;
+            document.body.style.width = "100%";
+        }
+    };
+
+    Starry.prototype.funcUnlockScrollTop = function () {
+        if (this.config.locked) {
+            this.config.locked = false;
+
+            document.body.style.position = "";
+            document.body.style.top = "";
+            document.body.style.width = "";
+
+            window.scrollTo(0, this.config.lockedScrollTopPoint);
+        }
+    };
+
     Starry.prototype.funcShowToast = function (toastId, duration = 1, message) {
-        var toast = document.getElementById(toastId);
+        const toast = document.getElementById(toastId);
         if (!toast) {
             return;
         }
@@ -87,6 +111,47 @@
         setTimeout(function () {
             toast.classList.remove("active");
         }, duration * 1000);
+    };
+
+
+    Starry.prototype.funcShowModal = function (modalId) {
+        const self = this;
+        const modal = document.getElementById(modalId);
+        if (!modal) {
+            return;
+        }
+        if (modal.classList.contains("active")) {
+            return;
+        }
+        modal.classList.add("active");
+
+        const closeBtn = modal.querySelector("button");
+        if (closeBtn) {
+            closeBtn.onclick = function () {
+                self.funcCloseModal(modalId);
+            };
+        }
+        modal.onclick = function (e) {
+            if (e.target === modal) {
+                self.funcCloseModal(modalId);
+            }
+        };
+        document.onkeydown = function (e) {
+            if (e.key === "Escape") {
+                self.funcCloseModal(modalId);
+            }
+        };
+
+        self.funcLockScrollTop();
+    };
+
+    Starry.prototype.funcCloseModal = function (modalId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) {
+            return;
+        }
+        modal.classList.remove("active");
+        this.funcUnlockScrollTop();
     };
 
     Starry.prototype.funcStartProgress = function (url) {
@@ -229,6 +294,14 @@
                     .catch(function () {
                         self.funcShowToast("shareBtnToastError");
                     });
+            });
+        }
+
+        // 打赏按钮
+        let rewardBtn = document.getElementById("rewardBtn");
+        if (rewardBtn) {
+            rewardBtn.addEventListener("click", e => {
+                this.funcShowModal("rewardBtnModal");
             });
         }
 
