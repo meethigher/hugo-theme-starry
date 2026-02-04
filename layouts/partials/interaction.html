@@ -8,10 +8,10 @@
     <div class="modal-overlay" id="rewardBtnModal">
         <div class="modal-content">
             <button class="modal-close">×</button>
-            <div class="modal-title">感谢您的认可</div>
-            <div class="model-subtitle">扫描二维码支持作者</div>
+            <div class="modal-title">{{ i18n "interaction.reward.title" }}</div>
+            <div class="model-subtitle">{{ i18n "interaction.reward.subtitle" }}</div>
             <img src="{{ "reward.jpg" | relURL }}" class="qrcode">
-            <div class="modal-note">当您觉得本文有价值时，再打赏（备注文章内容），这会是一种鼓励与肯定</div>
+            <div class="modal-note">{{ i18n "interaction.reward.note" }}</div>
         </div>
     </div>
 </div>

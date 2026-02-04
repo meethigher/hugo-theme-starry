@@ -72,3 +72,7 @@ interaction:
       other: "链接已成功复制"
     error:
       other: "复制链接失败，请重试或者更换浏览器"
+  reward:
+    title: "感谢您的认可"
+    subtitle: "扫描二维码支持作者"
+    note: "当您觉得本文有价值时，再打赏（备注文章内容），这会是一种鼓励与肯定"

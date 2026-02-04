@@ -72,3 +72,7 @@ interaction:
       other: "Link copied successfully"
     error:
       other: "Failed to copy the link. Please try again or use a different browser"
+  reward:
+    title: "Thank you for your support"
+    subtitle: "Scan the QR code to support the author"
+    note: "If you find this article valuable, consider tipping (with the article title as a note) as a form of encouragement and appreciation"
