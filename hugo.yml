@@ -1,7 +1,7 @@
 # 自定义参数
 params:
   logoTitle: "hugo-theme-starry"
-  logoSubTitle: "夜空把所有的光都藏了起来，只留下星星，在黑暗里一遍一遍地想你"
+  logoSubTitle: "The night sky hides all the light away, leaving only the stars to think of you again and again in the darkness."
   starry:
     # true 表示启用背景 starry
     varStarryEnable: true
@@ -58,45 +58,28 @@ outputs:
     - html
     - json
 permalinks:
-  # 设置文章的链接
+  # 配置 archives 文件下的 url 格式
   archives: /:year/:contentbasename/
-  # 每页的格式
-  page: /page/:contentbasename/
 menus:
   main:
-    - name: 首页
+    - name: Home
       pageRef: /
       weight: 10
-    - name: 归档
-      pageRef: /archives
-      weight: 30
-    - name: 标签
-      # 该路径在程序中是写死的，不建议修改
+    - name: Tags
       pageRef: /tags
       weight: 20
-    - name: 关于
-      pageRef: /about
-      weight: 40
-    - name: 关于1
-      pageRef: /about
-      weight: 40
-    - name: 关于2
-      pageRef: /about
-      weight: 40
-    - name: 关于3
-      pageRef: /about
-      weight: 40
-    - name: 关于4
-      pageRef: /about
-      weight: 40
-    - name: 关于5
-      pageRef: /about
-      weight: 40
-    - name: 关于6
+    - name: Categories
+      pageRef: /categories
+      weight: 19
+    # 以下均为自定义项，pageRef 对应文件夹名或者文件名
+    - name: Archives
+      pageRef: /archives
+      weight: 30
+    - name: About
       pageRef: /about
       weight: 40
 markup:
-  # 生成目录 h 标签 level
+  # 生成目录时的 h 标签范围，[startLevel, endLevel]
   tableOfContents:
     startLevel: 1
     endLevel: 6

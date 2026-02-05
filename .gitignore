@@ -3,6 +3,8 @@ blog/
 dist/
 public/
 resources/
+hugo/
+hugo-offline-docs/
 .hugo_build.lock
 *.exe
 hugo
