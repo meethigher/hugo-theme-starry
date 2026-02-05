@@ -3,7 +3,7 @@
 {{ if gt (len .TableOfContents) 32 }}
 <div class="article article-two-col">
     <div class="article-left">
-        {{ partial "article-content.html" . }}
+        {{ partial "single-content.html" . }}
     </div>
     <div id="toc" class="article-right">
         <div class="toc-title">{{ i18n "toc"}}</div>
@@ -13,7 +13,7 @@
 {{ else }}
 <div class="article article-one-col">
     <div class="article-left">
-        {{ partial "article-content.html" . }}
+        {{ partial "single-content.html" . }}
     </div>
 </div>
 {{ end }}

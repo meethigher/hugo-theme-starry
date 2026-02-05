@@ -9,10 +9,11 @@
 @import "partials/progress";
 @import "partials/sidebar";
 @import "partials/header";
-@import "partials/main-article";
-@import "partials/main-posts";
 @import "partials/footer";
 @import "partials/interaction";
+@import "home";
+@import "single";
+
 
 .header-container, .main-container, .footer-container {
   max-width: 75rem;

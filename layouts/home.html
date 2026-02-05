@@ -8,7 +8,7 @@
             {{ $ctx := . }}
             {{ with .Params.tags }}
             <div class="post-tags">
-                {{ partial "terms.html" (dict "taxonomy" "tags" "page" $ctx) }}
+                {{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" $ctx) }}
             </div>
             {{ end }}
             <div class="post-summary">{{ .Summary }}</div>

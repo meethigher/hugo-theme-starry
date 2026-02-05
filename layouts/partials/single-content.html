@@ -10,7 +10,7 @@
         <time class="article-date-item" datetime="{{ $createDateMachine }}">{{ i18n "article.createdTime" }} {{ $createDateHuman }}</time>
         <time class="article-date-item" datetime="{{ $updateDateMachine }}">{{ i18n "article.updatedTime" }} {{ $updateDateHuman }}</time>
     </div>
-    <div class="article-tags">{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
+    <div class="article-tags">{{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
 
 </div>
 <div class="article-note">{{ i18n "article.note" }}</div>
