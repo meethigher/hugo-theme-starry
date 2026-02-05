@@ -1,12 +1,25 @@
 {{- /*
-.LinkTitle 会自动对术语进行规范化（Canonicalize）。比如 hugo --> Hugo
+在page或者taxonomy页遍历渲染标签
+.LinkTitle .Title 会自动对术语进行规范化（Canonicalize）。比如 hugo --> Hugo
+https://gohugo.io/methods/page/kind/
 */}}
 
 {{- $page := .page }}
 {{- $taxonomy := .taxonomy }}
 
-{{- with $page.GetTerms $taxonomy }}
-{{- range . }}
-<a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-{{- end }}
-{{- end }}
+{{ if eq $page.Kind "page" }}
+    {{- with $page.GetTerms $taxonomy }}
+    {{- range . }}
+    <a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{- end }}
+    {{- end }}
+{{ else if eq $page.Kind "taxonomy" }}
+    {{ range $page.Pages.ByDate.Reverse }}
+    <div class="tag-card">
+        <a class="tag-name" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="tag-count">{{ len .Pages }}</span>
+    </div>
+    {{ end }}
+{{ end }}
+
+

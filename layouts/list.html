@@ -1,12 +1,10 @@
 {{ define "main" }}
-<h1>{{ .Pages }}</h1>
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range (.Pages.ByDate.Reverse) }}
-    <h2><a href="{{ .RelPermalink }}">{{ if eq .Params.state "top" }}[{{ i18n "post_state_top" }}] {{ end }}{{ if eq .Params.state "draft" }}[{{ i18n "post_state_draft" }}] {{ end }}{{ .LinkTitle }}</a></h2>
-    {{ if ne $.Section "tags" }}
-    <p class="post-date">{{ .Date.Format "2006-01-02 15:04:05" }}</p>
-    {{ end }}
-    {{ .Summary }}
+  {{ if eq .Kind "taxonomy" }}
+  {{ partial "list-taxonomy.html" . }}
+  {{ else if eq .Kind "term" }}
+  {{ partial "list-term.html" . }}
+  {{ else if eq .Kind "section" }}
+  {{ partial "list-section.html" . }}
   {{ end }}
 {{ end }}
+
