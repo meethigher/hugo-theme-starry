@@ -1,7 +1,8 @@
 ---
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
-date: '{{ .Date.Format "2006-01-02 15:04:05" }}'
+date: '{{ now.Format "2006-01-02 15:04:05" }}'
 type: post
+categories: []
 tags: []
 draft: false
 comments: false
@@ -13,6 +14,7 @@ weight: 999999
 参数说明如下
 
 * type: post在该主题中，表示是博客类型，会在首页与归档页展示
+* categories: []表示该文章的分类，多个使用英文逗号分隔
 * tags: []表示该文章的标签，英文逗号分隔
 * draft: true表示该文章不生成html
 * comments: false表示该文章不显示评论
