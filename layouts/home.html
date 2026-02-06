@@ -3,9 +3,15 @@
     <div class="posts">
         {{ range $paginator.Pages }}
         <div class="post">
+            {{ $ctx := . }}
+            {{ with .Params.categories }}
+            <div class="post-categories">
+                {{ partial "tag-terms.html" (dict "taxonomy" "categories" "page" $ctx) }}
+            </div>
+            {{ end }}
             <a class="post-title" href="{{ .RelPermalink }}">{{ if eq .Params.state "top" }}[{{ i18n "post_state_top" }}] {{ end }}{{ if eq .Params.state "draft" }}[{{ i18n "post_state_draft" }}] {{ end }}{{ .LinkTitle }}</a>
             <time class="post-date" datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2006-01-02 15:04:05" }}</time>
-            {{ $ctx := . }}
+
             {{ with .Params.tags }}
             <div class="post-tags">
                 {{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" $ctx) }}

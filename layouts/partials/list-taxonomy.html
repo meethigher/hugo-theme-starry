@@ -1,4 +1,10 @@
-<div class="taxnomy-nav"></div>
-<div class="taxnomy-tags">
+<div class="taxonomy-nav">
+    <div class="taxonomy-total">{{ title .Data.Plural }} - 总数 {{ .Pages.Len }}</div>
+    <select class="taxonomy-sort" id="taxonomySort">
+        <option value="countDesc">数量倒序</option>
+        <option value="nameAsc">名称升序</option>
+    </select>
+</div>
+<div class="taxonomy-term">
     {{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" .) }}
 </div>

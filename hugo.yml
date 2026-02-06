@@ -40,7 +40,7 @@ params:
 title: "hugo-theme-starry"
 baseURL: https://meethigher.top/blog/
 # 控制 html lang 以及 i18n
-languageCode: zh-CN
+languageCode: en
 # 默认值为 false，可省略。若为 true，则使用丑陋 url。丑陋 url:/index.html，美观 url: /index/
 # 该内容会影响到相对路径静态资源的加载, 故不建议修改。
 uglyURLs: false

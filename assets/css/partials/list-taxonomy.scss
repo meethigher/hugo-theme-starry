@@ -1,0 +1,54 @@
+.taxonomy-nav {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 1.875rem auto;
+
+
+  .taxonomy-total {
+    font-size: .85rem;
+    color: var(--color-text);
+    margin-right: auto;
+  }
+
+  .taxonomy-sort {
+    padding: .35rem .8rem;
+    font-size: .8rem;
+    cursor: pointer;
+    border-radius: $default-border-radius;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+  }
+}
+
+.taxonomy-term {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($default-taxonomy-min, 1fr));
+  gap: 1.25rem;
+
+  .tag-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: $default-border-radius;
+    box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
+    padding: 1.15rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    @include hover-lift;
+  }
+
+  .tag-name {
+    font-size: .95rem;
+    font-weight: bold;
+  }
+
+  .tag-count {
+    align-self: flex-start;
+    font-size: .8rem;
+    padding: .25rem .6rem;
+    border-radius: 999px;
+    background-color: var(--color-btn-bg);
+  }
+
+}

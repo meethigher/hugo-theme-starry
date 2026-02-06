@@ -14,7 +14,7 @@ https://gohugo.io/methods/page/kind/
     {{- end }}
     {{- end }}
 {{ else if eq $page.Kind "taxonomy" }}
-    {{ range $page.Pages.ByDate.Reverse }}
+    {{ range sort $page.Pages "Pages" "desc" }}
     <div class="tag-card">
         <a class="tag-name" href="{{ .RelPermalink }}">{{ .Title }}</a>
         <span class="tag-count">{{ len .Pages }}</span>

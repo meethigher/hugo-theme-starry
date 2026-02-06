@@ -30,7 +30,8 @@
       font-size: 1.5rem;
     }
 
-    .post-tags {
+
+    .post-tags,.post-categories {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -43,6 +44,10 @@
         border-radius: 12px;
         font-size: 0.5rem;
       }
+    }
+
+    .post-categories .tag {
+      background-color: var(--color-table-header-bg);
     }
 
 
