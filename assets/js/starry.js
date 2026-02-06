@@ -305,6 +305,52 @@
             });
         }
 
+        // taxonomy 排序
+        const sortSelect = document.getElementById("taxonomySort");
+        const termContainer = document.getElementById("taxonomyTerm");
+        if (sortSelect && termContainer) {
+            const originalCards = Array.from(termContainer.children);
+            sortSelect.addEventListener("change", function () {
+                const cardList = [...originalCards];
+                if (this.value === "nameAsc") {
+                    cardList.sort((a, b) => {
+                        const nA = a.querySelector(".tag-name").textContent.trim();
+                        const nB = b.querySelector(".tag-name").textContent.trim();
+                        return nA.localeCompare(nB, "zh-CN", {sensitivity: "base"});
+                    });
+                } else {
+                    cardList.sort((a, b) => {
+                        const cA = parseInt(a.querySelector(".tag-count").textContent);
+                        const cB = parseInt(b.querySelector(".tag-count").textContent);
+                        return cB - cA;
+                    });
+                }
+                const fragment = document.createDocumentFragment();
+                cardList.forEach(c => fragment.appendChild(c));
+                termContainer.innerHTML = "";
+                termContainer.appendChild(fragment);
+            });
+        }
+
+        // section 排序
+        const secSortSelect = document.getElementById("sectionSort");
+        const secTermContainer = document.getElementById("sectionTerm");
+        if (secSortSelect && secTermContainer) {
+            const originalCards = Array.from(secTermContainer.children);
+            secSortSelect.addEventListener("change", function () {
+                const cardList = [...originalCards];
+                cardList.sort((a, b) => {
+                    const tA = new Date(a.querySelector(".section-time").textContent.trim()).getTime();
+                    const tB = new Date(b.querySelector(".section-time").textContent.trim()).getTime();
+                    return this.value === "timeAsc" ? tA - tB : tB - tA;
+                });
+                const fragment = document.createDocumentFragment();
+                cardList.forEach(c => fragment.appendChild(c));
+                secTermContainer.innerHTML = "";
+                secTermContainer.appendChild(fragment);
+            });
+        }
+
     };
 
     Starry.prototype.funcApplyTheme = function () {

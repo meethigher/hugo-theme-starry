@@ -43,7 +43,7 @@
             <span class="dots">...</span>
             {{ end }}
 
-            {{ if ne $current $total }}
+            {{ if and (ne $current $total) (ne $total 0) }}
             {{ $lastPage := index $paginator.Pagers (sub $total 1) }}
             <a href="{{ $lastPage.URL }}">{{ $total }}</a>
             {{ end }}

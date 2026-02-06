@@ -15,9 +15,10 @@ https://gohugo.io/methods/page/kind/
     {{- end }}
 {{ else if eq $page.Kind "taxonomy" }}
     {{ range sort $page.Pages "Pages" "desc" }}
-    <div class="tag-card">
+    <div class="tag-card" onclick="this.querySelector('a').click()">
         <a class="tag-name" href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <span class="tag-count">{{ len .Pages }}</span>
+        {{ $total := len .Pages }}
+        <span class="tag-count">{{ i18n "list.count" (dict "Count" $total) }}</span>
     </div>
     {{ end }}
 {{ end }}

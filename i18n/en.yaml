@@ -32,8 +32,6 @@ page:
     other: "Previous page"
   next:
     other: "Next page"
-toc:
-  other: "Outline"
 footer:
   stats:
     key:
@@ -52,6 +50,8 @@ footer:
     hour:
       other: "h"
 single:
+  toc:
+    other: "Outline"
   prevPost:
     other: "Previous"
   nextPost:
@@ -66,6 +66,20 @@ single:
     other: "Published"
   updatedTime:
     other: "Updated"
+list:
+  count:
+    one: "{{ .Count }} article"
+    other: "{{ .Count }} articles"
+  taxonomy:
+    countDesc:
+      other: "Desc by Quantity"
+    nameAsc:
+      other: "Asc by Name"
+  section:
+    timeDesc:
+      other: "Desc by Date"
+    timeAsc:
+      other: "Asc by Date"
 interaction:
   share:
     success:

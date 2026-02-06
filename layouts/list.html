@@ -1,10 +1,48 @@
 {{ define "main" }}
   {{ if eq .Kind "taxonomy" }}
-  {{ partial "list-taxonomy.html" . }}
-  {{ else if eq .Kind "term" }}
-  {{ partial "list-term.html" . }}
-  {{ else if eq .Kind "section" }}
-  {{ partial "list-section.html" . }}
+      <div class="taxonomy-nav">
+        <div class="taxonomy-total">
+          {{ title .Data.Plural }} - {{ .Pages.Len }}
+        </div>
+        <select class="taxonomy-sort" id="taxonomySort">
+          <option value="countDesc">{{ i18n "list.taxonomy.countDesc" }}</option>
+          <option value="nameAsc">{{ i18n "list.taxonomy.nameAsc" }}</option>
+        </select>
+      </div>
+      <div class="taxonomy-term" id="taxonomyTerm">
+        {{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" .) }}
+      </div>
+  {{ else if or (eq .Kind "term") (eq .Kind "section") }}
+      {{- $title := "" -}}
+      {{- if eq .Kind "term" -}}
+      {{- $title = printf "%s %s" (title .Data.Singular) .Title -}}
+      {{- else -}}
+      {{- $title = .Title -}}
+      {{- end -}}
+
+      <div class="section-nav">
+        <div class="section-total">
+          {{ $title }} - {{ i18n "list.count" (dict "Count" .Pages.Len) }}
+        </div>
+        <select class="section-sort" id="sectionSort">
+          <option value="timeDesc">{{ i18n "list.section.timeDesc" }}</option>
+          <option value="timeAsc">{{ i18n "list.section.timeAsc" }}</option>
+        </select>
+      </div>
+
+      <div class="section-term" id="sectionTerm">
+        {{ range .Pages.ByDate.Reverse }}
+        <div class="section-card" onclick="this.querySelector('a').click()">
+          <a class="section-title" href="{{ .RelPermalink }}">
+            {{ if eq .Params.state "top" }}[{{ i18n "post_state_top" }}] {{ end }}
+            {{ if eq .Params.state "draft" }}[{{ i18n "post_state_draft" }}] {{ end }}
+            {{ .LinkTitle }}
+          </a>
+          <span class="section-time">
+            {{ .Date.Format "2006-01-02 15:04:05" }}
+          </span>
+        </div>
+        {{ end }}
+      </div>
   {{ end }}
 {{ end }}
-

@@ -32,8 +32,6 @@ page:
     other: "上一页"
   next:
     other: "下一页"
-toc:
-  other: "目录大纲"
 footer:
   stats:
     key:
@@ -52,6 +50,8 @@ footer:
     hour:
       other: "时"
 single:
+  toc:
+    other: "目录大纲"
   prevPost:
     other: "上一篇"
   nextPost:
@@ -66,6 +66,20 @@ single:
     other: "创建时间"
   updatedTime:
     other: "更新时间"
+list:
+  count:
+    one: "{{ .Count }} 篇"
+    other: "{{ .Count }} 篇"
+  taxonomy:
+    countDesc:
+      other: "数量倒序"
+    nameAsc:
+      other: "名称升序"
+  section:
+    timeDesc:
+      other: "时间倒序"
+    timeAsc:
+      other: "时间升序"
 interaction:
   share:
     success:
