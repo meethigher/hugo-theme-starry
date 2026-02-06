@@ -1,46 +1,46 @@
-<div class="article-title">{{ .Title }}</div>
-<div class="article-meta">
-    <div class="article-dates">
+<div class="single-title">{{ .Title }}</div>
+<div class="single-meta">
+    <div class="single-dates">
         {{ $createDateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
         {{ $createDateHuman := .Date | time.Format "2006-01-02 15:04:05" }}
         {{ $filePath := .File.Path }}
         {{ $stat := os.Stat $filePath }}
         {{ $updateDateMachine := $stat.ModTime | time.Format "2006-01-02T15:04:05-07:00" }}
         {{ $updateDateHuman := $stat.ModTime | time.Format "2006-01-02 15:04:05"  }}
-        <time class="article-date-item" datetime="{{ $createDateMachine }}">{{ i18n "article.createdTime" }} {{ $createDateHuman }}</time>
-        <time class="article-date-item" datetime="{{ $updateDateMachine }}">{{ i18n "article.updatedTime" }} {{ $updateDateHuman }}</time>
+        <time class="single-date-item" datetime="{{ $createDateMachine }}">{{ i18n "single.createdTime" }} {{ $createDateHuman }}</time>
+        <time class="single-date-item" datetime="{{ $updateDateMachine }}">{{ i18n "single.updatedTime" }} {{ $updateDateHuman }}</time>
     </div>
-    <div class="article-tags">{{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
+    <div class="single-tags">{{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
 
 </div>
-<div class="article-note">{{ i18n "article.note" }}</div>
-<div class="article-divider"></div>
-<div class="article-content">{{ .Content }}</div>
-<div class="article-divider"></div>
+<div class="single-note">{{ i18n "single.note" }}</div>
+<div class="single-divider"></div>
+<div class="single-content">{{ .Content }}</div>
+<div class="single-divider"></div>
 {{ if or .NextInSection .PrevInSection }}
-<div class="article-nav">
+<div class="single-nav">
     {{ with .NextInSection }}
     <div class="item" onclick="this.querySelector('a').click()">
-        <div class="item-key">{{ i18n "article.prevPost" }}</div>
+        <div class="item-key">{{ i18n "single.prevPost" }}</div>
         <a class="item-value" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </div>
     {{ end }}
 
     {{ with .PrevInSection }}
     <div class="item" onclick="this.querySelector('a').click()">
-        <div class="item-key">{{ i18n "article.nextPost" }}</div>
+        <div class="item-key">{{ i18n "single.nextPost" }}</div>
         <a class="item-value" href="{{ .RelPermalink }}">{{ .Title }}</a>
     </div>
     {{ end }}
 </div>
 {{ end }}
 
-<div class="article-btn">
-    <button class="btn" id="rewardBtn">{{ i18n "article.reward" }}</button>
-    <button class="btn" id="shareBtn">{{ i18n "article.share" }}</button>
+<div class="single-btn">
+    <button class="btn" id="rewardBtn">{{ i18n "single.reward" }}</button>
+    <button class="btn" id="shareBtn">{{ i18n "single.share" }}</button>
 </div>
 {{- if and .Site.Params.Starry.varGitalkEnable .Params.comments }}
-<div id="article-gitalk"></div>
+<div id="single-gitalk"></div>
 {{- with resources.Get "css/gitalk-theme.scss" | css.Sass | resources.Minify }}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- end }}
@@ -55,7 +55,7 @@
         admin: {{ .Site.Params.Starry.VarGitalk.admin  }},
         id: "Demo"
     });
-    gitalk.render("article-gitalk");
+    gitalk.render("single-gitalk");
 </script>
 {{- end }}
 

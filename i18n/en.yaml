@@ -51,7 +51,7 @@ footer:
       other: "d"
     hour:
       other: "h"
-article:
+single:
   prevPost:
     other: "Previous"
   nextPost:

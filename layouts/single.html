@@ -1,19 +1,19 @@
 {{ define "main" }}
 <!-- 如果内容为空，hugo 会给生成不含内容的 nav，长度刚好为 32 -->
 {{ if gt (len .TableOfContents) 32 }}
-<div class="article article-two-col">
-    <div class="article-left">
-        {{ partial "single-content.html" . }}
+<div class="single single-two-col">
+    <div class="single-left">
+        {{ partial "single-left.html" . }}
     </div>
-    <div id="toc" class="article-right">
+    <div class="single-right" id="toc">
         <div class="toc-title">{{ i18n "toc"}}</div>
         {{ .TableOfContents | safeHTML }}
     </div>
 </div>
 {{ else }}
-<div class="article article-one-col">
-    <div class="article-left">
-        {{ partial "single-content.html" . }}
+<div class="single single-one-col">
+    <div class="single-left">
+        {{ partial "single-left.html" . }}
     </div>
 </div>
 {{ end }}

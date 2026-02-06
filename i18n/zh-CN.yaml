@@ -51,7 +51,7 @@ footer:
       other: "天"
     hour:
       other: "时"
-article:
+single:
   prevPost:
     other: "上一篇"
   nextPost:
