@@ -19,7 +19,7 @@
 .sidebar-tools {
   position: fixed;
   right: 1.25rem;
-  bottom: $header-height;
+  bottom: 1rem;
   z-index: $z-index-sidebar-tools;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
   }
 
   #searchBtn, #themeToggle, #scrollToTop, #scrollToBottom {
-    opacity: 0;
+    display: none;
   }
 }
 
@@ -72,6 +72,6 @@
   }
 
   #searchBtn, #themeToggle, #scrollToTop, #scrollToBottom {
-    opacity: 1;
+    display: flex;
   }
 }
