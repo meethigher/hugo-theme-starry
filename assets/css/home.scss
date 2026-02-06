@@ -2,7 +2,7 @@
   .posts {
     .post {
       margin: $header-height/2 auto;
-      border-radius: 1rem;
+      border-radius: $default-border-radius;
       box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
       border: $default-border-size solid var(--color-border);
       background-color: var(--color-bg);
@@ -28,10 +28,11 @@
     .post-title {
       font-weight: bold;
       font-size: 1.5rem;
+      padding-bottom: 1rem;
     }
 
 
-    .post-tags,.post-categories {
+    .post-tags, .post-categories {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -41,13 +42,19 @@
         border: 0.0625rem solid var(--color-border);
         padding: 4px 12px;
         background-color: var(--color-btn-bg);
-        border-radius: 12px;
+        border-radius: $default-border-radius;
         font-size: 0.5rem;
       }
     }
 
-    .post-categories .tag {
-      background-color: var(--color-table-header-bg);
+    .post-categories {
+      a, a:hover {
+        color: var(--color-primary-hover);
+      }
+
+      .tag {
+        background-color: var(--color-table-header-bg);
+      }
     }
 
 

@@ -16,6 +16,26 @@
     }
   }
 
+  .single-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    .tag {
+      @include hover-lift;
+      border: 0.0625rem solid var(--color-border);
+      padding: 4px 12px;
+      background-color: var(--color-table-header-bg);
+      border-radius: $default-border-radius;
+      font-size: 0.5rem;
+    }
+
+    a, a:hover {
+      color: var(--color-primary-hover);
+    }
+  }
+
   .single-title {
     font-size: 2rem;
     font-weight: bold;
@@ -51,7 +71,7 @@
         @include hover-lift;
         border: 0.0625rem solid var(--color-border);
         padding: 4px 12px;
-        border-radius: 12px;
+        border-radius: $default-border-radius;
         font-size: 0.5rem;
         background-color: var(--color-btn-bg);
       }
@@ -161,9 +181,18 @@
     }
   }
 
+  .single-left {
+    h1, h2, h3, h4, h5, h6 {
+      margin-inline-start: -2rem;
+      border-inline-start: 10px solid var(--color-border);
+      padding-inline-start: calc(2rem - 10px);
+      position: relative;
+    }
+  }
+
   .single-left,
   .single-right {
-    @include box-style($radius: 1rem, $bg: var(--color-bg));
+    @include box-style($radius: $default-border-radius, $bg: var(--color-bg));
     box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
     @include hover-lift;
   }
