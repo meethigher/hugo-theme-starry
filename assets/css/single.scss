@@ -64,7 +64,7 @@
     }
 
     .single-title {
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: var(--color-text);
       text-align: center;
@@ -120,6 +120,7 @@
             margin-right: 8px;
             border-radius: 50%;
             background: var(--color-blockquote-border);
+            font-family: $default-note-font-family;
           }
         }
       }
@@ -127,7 +128,9 @@
 
     .single-note {
       position: relative;
-      padding: 16px 20px;
+      margin-left: -2rem;
+      margin-right: -2rem;
+      padding: 1rem 2rem;
       border-radius: $default-border-radius;
       font-size: 0.95rem;
       background-color: var(--color-blockquote-bg);
@@ -135,11 +138,11 @@
       &::before {
         content: '"';
         position: absolute;
-        top: -12px;
-        left: 4px;
+        top: -0.75rem;
+        left: 1rem;
         font-size: 3rem;
         color: var(--color-blockquote-border);
-        font-family: Georgia, serif;
+        font-family: $default-note-font-family;
         line-height: 1;
       }
     }
@@ -151,9 +154,11 @@
         border-inline-start: 10px solid var(--color-border);
         padding-inline-start: calc(2rem - 10px);
         position: relative;
+        @include hover-lift;
       }
 
       .post-bookmark {
+        @include hover-lift;
         margin-left: -2rem;
         padding: 0.5rem 2rem;
         display: inline-block;
