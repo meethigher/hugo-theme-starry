@@ -1,91 +1,87 @@
 .main-container {
+  .pagination {
+    margin: $header-height / 2 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.5rem;
+
+    a {
+      padding: 0.5rem 1rem;
+      font-weight: normal;
+      text-decoration: none;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      border: $default-border-size solid var(--color-border);
+      border-radius: $default-border-radius;
+      box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
+
+      &.current {
+        font-weight: bold;
+        background-color: var(--color-btn-bg);
+      }
+    }
+
+
+  }
+
   .posts {
+    a, a:hover {
+      color: var(--color-text);
+      border-bottom-color: var(--color-border);
+    }
+
     .post {
       margin: $header-height / 2 auto;
       padding: 2rem;
       display: grid;
       gap: 20px;
-
       background-color: var(--color-bg);
       border: $default-border-size solid var(--color-border);
       border-radius: $default-border-radius;
       box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
-      transition: transform $default-transition-time ease;
+      @include hover-lift;
 
-      a,
-      a:hover {
-        color: var(--color-text);
-        border-bottom-color: var(--color-border);
-      }
-
-      &:hover {
-        transform: translateY(-0.1875rem);
-      }
-    }
-
-    .post-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      padding-bottom: 1rem;
-    }
-
-    .post-date {
-      font-size: 0.85rem;
-    }
-
-    .post-tags,
-    .post-categories {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-
-      .tag {
-        @include hover-lift;
-        padding: 4px 12px;
-        font-size: 0.5rem;
-
-        border: 0.0625rem solid var(--color-border);
-        border-radius: $default-border-radius;
-        background-color: var(--color-btn-bg);
-      }
-    }
-
-    .post-categories {
-      a,
-      a:hover {
-        color: var(--color-primary-hover);
-      }
-
-      .tag {
-        background-color: var(--color-table-header-bg);
-      }
-    }
-
-    .pagination {
-      margin: $header-height / 2 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.5rem;
-
-      a {
-        padding: 0.5rem 1rem;
-        font-weight: normal;
-        text-decoration: none;
-        color: var(--color-text);
-
-        background-color: var(--color-bg);
-        border: $default-border-size solid var(--color-border);
-        border-radius: $default-border-radius;
-        box-shadow: 0 0.125rem 0.625rem var(--color-shadow);
-      }
-
-      a.current {
+      .post-title {
+        font-size: 1.5rem;
         font-weight: bold;
-        background-color: var(--color-btn-bg);
+        padding-bottom: 1rem;
       }
+
+      .post-date {
+        font-size: 0.85rem;
+      }
+
+      .post-tags, .post-categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .tag {
+          @include hover-lift;
+          padding: 4px 12px;
+          font-size: 0.5rem;
+
+          border: 0.0625rem solid var(--color-border);
+          border-radius: $default-border-radius;
+          background-color: var(--color-btn-bg);
+        }
+      }
+
+      .post-categories {
+        a, a:hover {
+          color: var(--color-primary-hover);
+        }
+
+        .tag {
+          background-color: var(--color-table-header-bg);
+        }
+      }
+
     }
+
+
   }
 }
 
