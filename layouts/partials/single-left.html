@@ -19,7 +19,18 @@
 </div>
 <div class="single-note">{{ i18n "single.note" }}</div>
 <div class="single-divider"></div>
-<div class="single-content">{{ .Content }}</div>
+<div class="single-post">
+    {{ if .Truncated }}
+    {{ $summaryLen := .Summary | len }}
+    <span class="post-bookmark">{{ i18n "single.summary" }}</span>
+    {{ .Summary }}
+    <span class="post-bookmark">{{ i18n "single.content" }}</span>
+    {{ .Content | after $summaryLen | safeHTML }}
+    {{ else }}
+    <span class="post-bookmark">{{ i18n "single.content" }}</span>
+    {{ .Content }}
+    {{ end }}
+</div>
 <div class="single-divider"></div>
 {{ if or .NextInSection .PrevInSection }}
 <div class="single-nav">

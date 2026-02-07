@@ -16,6 +16,34 @@
     }
   }
 
+  .single-post {
+    .post-bookmark {
+      margin-left: -2rem;
+      padding: 0.5rem 2rem;
+      display: inline-block;
+      background-color: var(--color-border);
+      color: var(--color-text);
+      font-weight: bold;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 0.7rem;
+        width: 0;
+        height: 0;
+        border-top: 0 solid transparent;
+        border-right: 1rem solid var(--color-border);
+        border-bottom: 1rem solid transparent;
+        border-left: 0 solid transparent;
+
+      }
+    }
+  }
+
   .single-categories {
     display: flex;
     flex-wrap: wrap;

@@ -66,6 +66,10 @@ single:
     other: "Published"
   updatedTime:
     other: "Updated"
+  summary:
+    other: "Summary"
+  content:
+    other: "Content"
 list:
   count:
     one: "{{ .Count }} article"

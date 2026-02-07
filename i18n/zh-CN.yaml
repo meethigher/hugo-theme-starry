@@ -66,6 +66,10 @@ single:
     other: "创建时间"
   updatedTime:
     other: "更新时间"
+  summary:
+    other: "摘要"
+  content:
+    other: "正文"
 list:
   count:
     one: "{{ .Count }} 篇"
