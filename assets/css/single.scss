@@ -55,7 +55,7 @@
         padding: 4px 12px;
         background-color: var(--color-table-header-bg);
         border-radius: $default-border-radius;
-        font-size: 0.5rem;
+        font-size: $default-font-size-2;
       }
 
       a, a:hover {
@@ -64,7 +64,7 @@
     }
 
     .single-title {
-      font-size: 1.5rem;
+      font-size: $default-font-size-0;
       font-weight: bold;
       color: var(--color-text);
       text-align: center;
@@ -95,7 +95,7 @@
           border: 0.0625rem solid var(--color-border);
           padding: 4px 12px;
           border-radius: $default-border-radius;
-          font-size: 0.5rem;
+          font-size: $default-font-size-2;
           background-color: var(--color-btn-bg);
         }
       }
@@ -109,7 +109,7 @@
         .single-date-item {
           display: flex;
           align-items: center;
-          font-size: 0.5rem;
+          font-size: $default-font-size-2;
           color: var(--color-text);
 
           &::before {
@@ -132,7 +132,7 @@
       margin-right: -2rem;
       padding: 1rem 2rem;
       border-radius: $default-border-radius;
-      font-size: 0.95rem;
+      font-size: $default-font-size-1;
       background-color: var(--color-blockquote-bg);
 
       &::before {
@@ -148,6 +148,23 @@
     }
 
     .single-post {
+
+      display: flex;
+      flex-direction: column;
+      gap: $default-post-gap;
+
+
+      ul, ol {
+        padding-left: 1rem;
+      }
+
+      ul {
+        list-style: disc;
+      }
+
+      ol {
+        list-style: decimal;
+      }
 
       h1, h2, h3, h4, h5, h6 {
         margin-inline-start: -2rem;
@@ -210,7 +227,7 @@
         }
 
         .item-key {
-          font-size: 0.5rem;
+          font-size: $default-font-size-4;
           margin-bottom: 0.5rem;
         }
 
@@ -264,7 +281,7 @@
     }
 
     ul {
-      font-size: 0.875rem;
+      font-size: $default-font-size-1;
       padding-left: 0.5rem;
     }
 

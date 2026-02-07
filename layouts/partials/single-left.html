@@ -12,8 +12,8 @@
         {{ $stat := os.Stat $filePath }}
         {{ $updateDateMachine := $stat.ModTime | time.Format "2006-01-02T15:04:05-07:00" }}
         {{ $updateDateHuman := $stat.ModTime | time.Format "2006-01-02 15:04:05"  }}
-        <time class="single-date-item" datetime="{{ $createDateMachine }}">{{ i18n "single.createdTime" }} {{ $createDateHuman }}</time>
-        <time class="single-date-item" datetime="{{ $updateDateMachine }}">{{ i18n "single.updatedTime" }} {{ $updateDateHuman }}</time>
+        <time class="single-date-item" datetime="{{ $createDateMachine }}">{{ $createDateHuman }} · {{ i18n "single.createdTime" }}</time>
+        <time class="single-date-item" datetime="{{ $updateDateMachine }}">{{ $updateDateHuman }} · {{ i18n "single.updatedTime" }}</time>
     </div>
     <div class="single-tags">{{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
 
@@ -22,12 +22,12 @@
 <div class="single-post">
     {{ if .Truncated }}
     {{ $summaryLen := .Summary | len }}
-    <span class="post-bookmark">{{ i18n "single.summary" }}</span>
+    <div><span class="post-bookmark">{{ i18n "single.summary" }}</span></div>
     {{ .Summary }}
-    <span class="post-bookmark">{{ i18n "single.content" }}</span>
+    <div><span class="post-bookmark">{{ i18n "single.content" }}</span></div>
     {{ .Content | after $summaryLen | safeHTML }}
     {{ else }}
-    <span class="post-bookmark">{{ i18n "single.content" }}</span>
+    <div><span class="post-bookmark">{{ i18n "single.content" }}</span></div>
     {{ .Content }}
     {{ end }}
 </div>
