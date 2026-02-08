@@ -68,6 +68,7 @@
       font-weight: bold;
       color: var(--color-text);
       text-align: center;
+      @include hover-lift;
     }
 
     .single-meta {
@@ -152,10 +153,11 @@
       display: flex;
       flex-direction: column;
       gap: $default-post-gap;
+      line-height: $default-line-height;
 
 
       ul, ol {
-        padding-left: 1rem;
+        padding-left: 2rem;
       }
 
       ul {
