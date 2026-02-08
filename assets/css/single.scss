@@ -7,15 +7,15 @@
     width: 100%;
 
     .single-left {
-      width: 848px;
+      width: 53rem;
       margin: 0 auto;
     }
   }
 
   .single-two-col {
     display: grid;
-    gap: 20px;
-    grid-template-columns: 848px 300px;
+    gap: $header-height/2;
+    grid-template-columns: 53rem 19.375rem;
     width: 100%;
 
     .single-left {
