@@ -85,6 +85,11 @@ list:
     timeAsc:
       other: "Asc by Date"
 interaction:
+  codeCopy:
+    success:
+      other: "Copied successfully"
+    error:
+      other: "Copy failed. Please try again or use a different browser"
   share:
     success:
       other: "Link copied successfully"

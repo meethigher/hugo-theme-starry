@@ -85,6 +85,11 @@ list:
     timeAsc:
       other: "时间升序"
 interaction:
+  codeCopy:
+    success:
+      other: "复制成功"
+    error:
+      other: "复制失败，请重试或者更换浏览器"
   share:
     success:
       other: "链接已成功复制"

@@ -95,7 +95,9 @@
           padding: 0;
         }
 
-        ul, ol {
+        /* summary 中，不应该有复杂的语法，所以不会适配各种样式 */
+
+        /*ul, ol {
           padding-left: 2rem;
         }
 
@@ -105,7 +107,7 @@
 
         ol {
           list-style: decimal;
-        }
+        }*/
       }
 
     }

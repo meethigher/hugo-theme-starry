@@ -76,6 +76,7 @@
 
     Starry.prototype.funcLockScrollTop = function () {
         if (!this.config.locked) {
+            this.funcUtils.log(`locked`, "Scroll Lock");
             this.config.locked = true;
             this.config.lockedScrollTopPoint = global.scrollY;
             document.body.style.position = "fixed";
@@ -86,6 +87,7 @@
 
     Starry.prototype.funcUnlockScrollTop = function () {
         if (this.config.locked) {
+            this.funcUtils.log(`unlocked`, "Scroll Lock");
             this.config.locked = false;
 
             document.body.style.position = "";
@@ -205,6 +207,8 @@
     };
 
     Starry.prototype.funcBindEvents = function () {
+        const self = this;
+
         // 主题切换
         const toggleBtn = document.getElementById("themeToggle");
         if (toggleBtn) {
@@ -227,12 +231,14 @@
         const scrollToTop = document.getElementById("scrollToTop");
         if (scrollToTop) {
             scrollToTop.addEventListener("click", () => {
+                self.funcUtils.log(`triggered`, "Scroll to top");
                 window.scrollTo({top: 0, behavior: "smooth"});
             });
         }
         const scrollToBottom = document.getElementById("scrollToBottom");
         if (scrollToBottom) {
             scrollToBottom.addEventListener("click", () => {
+                self.funcUtils.log(`triggered`, "Scroll to bottom");
                 window.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"});
             });
         }
@@ -244,18 +250,19 @@
             toolMenuSwitcher.addEventListener("click", () => {
                 sidebarTools.setAttribute("aria-expanded", String(!this.varConfiguration.varToolExpanded));
                 this.varConfiguration.varToolExpanded = !this.varConfiguration.varToolExpanded;
+                self.funcUtils.log(`expanded=${self.varConfiguration.varToolExpanded}`, "Sidebar tools");
             });
         }
 
         // 跳转进度条
         document.querySelectorAll("a").forEach(a => {
-            const self = this;
             a.addEventListener("click", e => {
                 const href = a.getAttribute("href");
                 const target = a.getAttribute("target");
                 if (href && !href.startsWith("#") && target !== "_blank" && self.varConfiguration.varProgressEnable) {
                     e.preventDefault();
                     self.funcStartProgress(href);
+                    self.funcUtils.log(`triggered`, "Progress");
                 }
             });
         });
@@ -278,6 +285,9 @@
                 window.location.href.replace(/http:\/\/|https:\/\//, ""), function (err, data) {
                     if (!err && statsValue) {
                         statsValue.innerText = data;
+                        self.funcUtils.log("success", "Stats");
+                    } else {
+                        self.funcUtils.error("error", "Stats");
                     }
                 });
         }
@@ -286,7 +296,7 @@
         let shareBtn = document.getElementById("shareBtn");
         if (shareBtn) {
             shareBtn.addEventListener("click", e => {
-                const self = this;
+                self.funcUtils.log("triggered", "Share");
                 navigator.clipboard.writeText(`${document.title}: ${window.location.href}`)
                     .then(function () {
                         self.funcShowToast("shareBtnToastSuccess");
@@ -301,6 +311,7 @@
         let rewardBtn = document.getElementById("rewardBtn");
         if (rewardBtn) {
             rewardBtn.addEventListener("click", e => {
+                self.funcUtils.log("triggered", "Reward");
                 this.funcShowModal("rewardBtnModal");
             });
         }
@@ -313,12 +324,14 @@
             sortSelect.addEventListener("change", function () {
                 const cardList = [...originalCards];
                 if (this.value === "nameAsc") {
+                    self.funcUtils.log(`taxonomy triggered nameAsc=true`, "Sort");
                     cardList.sort((a, b) => {
                         const nA = a.querySelector(".tag-name").textContent.trim();
                         const nB = b.querySelector(".tag-name").textContent.trim();
                         return nA.localeCompare(nB, "zh-CN", {sensitivity: "base"});
                     });
                 } else {
+                    self.funcUtils.log(`taxonomy triggered nameAsc=false`, "Sort");
                     cardList.sort((a, b) => {
                         const cA = parseInt(a.querySelector(".tag-count").textContent);
                         const cB = parseInt(b.querySelector(".tag-count").textContent);
@@ -338,6 +351,7 @@
         if (secSortSelect && secTermContainer) {
             const originalCards = Array.from(secTermContainer.children);
             secSortSelect.addEventListener("change", function () {
+                self.funcUtils.log(`section triggered timeAsc=${this.value === "timeAsc"}`, "Sort");
                 const cardList = [...originalCards];
                 cardList.sort((a, b) => {
                     const tA = new Date(a.querySelector(".section-time").textContent.trim()).getTime();
@@ -350,6 +364,55 @@
                 secTermContainer.appendChild(fragment);
             });
         }
+
+        // 代码块复制按钮
+        document.querySelectorAll(".code-copy").forEach(btn => {
+            btn.addEventListener("click", e => {
+                const codeBlock = btn.closest(".code-block");
+                if (!codeBlock) {
+                    self.funcUtils.error(".code-block container not found", "Code copy");
+                    return;
+                }
+
+                self.funcUtils.log("triggered", "Code copy");
+
+                // 判断 hugo 生成的代码块使用的是带行号还是不带行号
+                const code = codeBlock.querySelector(".code-block-content td:last-child code");
+                if (code) {
+                    // 带行号
+                    self.funcUtils.log("Detected code block with line numbers", "Code copy");
+                    const text = code.textContent.trim();
+                    navigator.clipboard.writeText(text)
+                        .then(function () {
+                            self.funcShowToast("codeCopyToastSuccess");
+                        })
+                        .catch(function () {
+                            self.funcShowToast("codeCopyToastError");
+                        });
+                } else {
+                    const noLineCode = codeBlock.querySelector(".code-block-content code");
+                    if (noLineCode) {
+                        // 不带行号
+                        self.funcUtils.log("Detected code block without line numbers", "Code copy");
+
+                        const text = noLineCode.textContent.trim();
+                        navigator.clipboard.writeText(text)
+                            .then(function () {
+                                self.funcShowToast("codeCopyToastSuccess");
+                            })
+                            .catch(function () {
+                                self.funcShowToast("codeCopyToastError");
+                            });
+                    } else {
+                        // 不符合预期格式
+                        self.funcUtils.error(
+                            "Expected code block DOM structure not detected", "Code copy"
+                        );
+                    }
+                }
+            });
+        });
+
 
     };
 
@@ -376,9 +439,21 @@
             const seconds = String(now.getSeconds()).padStart(2, "0");
             return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
         },
-        log: function (msg) {
+        log: function (msg, type) {
             const timestamp = this.formatTime();
-            console.log(`[Starry] [${timestamp}]`, msg);
+            if (type) {
+                console.log(`[Starry] [${timestamp}] [${type}]`, msg);
+            } else {
+                console.log(`[Starry] [${timestamp}]`, msg);
+            }
+        },
+        error: function (msg, type) {
+            const timestamp = this.formatTime();
+            if (type) {
+                console.error(`[Starry] [${timestamp}] [${type}]`, msg);
+            } else {
+                console.error(`[Starry] [${timestamp}]`, msg);
+            }
         },
         printInfo: function (startTime) {
             const loadTime = (performance.now() - startTime).toFixed(2);

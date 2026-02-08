@@ -20,7 +20,6 @@
 
     .single-left {
       position: relative;
-      overflow: hidden;
     }
 
     .single-right {
@@ -279,15 +278,10 @@
     }
 
     .single-two-col {
-      grid-template-columns: 1fr;
-      grid-template-areas: "right" "left";
-
-      .single-left {
-        grid-area: left;
-      }
+      display: flex;
+      flex-direction: column-reverse;
 
       .single-right {
-        grid-area: right;
         position: relative;
         top: 0;
       }

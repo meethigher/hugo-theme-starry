@@ -7,9 +7,28 @@
       gap: $default-post-gap;
       line-height: $default-line-height;
 
+      a {
+        color: var(--color-primary);
+        border-color: transparent;
+
+        &:hover {
+          color: var(--color-primary-hover);
+          text-decoration: underline;
+        }
+      }
 
       ul, ol {
         padding-left: 2rem;
+
+        ul {
+          list-style: square;
+        }
+      }
+
+      li::marker {
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--color-secondary);
       }
 
       ul {
@@ -53,6 +72,76 @@
           border-left: 0 solid transparent;
 
         }
+      }
+
+
+      .table-container {
+        overflow-x: auto;
+
+        & > table th, & > table td {
+          padding: 0.5rem 1rem;
+        }
+      }
+
+      p code, li code, td code {
+        font-family: $default-code-font-family;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+        background-color: var(--color-code-bg);
+        color: var(--color-code-text);
+      }
+
+
+      .code-block {
+        position: relative;
+        font-family: $default-code-font-family;
+
+        tr {
+          display: flex;
+        }
+
+        td {
+          code {
+            padding: 0;
+            border-radius: 0;
+          }
+        }
+
+        .code-block-header {
+          background-color: var(--color-code-block-header);
+          padding: 0.2rem 0.4rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          position: sticky;
+          top: $header-height;
+
+          .code-copy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: $default-border-radius;
+
+            &:hover {
+              svg, path {
+                color: var(--color-secondary);
+              }
+            }
+          }
+        }
+
+        .code-block-content {
+          overflow-x: auto;
+        }
+      }
+
+
+      blockquote {
+        background-color: var(--color-blockquote-bg);
+        padding: 1rem 1.5rem;
+        font-size: $default-font-size-1;
+        border-left: 0.25rem solid var(--color-blockquote-border);
       }
     }
   }
