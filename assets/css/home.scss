@@ -87,6 +87,14 @@
         gap: $default-post-gap;
         line-height: $default-line-height;
 
+        code {
+          font-size: $default-font-size;
+          font-weight: normal;
+          font-family: $default-font-family;
+          margin: 0;
+          padding: 0;
+        }
+
         ul, ol {
           padding-left: 2rem;
         }
