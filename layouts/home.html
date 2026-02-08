@@ -17,7 +17,9 @@
                     {{ partial "tag-terms.html" (dict "taxonomy" "tags" "page" $ctx) }}
                 </div>
                 {{ end }}
+                {{ if .Truncated }}
                 <div class="post-summary">{{ .Summary }}</div>
+                {{ end }}
             </div>
         {{ end }}
         </div>

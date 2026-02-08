@@ -132,9 +132,9 @@
       margin-left: -2rem;
       margin-right: -2rem;
       padding: 1rem 2rem;
-      border-radius: $default-border-radius;
       font-size: $default-font-size-1;
       background-color: var(--color-blockquote-bg);
+      @include hover-lift;
 
       &::before {
         content: '"';
