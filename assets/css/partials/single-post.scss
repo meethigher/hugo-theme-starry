@@ -1,0 +1,59 @@
+.main-container {
+  .single-left {
+    .single-post {
+
+      display: flex;
+      flex-direction: column;
+      gap: $default-post-gap;
+      line-height: $default-line-height;
+
+
+      ul, ol {
+        padding-left: 2rem;
+      }
+
+      ul {
+        list-style: disc;
+      }
+
+      ol {
+        list-style: decimal;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        margin-inline-start: -2rem;
+        border-inline-start: 10px solid var(--color-border);
+        padding-inline-start: calc(2rem - 10px);
+        position: relative;
+        @include hover-lift;
+      }
+
+      .post-bookmark {
+        @include hover-lift;
+        margin-left: -2rem;
+        padding: 0.5rem 2rem;
+        display: inline-block;
+        background-color: var(--color-border);
+        color: var(--color-text);
+        font-weight: bold;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        position: relative;
+
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: -1rem;
+          left: 0.7rem;
+          width: 0;
+          height: 0;
+          border-top: 0 solid transparent;
+          border-right: 1rem solid var(--color-border);
+          border-bottom: 1rem solid transparent;
+          border-left: 0 solid transparent;
+
+        }
+      }
+    }
+  }
+}
