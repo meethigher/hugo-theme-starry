@@ -76,7 +76,7 @@
 
     Starry.prototype.funcLockScrollTop = function () {
         if (!this.config.locked) {
-            this.funcUtils.log(`locked`, "Scroll Lock");
+            this.funcUtils.log(`body locked`, "Scroll Lock");
             this.config.locked = true;
             this.config.lockedScrollTopPoint = global.scrollY;
             document.body.style.position = "fixed";
@@ -87,7 +87,7 @@
 
     Starry.prototype.funcUnlockScrollTop = function () {
         if (this.config.locked) {
-            this.funcUtils.log(`unlocked`, "Scroll Lock");
+            this.funcUtils.log(`body unlocked`, "Scroll Lock");
             this.config.locked = false;
 
             document.body.style.position = "";
