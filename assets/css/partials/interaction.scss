@@ -110,9 +110,19 @@
 
   .qrcode {
     display: block;
-    max-width: 14rem;
-    max-height: 12rem;
+    max-width: 50rem;
+    max-height: 30rem;
     margin: 0 auto 1rem;
     border-radius: $default-border-radius;
+  }
+}
+
+
+@media (max-width: $breakpoint-mobile) {
+  .interaction {
+    .qrcode {
+      max-width: 14rem;
+      max-height: 12rem;
+    }
   }
 }
