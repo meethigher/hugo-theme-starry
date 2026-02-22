@@ -99,3 +99,9 @@ interaction:
     title: "感谢您的认可"
     subtitle: "扫描二维码支持作者"
     note: "当您觉得本文有价值时，再打赏（备注文章内容），这会是一种鼓励与肯定"
+  search:
+    inputPlaceholder: "输入关键词搜索……"
+    stateLoading: "正在构建索引库……"
+    stateIdle: "请输入关键字开始搜索"
+    stateEmpty: "暂无匹配结果"
+    stateSearching: "正在搜索中……"

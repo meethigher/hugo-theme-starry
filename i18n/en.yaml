@@ -99,3 +99,9 @@ interaction:
     title: "Thank you for your support"
     subtitle: "Scan the QR code to support the author"
     note: "If this article helps, consider tipping using its title as a note"
+  search:
+    inputPlaceholder: "Enter keywords to search..."
+    stateLoading: "Building index library..."
+    stateIdle: "Please enter keywords to start searching"
+    stateEmpty: "No matching results found"
+    stateSearching: "Searching..."

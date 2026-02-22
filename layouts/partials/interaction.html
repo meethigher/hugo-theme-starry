@@ -24,13 +24,13 @@
         <button class="modal-close">×</button>
         <div class="search-content">
             <div class="search-header">
-                <input class="search-input" id="searchInput" placeholder="输入关键词搜索..." autocomplete="off"/>
+                <input class="search-input" id="searchInput" placeholder="{{ i18n "interaction.search.inputPlaceholder" }}" autocomplete="off"/>
             </div>
             <div class="search-result">
-                <div class="state-loading" id="stateLoading">正在构建索引库...</div>
-                <div class="state-idle search-active" id="stateIdle">请输入关键字开始搜索</div>
-                <div class="state-empty" id="stateEmpty">暂无结果</div>
-                <div class="state-searching" id="stateSearching">正在搜索中...</div>
+                <div class="state-loading" id="stateLoading">{{ i18n "interaction.search.stateLoading" }}</div>
+                <div class="state-idle search-active" id="stateIdle">{{ i18n "interaction.search.stateIdle" }}</div>
+                <div class="state-empty" id="stateEmpty">{{ i18n "interaction.search.stateEmpty" }}</div>
+                <div class="state-searching" id="stateSearching">{{ i18n "interaction.search.stateSearching" }}</div>
                 <div class="result-inner" id="result"></div>
             </div>
         </div>

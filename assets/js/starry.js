@@ -72,7 +72,7 @@
 
     StarrySearch.prototype.truncateText = function (str) {
         if (!str) return "";
-        return str.length <= this.maxDescLength ? str : str.slice(0, this.maxDescLength) + "…";
+        return str.length <= this.maxDescLength ? str : str.slice(0, this.maxDescLength) + " …";
     };
 
     StarrySearch.prototype.formatDate = function (isoStr) {
