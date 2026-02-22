@@ -2,7 +2,7 @@
 
     function StarrySearch(starry) {
         this.starry = starry;
-        this.indexUrl = "/blog/index.json";
+        this.indexUrl = this.starry.varConfiguration.varSearchIndex;
         this.maxDescLength = 100;
         this.cacheExpire = 24 * 60 * 60 * 1000;
         this.dbName = "hugo-theme-starry";
@@ -100,7 +100,7 @@
         this.updateState(this.states.LOADING_INDEX);
         const cache = await this.getCache("index");
         if (cache && Date.now() - cache.time < this.cacheExpire) {
-            this.starry.funcUtils.log(`cache expire time ${new Date(cache.time + this.cacheExpire)}`, "Search");
+            this.starry.funcUtils.log(`${cache.data.length} cache expire time ${new Date(cache.time + this.cacheExpire)}`, "Search");
             this.searchIndex = cache.data;
             this.updateState(this.states.IDLE);
             return;
@@ -111,7 +111,7 @@
         this.searchIndex = data;
         await this.setCache("index", {time: Date.now(), data});
         this.updateState(this.states.IDLE);
-        this.starry.funcUtils.log(`cache created ${new Date()}`, "Search");
+        this.starry.funcUtils.log(`${data.length} cache created ${new Date()}`, "Search");
     };
 
     StarrySearch.prototype.renderResults = function (list) {
@@ -192,7 +192,8 @@
         varToolExpanded: true,
         varSiteBegin: "2019/09/15 19:57:09",
         varStatsServiceEnable: true,
-        varStatsServiceUrl: "https://meethigher.top/census/count"
+        varStatsServiceUrl: "https://meethigher.top/census/count",
+        varSearchIndex: "index.json"
     };
 
     Starry.prototype.funcGetStats = function (target, href, callback) {
