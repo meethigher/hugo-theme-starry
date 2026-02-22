@@ -1,4 +1,175 @@
 (function (global) {
+
+    function StarrySearch(starry) {
+        this.starry = starry;
+        this.indexUrl = "/blog/index.json";
+        this.maxDescLength = 100;
+        this.cacheExpire = 24 * 60 * 60 * 1000;
+        this.dbName = "hugo-theme-starry";
+        this.storeName = "starry";
+        this.dbVersion = 1;
+        this.searchIndex = [];
+        // 防止“旧搜索结果覆盖新搜索结果”，每发起一次新搜索，版本号加一，版本号对不上，直接丢掉。
+        this.searchVersion = 0;
+        this.states = {
+            LOADING_INDEX: "stateLoading",
+            IDLE: "stateIdle",
+            SEARCHING: "stateSearching",
+            EMPTY: "stateEmpty",
+            SUCCESS: "result"
+        };
+        this.currentState = this.states.IDLE;
+        this.resultEl = document.getElementById("result");
+        this.inputEl = document.getElementById("searchInput");
+    }
+
+    StarrySearch.prototype.openDB = function () {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open(this.dbName, this.dbVersion);
+            request.onupgradeneeded = e => {
+                const db = e.target.result;
+                if (!db.objectStoreNames.contains(this.storeName)) {
+                    db.createObjectStore(this.storeName);
+                }
+            };
+            request.onsuccess = () => resolve(request.result);
+            request.onerror = () => reject(request.error);
+        });
+    };
+
+    StarrySearch.prototype.getCache = async function (key) {
+        const db = await this.openDB();
+        return new Promise(resolve => {
+            const tx = db.transaction(this.storeName, "readonly");
+            const store = tx.objectStore(this.storeName);
+            const req = store.get(key);
+            req.onsuccess = () => resolve(req.result);
+            req.onerror = () => resolve(null);
+        });
+    };
+
+    StarrySearch.prototype.setCache = async function (key, value) {
+        const db = await this.openDB();
+        return new Promise(resolve => {
+            const tx = db.transaction(this.storeName, "readwrite");
+            const store = tx.objectStore(this.storeName);
+            store.put(value, key);
+            tx.oncomplete = () => resolve();
+        });
+    };
+
+    StarrySearch.prototype.updateState = function (state) {
+        this.currentState = state;
+        const ele = document.getElementById(state);
+        if (ele) {
+            const activeElements = document.querySelectorAll(".search-active");
+            activeElements.forEach(element => {
+                element.classList.remove("search-active");
+            });
+            ele.classList.add("search-active");
+        }
+    };
+
+    StarrySearch.prototype.truncateText = function (str) {
+        if (!str) return "";
+        return str.length <= this.maxDescLength ? str : str.slice(0, this.maxDescLength) + "…";
+    };
+
+    StarrySearch.prototype.formatDate = function (isoStr) {
+        const date = new Date(isoStr);
+        return date.toLocaleString(navigator.language, {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false
+        });
+    };
+
+    StarrySearch.prototype.debounce = function (fn, delay = 300) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn.apply(this, args), delay);
+        };
+    };
+
+    StarrySearch.prototype.loadIndex = async function () {
+        this.updateState(this.states.LOADING_INDEX);
+        const cache = await this.getCache("index");
+        if (cache && Date.now() - cache.time < this.cacheExpire) {
+            this.starry.funcUtils.log(`cache expire time ${new Date(cache.time + this.cacheExpire)}`, "Search");
+            this.searchIndex = cache.data;
+            this.updateState(this.states.IDLE);
+            return;
+        }
+        this.starry.funcUtils.log(`cache not exist`, "Search");
+        const res = await fetch(this.indexUrl);
+        const data = await res.json();
+        this.searchIndex = data;
+        await this.setCache("index", {time: Date.now(), data});
+        this.updateState(this.states.IDLE);
+        this.starry.funcUtils.log(`cache created ${new Date()}`, "Search");
+    };
+
+    StarrySearch.prototype.renderResults = function (list) {
+        const t0 = performance.now();
+        const innerHTML = list.map(item => `
+        <div class="result-item" onclick="this.querySelector('a').click()">
+            <time class="result-date" datetime="${item.D}">${this.formatDate(item.D)}</time>
+            <a class="result-title" href="${item.P}">${item.T}</a>
+            <div class="result-desc">${this.truncateText(item.C)}</div>
+        </div>
+    `).join("");
+        this.resultEl.innerHTML = innerHTML;
+        this.starry.funcUtils.log(`search render results consumed ${(performance.now() - t0).toFixed(2)} ms`, "Search");
+    };
+
+    StarrySearch.prototype.doSearch = function (keyword) {
+        if (this.searchIndex.length === 0) {
+            this.updateState(this.states.LOADING_INDEX);
+            return;
+        }
+        if (!keyword) {
+            this.updateState(this.states.IDLE);
+            return;
+        }
+
+        const version = ++this.searchVersion;
+        this.updateState(this.states.SEARCHING);
+
+        setTimeout(() => {
+            if (version !== this.searchVersion) return;
+
+            const keywords = keyword.toLowerCase().split(/\s+/).filter(k => k);
+            // 时间倒序排序
+            const results = this.searchIndex.filter(item =>
+                keywords.every(k => (item.T || "").toLowerCase().includes(k) || (item.C || "").toLowerCase().includes(k))
+            ).sort((a, b) => new Date(b.D) - new Date(a.D));
+
+            if (!results.length) {
+                this.updateState(this.states.EMPTY);
+                return;
+            }
+
+            this.updateState(this.states.SUCCESS);
+            this.renderResults(results);
+
+        }, 200);
+    };
+
+    StarrySearch.prototype.init = function () {
+        this.updateState(this.states.LOADING_INDEX);
+        this.loadIndex();
+
+        this.inputEl.addEventListener("input", this.debounce(e => {
+            this.doSearch(e.target.value.trim());
+        }, 300));
+    };
+
+
     function Starry() {
         this.funcUtils.log(`Welcome! You’re using hugo-theme-starry`);
         let key = "starry-theme-mode";
@@ -11,6 +182,7 @@
             locked: false
         };
         this.startTime = performance.now();
+        this.search = new StarrySearch(this);
     }
 
     Starry.prototype.varConfiguration = {
@@ -51,6 +223,7 @@
         this.funcUtils.log(`Theme configuration: varSiteBegin=${this.varConfiguration.varSiteBegin}`);
         this.funcUtils.log(`Theme configuration: varStatsServiceEnable=${this.varConfiguration.varStatsServiceEnable}`);
         this.funcUtils.log(`Theme configuration: varStatsServiceUrl=${this.varConfiguration.varStatsServiceUrl}`);
+        this.search.init();
     };
 
     Starry.prototype.funcDiffDaysHours = function (startTime) {
@@ -138,11 +311,11 @@
                 self.funcCloseModal(modalId);
             }
         };
-        document.onkeydown = function (e) {
+        document.addEventListener("keydown", e => {
             if (e.key === "Escape") {
                 self.funcCloseModal(modalId);
             }
-        };
+        });
 
         self.funcLockScrollTop();
     };
@@ -230,38 +403,62 @@
         // 搜索按钮
         const searchBtn = document.getElementById("searchBtn");
         if (searchBtn) {
-            searchBtn.addEventListener("click", () => {
+            const openSearch = () => {
                 self.funcUtils.log("triggered", "Search Modal");
                 self.funcShowModal("searchBtnModal");
-            });
-        }
+                setTimeout(() => self.search.inputEl.focus(), 300);
+            };
 
-        // 搜索内容提交按钮
-        const searchSubmit = document.getElementById("searchSubmit");
-        const searchInput = document.getElementById("searchInput");
-        if (searchSubmit && searchInput) {
-            searchSubmit.addEventListener("click", () => {
-                self.funcUtils.log("triggered", "Search Submit");
-                const sc = searchInput.value.trim();
-                alert(sc);
+            searchBtn.addEventListener("click", openSearch);
+            document.addEventListener("keydown", e => {
+                if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "f") {
+                    e.preventDefault();
+                    openSearch();
+                }
             });
         }
 
         // 返回顶部与返回底部
         const scrollToTop = document.getElementById("scrollToTop");
-        if (scrollToTop) {
-            scrollToTop.addEventListener("click", () => {
+        const scrollToBottom = document.getElementById("scrollToBottom");
+        if (scrollToTop && scrollToBottom) {
+            let sttListener = () => {
                 self.funcUtils.log(`triggered`, "Scroll to top");
                 window.scrollTo({top: 0, behavior: "smooth"});
-            });
-        }
-        const scrollToBottom = document.getElementById("scrollToBottom");
-        if (scrollToBottom) {
-            scrollToBottom.addEventListener("click", () => {
+            };
+            let stbListener = () => {
                 self.funcUtils.log(`triggered`, "Scroll to bottom");
                 window.scrollTo({top: document.documentElement.scrollHeight, behavior: "smooth"});
+            };
+            scrollToBottom.addEventListener("click", stbListener);
+            scrollToTop.addEventListener("click", sttListener);
+            let lastKey = "";
+            let lastTime = 0;
+            const interval = 300;
+
+            document.addEventListener("keydown", e => {
+                const key = e.key.toLowerCase();
+                const now = Date.now();
+
+                if (key === "t" || key === "b") {
+                    if (lastKey === key && (now - lastTime) <= interval) {
+                        if (key === "t") {
+                            sttListener();
+                        }
+                        if (key === "b") {
+                            stbListener();
+                        }
+                        lastKey = "";
+                        return;
+                    }
+                    lastKey = key;
+                    lastTime = now;
+                } else {
+                    lastKey = "";
+                }
             });
         }
+
 
         // 侧边工具栏展开/收起
         let toolMenuSwitcher = document.getElementById("toolMenuSwitcher");

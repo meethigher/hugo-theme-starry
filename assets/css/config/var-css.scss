@@ -2,6 +2,7 @@
 
 /* 浅色主题变量 */
 :root {
+  --color-input: #757575;
   --color-code-block-header: #f2e9dc;
 
   /* starry 透明度 */
@@ -70,6 +71,7 @@
 
 /* 深色主题变量 */
 :root[starry-theme-mode="dark"] {
+  --color-input: #757575;
   --color-code-block-header: #1f1d30;
 
   /* starry 透明度 */

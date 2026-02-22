@@ -135,6 +135,7 @@
         flex: 1;
         height: 2.5rem;
         padding: 0 1rem;
+        color: var(--color-input);
         border: $default-border-size solid var(--color-border);
         border-radius: $default-border-radius 0 0 $default-border-radius;
         outline: none;
@@ -165,7 +166,7 @@
       }
 
       .state-loading, .state-idle, .state-searching, .state-empty, .result-inner {
-        &.active {
+        &.search-active {
           display: flex;
         }
       }
@@ -191,6 +192,12 @@
 
           .result-title {
             font-weight: bold;
+            color: var(--color-text);
+
+            &:hover {
+              text-decoration: none;
+              border-color: transparent;
+            }
           }
 
           .result-desc {
@@ -213,6 +220,13 @@
         max-width: 14rem;
         max-height: 12rem;
       }
+    }
+
+    .search-content {
+      .search-header, .search-result {
+        width: 100%;
+      }
+
     }
   }
 }
