@@ -227,6 +227,26 @@
             });
         }
 
+        // 搜索按钮
+        const searchBtn = document.getElementById("searchBtn");
+        if (searchBtn) {
+            searchBtn.addEventListener("click", () => {
+                self.funcUtils.log("triggered", "Search Modal");
+                self.funcShowModal("searchBtnModal");
+            });
+        }
+
+        // 搜索内容提交按钮
+        const searchSubmit = document.getElementById("searchSubmit");
+        const searchInput = document.getElementById("searchInput");
+        if (searchSubmit && searchInput) {
+            searchSubmit.addEventListener("click", () => {
+                self.funcUtils.log("triggered", "Search Submit");
+                const sc = searchInput.value.trim();
+                alert(sc);
+            });
+        }
+
         // 返回顶部与返回底部
         const scrollToTop = document.getElementById("scrollToTop");
         if (scrollToTop) {

@@ -12,12 +12,194 @@
         <span>{{ i18n "interaction.codeCopy.error" }}</span>
     </div>
     <div class="modal-overlay" id="rewardBtnModal">
+        <button class="modal-close">×</button>
         <div class="modal-content">
-            <button class="modal-close">×</button>
             <div class="modal-title">{{ i18n "interaction.reward.title" }}</div>
             <div class="model-subtitle">{{ i18n "interaction.reward.subtitle" }}</div>
             <img src="{{ "reward.jpg" | relURL }}" class="qrcode">
             <div class="modal-note">{{ i18n "interaction.reward.note" }}</div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="searchBtnModal">
+        <button class="modal-close">×</button>
+        <div class="search-content">
+            <div class="search-header">
+                <input class="search-input" id="searchInput" placeholder="输入关键词搜索..."/>
+                <button class="search-submit" id="searchSubmit">搜索</button>
+            </div>
+            <div class="search-result">
+                <div class="state-loading" id="stateLoading">正在构建索引库...</div>
+                <div class="state-idle" id="stateIdle">请输入关键字开始搜索</div>
+                <div class="state-empty" id="stateEmpty">暂无结果</div>
+                <div class="state-searching" id="stateSearching">正在搜索中...</div>
+                <div class="result-inner active" id="result">
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 0</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 0...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 1</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 1...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 2</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 2...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 3</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 3...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 4</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 4...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 5</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 5...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 6</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 6...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 7</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 7...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 8</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 8...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 9</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 9...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <time class="result-date" datetime="2026-01-31T18:06:30+08:00">2026-01-31 18:06:30</time>
+                        <div class="result-title">技术文章 10</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 10...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 11</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 11...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 12</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 12...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 13</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 13...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 14</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 14...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 15</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 15...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 16</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 16...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 17</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 17...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 18</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 18...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 19</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 19...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 20</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 20...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 21</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 21...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 22</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 22...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 23</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 23...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 24</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 24...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 25</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 25...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 26</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 26...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 27</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 27...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 28</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 28...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 29</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 29...</div>
+                    </div>
+
+                    <div class="result-item">
+                        <div class="result-title">技术文章 30</div>
+                        <div class="result-desc">这是搜索测试内容，包含 hugo 搜索 demo 示例 30...</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
