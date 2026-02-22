@@ -54,7 +54,7 @@
         padding: 4px 12px;
         background-color: var(--color-table-header-bg);
         border-radius: $default-border-radius;
-        font-size: $default-font-size-2;
+        font-size: var(--default-font-size-2);
       }
 
       a, a:hover {
@@ -63,7 +63,7 @@
     }
 
     .single-title {
-      font-size: $default-font-size-0;
+      font-size: var(--default-font-size-0);
       font-weight: bold;
       color: var(--color-text);
       text-align: center;
@@ -95,7 +95,7 @@
           border: 0.0625rem solid var(--color-border);
           padding: 4px 12px;
           border-radius: $default-border-radius;
-          font-size: $default-font-size-2;
+          font-size: var(--default-font-size-2);
           background-color: var(--color-btn-bg);
         }
       }
@@ -109,7 +109,7 @@
         .single-date-item {
           display: flex;
           align-items: center;
-          font-size: $default-font-size-2;
+          font-size: var(--default-font-size-2);
           color: var(--color-text);
 
           &::before {
@@ -131,7 +131,7 @@
       margin-left: -2rem;
       margin-right: -2rem;
       padding: 1rem 2rem;
-      font-size: $default-font-size-1;
+      font-size: var(--default-font-size-1);
       background-color: var(--color-blockquote-bg);
       @include hover-lift;
 
@@ -173,13 +173,13 @@
         }
 
         .item-key {
-          font-size: $default-font-size-4;
+          font-size: var(--default-font-size-4);
           margin-bottom: 0.5rem;
         }
 
         .item-value {
           display: inline-block;
-          font-size: 1rem;
+          font-size: $default-font-size;
           color: var(--color-text);
           font-weight: normal;
           white-space: nowrap;
@@ -219,7 +219,7 @@
     padding: 1.5rem;
 
     .toc-title {
-      font-size: 1rem;
+      font-size: $default-font-size;
       font-weight: bold;
       padding-bottom: 1rem;
       margin-bottom: 0.5rem;
@@ -227,7 +227,7 @@
     }
 
     ul {
-      font-size: $default-font-size-1;
+      font-size: var(--default-font-size-1);
       padding-left: 0.5rem;
     }
 

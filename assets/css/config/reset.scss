@@ -1,3 +1,33 @@
+:root {
+  --default-font-size-0: 1.5rem;
+  --default-font-size-1: 0.875rem;
+  --default-font-size-2: 0.75rem;
+  --default-font-size-3: 0.625rem;
+  --default-font-size-4: 0.5rem;
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.8rem;
+  --font-size-h3: 1.6rem;
+  --font-size-h4: 1.4rem;
+  --font-size-h5: 1.2rem;
+  --font-size-h6: 1rem;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  :root {
+    --default-font-size-0: 1rem;
+    --default-font-size-1: 1rem;
+    --default-font-size-2: 1rem;
+    --default-font-size-3: 1rem;
+    --default-font-size-4: 1rem;
+    --font-size-h1: 1rem;
+    --font-size-h2: 1rem;
+    --font-size-h3: 1rem;
+    --font-size-h4: 1rem;
+    --font-size-h5: 1rem;
+    --font-size-h6: 1rem;
+  }
+}
+
 /* 清除浮动 */
 .clearFix::after {
   content: "";
@@ -9,7 +39,7 @@
 @for $i from 1 through 6 {
   h#{$i} {
     color: var(--color-heading-#{$i});
-    font-size: #{2 - ($i - 1) * 0.2}rem;
+    font-size: var(--font-size-h#{$i});
     scroll-margin-top: 1rem + $header-height; // 解决锚点跳转被顶部挡住问题
   }
 }

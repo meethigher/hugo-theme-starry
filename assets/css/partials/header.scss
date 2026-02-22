@@ -14,7 +14,7 @@ header {
   }
 
   .header-title {
-    font-size: 1.5rem;
+    font-size: var(--default-font-size-0);
     font-weight: bold;
     color: var(--color-text);
     cursor: pointer;

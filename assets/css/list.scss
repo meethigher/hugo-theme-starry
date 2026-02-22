@@ -7,14 +7,14 @@
 
 
   .section-total {
-    font-size: .85rem;
+    font-size: var(--default-font-size-1);
     color: var(--color-text);
     margin-right: auto;
   }
 
   .section-sort {
     padding: .35rem .8rem;
-    font-size: .8rem;
+    font-size: var(--default-font-size-1);
     cursor: pointer;
     border-radius: $default-border-radius;
     background-color: var(--color-bg);
@@ -45,7 +45,7 @@
     }
 
     .section-time {
-      font-size: 0.8rem;
+      font-size: var(--default-font-size-1);
     }
 
     a, a:hover {
@@ -64,14 +64,14 @@
 
 
   .taxonomy-total {
-    font-size: .85rem;
+    font-size: var(--default-font-size-1);
     color: var(--color-text);
     margin-right: auto;
   }
 
   .taxonomy-sort {
     padding: .35rem .8rem;
-    font-size: .8rem;
+    font-size: var(--default-font-size-1);
     cursor: pointer;
     border-radius: $default-border-radius;
     background-color: var(--color-bg);
@@ -98,13 +98,13 @@
   }
 
   .tag-name {
-    font-size: .95rem;
+    font-size: $default-font-size;
     font-weight: bold;
   }
 
   .tag-count {
     align-self: flex-start;
-    font-size: .8rem;
+    font-size: var(--default-font-size-1);
   }
 
   a, a:hover {
