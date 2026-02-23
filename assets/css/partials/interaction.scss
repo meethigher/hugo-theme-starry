@@ -137,11 +137,12 @@
         padding: 0 1rem;
         color: var(--color-input);
         border: $default-border-size solid var(--color-border);
-        border-radius: $default-border-radius 0 0 $default-border-radius;
+        border-radius: $default-border-radius;
         outline: none;
         font-size: $default-font-size;
       }
 
+      // 搜索按钮样式，dom 中已移除
       .search-submit {
         height: 2.5rem;
         padding: 0 1rem;

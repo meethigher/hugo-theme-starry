@@ -1,0 +1,50 @@
+{{- $width := "" -}}
+{{- $height := "" -}}
+{{- $isRemote := strings.HasPrefix .Destination "http" -}}
+
+{{/* 仅处理本地图片 */}}
+{{- if not $isRemote -}}
+{{/* 处理不同路径情况 */}}
+{{- $pageDir := $.Page.File.Dir -}}
+{{- $imgPath := .Destination -}}
+
+{{/* 处理绝对路径 (以 / 开头) */}}
+{{- if strings.HasPrefix $imgPath "/" -}}
+{{- $imgPath = strings.TrimPrefix "/" $imgPath -}}
+{{- $fullPath := path.Join "static" $imgPath -}}
+{{- if fileExists $fullPath -}}
+{{- $imageConfig := imageConfig $fullPath -}}
+{{- $width = $imageConfig.Width -}}
+{{- $height = $imageConfig.Height -}}
+{{- end -}}
+{{- else -}}
+{{/* 处理相对路径 */}}
+{{- $fullPath := path.Join "content" $pageDir $imgPath | path.Clean -}}
+{{- if fileExists $fullPath -}}
+{{- $imageConfig := imageConfig $fullPath -}}
+{{- $width = $imageConfig.Width -}}
+{{- $height = $imageConfig.Height -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+
+
+
+<div class="img-box loading"
+     style="
+{{ if and $width $height }}
+aspect-ratio: {{ $width }} / {{ $height }};
+max-width: {{ $width }}px;
+max-height: {{ $height }}px;
+{{ else }}
+aspect-ratio: 1/1;
+{{ end }}
+">
+    <img
+            data-src="{{ .Destination | safeURL }}"
+            {{- with .PlainText }} alt="{{ . }}" {{ end -}}
+            {{- with .Title }} title="{{ . }}" {{ end -}}
+            {{- with $width }} width="{{ . }}" {{ end -}}
+            {{- with $height }} height="{{ . }}" {{ end -}}
+    >
+</div>
