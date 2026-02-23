@@ -1,6 +1,7 @@
 {{- with resources.Get "js/theme-init.js" | resources.Minify }}
 <script src="{{ .RelPermalink }}"></script>
 {{- end }}
+<!--<link rel="stylesheet" href="{{ "css/viewer.min.css" | relURL }}">-->
 <!-- 获取scss文件，将其转为css文件，并进行压缩和添加指纹 -->
 {{- with resources.Get "css/main.scss" | css.Sass | resources.Minify }}
 <link rel="stylesheet" href="{{ .RelPermalink }}">

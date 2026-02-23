@@ -1,3 +1,6 @@
+{{- with resources.Get "js/viewer.js" | resources.Minify }}
+<script src="{{ .RelPermalink }}"></script>
+{{- end }}
 {{ $js := slice "js/starry.js" "js/main.js" }}
 
 {{ $resources := slice }}

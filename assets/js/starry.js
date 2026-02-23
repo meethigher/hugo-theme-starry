@@ -183,26 +183,6 @@
         };
         this.startTime = performance.now();
         this.search = new StarrySearch(this);
-        this.imgObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
-                const box = entry.target;
-                const img = box.querySelector("img");
-                const t0 = performance.now();
-                img.src = img.dataset.src;
-                img.onload = () => {
-                    box.classList.remove("loading");
-                    box.classList.add("loaded");
-                    this.funcUtils.log(`${img.src} loaded ${(performance.now() - t0).toFixed(2)} ms`, "Image");
-                };
-                this.imgObserver.unobserve(box);
-            });
-        }, {
-            // 把视口上下左右都“扩大”指定距离，用于提前加载图片
-            rootMargin: "100px"
-        });
     }
 
     Starry.prototype.varConfiguration = {
@@ -650,8 +630,56 @@
                 }
             });
         });
+        // 图片查看器
+        let postImgs = document.querySelector(".single-post");
+        if (postImgs) {
+            new Viewer(postImgs, {
+                url: "data-src", // 查看器只给带有 src 的 img 添加监听。如果不通过 src 指定图片源的话，就需要额外使用该参数配置
+                button: true,
+                title: true,
+                navbar: false,
+                inline: false,
+                container: document.querySelector(".main-container"), // 将 viewer 的 dom 放置到该容器下。不配置的话默认是body
+                toolbar: {
+                    zoomIn: false,
+                    zoomOut: false,
+                    oneToOne: false,
+                    reset: true,
+                    prev: true,
+                    play: false,
+                    next: true,
+                    rotateLeft: true,
+                    rotateRight: true,
+                    flipHorizontal: true,
+                    flipVertical: true
+                }
+            });
+        }
 
         // 图片懒加载
+        self.imgObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                const box = entry.target;
+                const img = box.querySelector("img");
+                const t0 = performance.now();
+                img.src = img.dataset.src;
+                img.onload = () => {
+                    box.classList.remove("loading");
+                    box.classList.add("loaded");
+                    this.funcUtils.log(`${img.src} loaded ${(performance.now() - t0).toFixed(2)} ms`, "Image");
+
+                    // 更新图片查看器。因为查看器只给带有 src 的 img 添加监听
+                    // viewer.update();
+                };
+                self.imgObserver.unobserve(box);
+            });
+        }, {
+            // 把视口上下左右都“扩大”指定距离，用于提前加载图片
+            rootMargin: "100px"
+        });
         document.querySelectorAll(".img-box").forEach(box => {
             self.imgObserver.observe(box);
         });
