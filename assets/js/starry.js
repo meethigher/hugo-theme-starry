@@ -190,7 +190,7 @@
                 }
                 const box = entry.target;
                 const img = box.querySelector("img");
-                const t0=performance.now();
+                const t0 = performance.now();
                 img.src = img.dataset.src;
                 img.onload = () => {
                     box.classList.remove("loading");
@@ -566,7 +566,7 @@
                     cardList.sort((a, b) => {
                         const nA = a.querySelector(".tag-name").textContent.trim();
                         const nB = b.querySelector(".tag-name").textContent.trim();
-                        return nA.localeCompare(nB, "zh-CN", {sensitivity: "base"});
+                        return nA.localeCompare(nB, navigator.language, {sensitivity: "base"});
                     });
                 } else {
                     self.funcUtils.log(`taxonomy triggered nameAsc=false`, "Sort");
