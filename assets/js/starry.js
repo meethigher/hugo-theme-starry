@@ -183,6 +183,26 @@
         };
         this.startTime = performance.now();
         this.search = new StarrySearch(this);
+        this.imgObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+                const box = entry.target;
+                const img = box.querySelector("img");
+                const t0=performance.now();
+                img.src = img.dataset.src;
+                img.onload = () => {
+                    box.classList.remove("loading");
+                    box.classList.add("loaded");
+                    this.funcUtils.log(`${img.src} loaded ${(performance.now() - t0).toFixed(2)} ms`, "Image");
+                };
+                this.imgObserver.unobserve(box);
+            });
+        }, {
+            // 把视口上下左右都“扩大”指定距离，用于提前加载图片
+            rootMargin: "100px"
+        });
     }
 
     Starry.prototype.varConfiguration = {
@@ -629,6 +649,11 @@
                     }
                 }
             });
+        });
+
+        // 图片懒加载
+        document.querySelectorAll(".img-box").forEach(box => {
+            self.imgObserver.observe(box);
         });
 
 
