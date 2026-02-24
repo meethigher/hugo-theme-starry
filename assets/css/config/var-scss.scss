@@ -3,6 +3,7 @@
 
 $breakpoint-mobile: 75rem;
 
+/* 除 viewer 之外的 zIndex，都在此处控制 */
 $z-index-starry: -1;
 $z-index-sidebar-tools: 9995;
 $z-index-progress-container: 9999;

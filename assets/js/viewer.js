@@ -2748,19 +2748,21 @@
                 this.onFocusin = null;
             }
         },
+        // 源代码中的 open 与 close 的回调是为了全屏时，遮住进度条。而我的主题中，就是为了让进度条始终展示，因此此处注释掉
         open: function open() {
-            var body = this.body;
-            addClass(body, CLASS_OPEN);
-            if (this.scrollbarWidth > 0) {
-                body.style.paddingRight = "".concat(this.scrollbarWidth + (parseFloat(this.initialBodyComputedPaddingRight) || 0), "px");
-            }
+            // var body = this.body;
+            // addClass(body, CLASS_OPEN);
+            // console.log(this.scrollbarWidth);
+            // if (this.scrollbarWidth > 0) {
+            //     body.style.paddingRight = "".concat(this.scrollbarWidth + (parseFloat(this.initialBodyComputedPaddingRight) || 0), "px");
+            // }
         },
         close: function close() {
-            var body = this.body;
-            removeClass(body, CLASS_OPEN);
-            if (this.scrollbarWidth > 0) {
-                body.style.paddingRight = this.initialBodyPaddingRight;
-            }
+            // var body = this.body;
+            // removeClass(body, CLASS_OPEN);
+            // if (this.scrollbarWidth > 0) {
+            //     body.style.paddingRight = this.initialBodyPaddingRight;
+            // }
         },
         shown: function shown() {
             var element = this.element,

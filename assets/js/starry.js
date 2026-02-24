@@ -634,6 +634,15 @@
         let postImgs = document.querySelector(".single-post");
         if (postImgs) {
             new Viewer(postImgs, {
+                show() {
+                    self.funcUtils.log("open", "Image Viewer");
+                    self.funcLockScrollTop();
+                },
+                hide() {
+                    self.funcUtils.log("close", "Image Viewer");
+                    self.funcUnlockScrollTop();
+                },
+                zIndex: 10000,
                 url: "data-src", // 查看器只给带有 src 的 img 添加监听。如果不通过 src 指定图片源的话，就需要额外使用该参数配置
                 button: true,
                 title: true,
