@@ -120,3 +120,7 @@ th {
 td {
   border: $default-border-size solid var(--color-table-border);
 }
+
+mjx-container {
+  overflow: auto;
+}
