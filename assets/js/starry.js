@@ -166,7 +166,7 @@
 
         this.inputEl.addEventListener("input", this.debounce(e => {
             this.doSearch(e.target.value.trim());
-        }, 300));
+        }, 1000));
     };
 
 
