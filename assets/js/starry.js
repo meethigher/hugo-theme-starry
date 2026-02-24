@@ -380,6 +380,39 @@
 
     };
 
+    Starry.prototype.funcCopyText = function (text) {
+        // 浏览器中，如果不是 https 或者 localhost 无法使用新版复制，所以做兼容
+        return new Promise((resolve, reject) => {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                // 新版复制
+                navigator.clipboard.writeText(text).then(resolve).catch(reject);
+            } else {
+                // 老版复制
+                const textarea = document.createElement("textarea");
+                // 隐藏此输入框
+                textarea.style.position = 'fixed';
+                textarea.style.clip = 'rect(0 0 0 0)';
+                textarea.style.top = '10px';
+
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    const successful = document.execCommand("copy");
+                    document.body.removeChild(textarea);
+                    if (successful) {
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                } catch (err) {
+                    document.body.removeChild(textarea);
+                    reject(err);
+                }
+            }
+        });
+    };
+
     Starry.prototype.funcBindEvents = function () {
         const self = this;
 
@@ -515,7 +548,7 @@
         if (shareBtn) {
             shareBtn.addEventListener("click", e => {
                 self.funcUtils.log("triggered", "Share");
-                navigator.clipboard.writeText(`${document.title}: ${window.location.href}`)
+                self.funcCopyText(`${document.title}: ${window.location.href}`)
                     .then(function () {
                         self.funcShowToast("shareBtnToastSuccess");
                     })
@@ -600,7 +633,7 @@
                     // 带行号
                     self.funcUtils.log("Detected code block with line numbers", "Code copy");
                     const text = code.textContent.trim();
-                    navigator.clipboard.writeText(text)
+                    self.funcCopyText(text)
                         .then(function () {
                             self.funcShowToast("codeCopyToastSuccess");
                         })
@@ -614,7 +647,7 @@
                         self.funcUtils.log("Detected code block without line numbers", "Code copy");
 
                         const text = noLineCode.textContent.trim();
-                        navigator.clipboard.writeText(text)
+                        self.funcCopyText(text)
                             .then(function () {
                                 self.funcShowToast("codeCopyToastSuccess");
                             })
