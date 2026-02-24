@@ -2,7 +2,7 @@
 <!-- 如果内容为空，hugo 会给生成不含内容的 nav，长度刚好为 32 -->
 {{ if gt (len .TableOfContents) 32 }}
 <div class="single single-two-col">
-    <div class="single-left">
+    <div class="single-left" id="singleLeft">
         {{ partial "single-left.html" . }}
     </div>
     <div class="single-right" id="toc">
@@ -12,7 +12,7 @@
 </div>
 {{ else }}
 <div class="single single-one-col">
-    <div class="single-left">
+    <div class="single-left" id="singleLeft">
         {{ partial "single-left.html" . }}
     </div>
 </div>

@@ -1,5 +1,35 @@
 .main-container {
+
+  // 用于比如 mathjax 未加载完全时的内容遮罩
+  .single-left-loading {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    background-color: var(--color-bg);
+    border-radius: $default-border-radius;
+    position: relative;
+    overflow: hidden;
+
+    & > * {
+      opacity: 0;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+                      90deg,
+                      rgba(var(--color-shimmer), 0) 0%,
+                      rgba(var(--color-shimmer), var(--color-shimmer-alpha)) 50%,
+                      rgba(var(--color-shimmer), 0) 100%
+      );
+      animation: shimmer $default-shimmer-time infinite;
+    }
+  }
+
   .single-left {
+    transition: transform $default-transition-time ease, opacity $default-transition-time ease;
+
     .single-post {
 
       display: flex;
@@ -178,15 +208,15 @@
         font-size: var(--default-font-size-1);
         border-left: 0.25rem solid var(--color-blockquote-border);
       }
-
-      @keyframes shimmer {
-        0% {
-          transform: translateX(-100%)
-        }
-        100% {
-          transform: translateX(100%)
-        }
-      }
     }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%)
+  }
+  100% {
+    transform: translateX(100%)
   }
 }
