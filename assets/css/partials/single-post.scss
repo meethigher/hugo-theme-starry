@@ -2,8 +2,6 @@
 
   // 用于比如 mathjax 未加载完全时的内容遮罩
   .single-left-loading {
-    margin-left: -2rem;
-    margin-right: -2rem;
     background-color: var(--color-bg);
     border-radius: $default-border-radius;
     position: relative;

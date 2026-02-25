@@ -121,6 +121,10 @@ td {
   border: $default-border-size solid var(--color-table-border);
 }
 
+hr {
+  color: var(--color-hr);
+  background-color: var(--color-hr-bg);
+}
 
 // 解决 mathjax 块级公式撑破父级容器问题
 mjx-container {
