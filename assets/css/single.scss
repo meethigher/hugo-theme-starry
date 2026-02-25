@@ -246,6 +246,18 @@
 
 }
 
+@media (min-width: $breakpoint-mobile) {
+  .main-container {
+    .single-right {
+      #TableOfContents {
+        max-height: calc(100vh - 12.5rem);
+        overflow-y: auto;
+      }
+    }
+  }
+
+}
+
 @media (max-width: $breakpoint-mobile) {
   .main-container {
     .single {
