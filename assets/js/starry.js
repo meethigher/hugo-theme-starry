@@ -1,3 +1,11 @@
+/*!
+ * https://github.com/meethigher/hugo-theme-starry
+ *
+ * Released under the MIT license
+ *
+ * https://meethigher.top
+ *
+ */
 (function (global) {
 
     function StarrySearch(starry) {
