@@ -172,6 +172,7 @@
 
     function Starry() {
         this.funcUtils.log(`Welcome! You’re using hugo-theme-starry`);
+        this.funcUtils.log(`If you like it, feel free to give it a ⭐ on GitHub!`);
         let key = "starry-theme-mode";
         let value = localStorage.getItem(key);
         this.config = {
@@ -548,7 +549,7 @@
         if (shareBtn) {
             shareBtn.addEventListener("click", e => {
                 self.funcUtils.log("triggered", "Share");
-                self.funcCopyText(`${document.title}: ${window.location.href}`)
+                self.funcCopyText(`[${document.title}]. Retrieved from ${window.location.href}`)
                     .then(function () {
                         self.funcShowToast("shareBtnToastSuccess");
                     })
