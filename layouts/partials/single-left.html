@@ -1,32 +1,80 @@
 <!-- 引入 mathjax -->
 {{ if .Params.mathjax }}
 <script>
-    const singleLeft = document.getElementById("singleLeft");
-    if (singleLeft) {
-        // mathjax 加载时显示 loading
-        singleLeft.classList.add("single-left-loading");
-        const t0 = performance.now();
-        window.addEventListener("load", function () {
-            const interval = 2000;
-            const _interval = performance.now() - t0;
-            if (_interval > interval) {
-                singleLeft.classList.remove("single-left-loading");
-            } else {
-                setTimeout(() => {
-                    singleLeft.classList.remove("single-left-loading");
-                }, interval);
-            }
-        });
-    }
-    window.MathJax = {
-        tex: {
-            inlineMath: [["$", "$"], ["\\(", "\\)"]],
-            displayMath: [["$$", "$$"], ["\\[", "\\]"]]
-        },
-        svg: {
-            fontCache: "global"
+    (function () {
+        let mathjaxList = null;
+
+        function initMathjaxList() {
+            // 缓存所有 mjx-container
+            mathjaxList = [...document.querySelectorAll("mjx-container")];
         }
-    };
+
+        function resizeInlineMathjax() {
+            if (!mathjaxList) return;
+
+            mathjaxList.forEach(el => {
+                const parent = el.parentElement;
+                if (!parent) return;
+
+                const parentWidth = parent.getBoundingClientRect().width;
+                const selfWidth = el.getBoundingClientRect().width;
+
+                const isInline = el.hasAttribute("mt-inline");
+                const isDisplay = el.getAttribute("display") === "true";
+
+                // 公式溢出且未标记 display
+                if (selfWidth > parentWidth && !isDisplay) {
+                    el.setAttribute("display", "true");
+                    el.setAttribute("mt-inline", "true");
+                }
+                // 公式未溢出，但原来被标记为 display
+                else if (selfWidth <= parentWidth && isInline) {
+                    el.removeAttribute("display");
+                    el.removeAttribute("mt-inline");
+                }
+            });
+        }
+
+
+        const singleLeft = document.getElementById("singleLeft");
+        if (singleLeft) {
+            // mathjax 加载时显示 loading
+            singleLeft.classList.add("single-left-loading");
+
+
+            const t0 = performance.now();
+            window.addEventListener("load", function () {
+                initMathjaxList();
+                resizeInlineMathjax();
+                const interval = 2000;
+                const _interval = performance.now() - t0;
+                if (_interval > interval) {
+                    singleLeft.classList.remove("single-left-loading");
+                } else {
+                    setTimeout(() => {
+                        singleLeft.classList.remove("single-left-loading");
+                    }, interval);
+                }
+            });
+
+            let resizeTimer;
+            window.addEventListener("resize", function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    resizeInlineMathjax();
+                }, 1000);
+            });
+        }
+        window.MathJax = {
+            tex: {
+                inlineMath: [["$", "$"], ["\\(", "\\)"]],
+                displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+            },
+            svg: {
+                fontCache: "global"
+            }
+        };
+    })();
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 {{ end }}
