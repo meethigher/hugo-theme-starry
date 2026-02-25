@@ -32,7 +32,7 @@
 │  
 │  hugo.exe                        # Hugo 可执行文件（Windows 平台）
 │  hugo.yml                        # Hugo 主配置文件（站点级配置）
-│  theme.yml                       # 主题配置文件（主题元信息与参数）
+│  theme.toml                       # 主题配置文件（主题元信息与参数）
 ```
 
 ## Features

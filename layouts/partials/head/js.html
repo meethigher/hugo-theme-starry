@@ -13,15 +13,15 @@
 
 <script src="{{ $bundle.RelPermalink }}"></script>
 
-<script>
+<script>(function () {
     const ct = window.Starry.prototype.varConfiguration;
-    ct.varProgressEnable = {{ .Site.Params.starry.varProgressEnable }};
-    ct.varStarCount = {{ .Site.Params.starry.varStarCount }};
-    ct.varStarryEnable = {{ .Site.Params.starry.varStarryEnable }};
-    ct.varToolExpanded = {{ .Site.Params.starry.varToolExpanded }};
-    ct.varSiteBegin = {{ .Site.Params.starry.varSiteBegin }};
-    ct.varStatsServiceEnable = {{ .Site.Params.starry.varStatsServiceEnable }};
-    ct.varStatsServiceUrl = {{ .Site.Params.starry.varStatsServiceUrl }};
     ct.varSearchIndex = "{{ "index.json" | relURL }}";
-</script>
+    {{- with .Site.Params.starry.varProgressEnable }} ct.varProgressEnable="{{ . }}"; {{ end -}}
+    {{- with .Site.Params.starry.varStarCount }} ct.varStarCount="{{ . }}"; {{ end -}}
+    {{- with .Site.Params.starry.varStarBgEnable }} ct.varStarBgEnable="{{ . }}"; {{ end -}}
+    {{- with .Site.Params.starry.varToolExpanded }} ct.varToolExpanded="{{ . }}"; {{ end -}}
+    {{- with .Site.Params.starry.varSiteBegin }} ct.varSiteBegin="{{ . }}"; {{ end -}}
+    {{- with .Site.Params.starry.varStatsServiceEnable }} ct.varStatsServiceEnable="{{ . }}"; {{ end -}}
+    {{- with .Site.Params.starry.varStatsServiceUrl }} ct.varStatsServiceUrl="{{ . }}"; {{ end -}}
+})();</script>
 

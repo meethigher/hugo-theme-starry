@@ -147,7 +147,8 @@
         }
       }
 
-      p code, li code, td code {
+      // 行内代码样式: 段落内代码、列表内代码、表格内代码、pre内代码
+      p code, li code, td code, pre code {
         font-family: $default-code-font-family;
         padding: 0.2rem 0.4rem;
         border-radius: 0.25rem;
@@ -164,7 +165,8 @@
           display: flex;
         }
 
-        td {
+        // 有行号代码块、无行号代码块
+        td, pre {
           code {
             padding: 0;
             border-radius: 0;

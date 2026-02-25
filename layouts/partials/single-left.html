@@ -1,7 +1,6 @@
 <!-- 引入 mathjax -->
 {{ if .Params.mathjax }}
-<script>
-    (function () {
+<script>(function () {
         let mathjaxList = null;
 
         function initMathjaxList() {
@@ -74,8 +73,7 @@
                 fontCache: "global"
             }
         };
-    })();
-</script>
+})();</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
 {{ end }}
 
@@ -134,23 +132,26 @@
     <button class="btn" id="rewardBtn">{{ i18n "single.reward" }}</button>
     <button class="btn" id="shareBtn">{{ i18n "single.share" }}</button>
 </div>
-{{- if and .Site.Params.Starry.varGitalkEnable .Params.comments }}
+{{- if .Params.comments }}
 <div id="single-gitalk"></div>
 {{- with resources.Get "css/gitalk-theme.scss" | css.Sass | resources.Minify }}
 <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{- end }}
 <script src="{{ "js/gitalk.min.js" | relURL }}" ></script>
-<script >
+<script>(function () {
+{{ if .Site.Params.Starry.VarGitalk.dev }}
+    const gitalk=new Gitalk({clientID:"e46f6dec7c07145c652c",clientSecret:"d1a0b627f9b76d21bd3080d1777d0aa0ad55dd83",accessToken:"6a2f4d91a1f188a2089e70c2a7b63628f3e9e664",repo:"gitalk",owner:"gitalk",admin:["booxood","mamborer"],id:"Demo"})
+{{ else }}
     const gitalk = new Gitalk({
-        clientID: {{ .Site.Params.Starry.VarGitalk.clientId }},
-        clientSecret: {{ .Site.Params.Starry.VarGitalk.clientSecret }},
-        accessToken: {{ .Site.Params.Starry.VarGitalk.accessToken }},
-        repo: {{ .Site.Params.Starry.VarGitalk.repo }},
-        owner: {{ .Site.Params.Starry.VarGitalk.owner }},
-        admin: {{ .Site.Params.Starry.VarGitalk.admin  }},
-        id: "Demo"
+        {{- with .Site.Params.Starry.VarGitalk.clientId  }} clientID:"{{ . }}", {{ end -}}
+        {{- with .Site.Params.Starry.VarGitalk.clientSecret  }} clientSecret:"{{ . }}", {{ end -}}
+        {{- with .Site.Params.Starry.VarGitalk.accessToken  }} accessToken:"{{ . }}", {{ end -}}
+        {{- with .Site.Params.Starry.VarGitalk.repo  }} repo:"{{ . }}", {{ end -}}
+        {{- with .Site.Params.Starry.VarGitalk.owner  }} owner:"{{ . }}", {{ end -}}
+        {{- with .Site.Params.Starry.VarGitalk.admin  }} admin:"{{ . }}", {{ end -}}
     });
+{{ end }}
     gitalk.render("single-gitalk");
-</script>
+})();</script>
 {{- end }}
 

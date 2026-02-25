@@ -4,7 +4,7 @@
         this.starry = starry;
         this.indexUrl = this.starry.varConfiguration.varSearchIndex;
         this.maxDescLength = 100;
-        this.cacheExpire = 24 * 60 * 60 * 1000;
+        this.cacheExpire = 12 * 60 * 60 * 1000;
         this.dbName = "hugo-theme-starry";
         this.storeName = "starry";
         this.dbVersion = 1;
@@ -166,7 +166,7 @@
 
         this.inputEl.addEventListener("input", this.debounce(e => {
             this.doSearch(e.target.value.trim());
-        }, 1000));
+        }, 500));
     };
 
 
@@ -186,12 +186,12 @@
     }
 
     Starry.prototype.varConfiguration = {
-        varProgressEnable: true,
+        varProgressEnable: false,
         varStarCount: 200,
-        varStarryEnable: true,
-        varToolExpanded: true,
+        varStarBgEnable: false,
+        varToolExpanded: false,
         varSiteBegin: "2019/09/15 19:57:09",
-        varStatsServiceEnable: true,
+        varStatsServiceEnable: false,
         varStatsServiceUrl: "https://meethigher.top/census/count",
         varSearchIndex: "index.json"
     };
@@ -218,7 +218,7 @@
         this.funcApplyTheme();
         this.funcUtils.printInfo(this.startTime);
         this.funcUtils.log(`Theme configuration: varProgressEnable=${this.varConfiguration.varProgressEnable}`);
-        this.funcUtils.log(`Theme configuration: varStarryEnable=${this.varConfiguration.varStarryEnable}`);
+        this.funcUtils.log(`Theme configuration: varStarBgEnable=${this.varConfiguration.varStarBgEnable}`);
         this.funcUtils.log(`Theme configuration: varStarCount=${this.varConfiguration.varStarCount}`);
         this.funcUtils.log(`Theme configuration: varToolExpanded=${this.varConfiguration.varToolExpanded}`);
         this.funcUtils.log(`Theme configuration: varSiteBegin=${this.varConfiguration.varSiteBegin}`);
@@ -345,7 +345,7 @@
     };
 
     Starry.prototype.funcRegenStarry = function () {
-        if (this.config.themeValue === "dark" && this.varConfiguration.varStarryEnable) {
+        if (this.config.themeValue === "dark" && this.varConfiguration.varStarBgEnable) {
             let start = performance.now();
             const starsContainer = document.getElementById(this.config.starryId);
             starsContainer.innerHTML = "";
@@ -390,9 +390,9 @@
                 // 老版复制
                 const textarea = document.createElement("textarea");
                 // 隐藏此输入框
-                textarea.style.position = 'fixed';
-                textarea.style.clip = 'rect(0 0 0 0)';
-                textarea.style.top = '10px';
+                textarea.style.position = "fixed";
+                textarea.style.clip = "rect(0 0 0 0)";
+                textarea.style.top = "10px";
 
                 textarea.value = text;
                 document.body.appendChild(textarea);

@@ -1,10 +1,10 @@
 # 自定义参数
 params:
-  logoTitle: "hugo-theme-starry"
+  logoTitle: "Hugo-Theme-Starry"
   logoSubTitle: "The night sky hides all the light away, leaving only the stars to think of you again and again in the darkness."
   starry:
-    # true 表示启用背景 starry
-    varStarryEnable: true
+    # true 表示启用粒子
+    varStarBgEnable: true
     # 配置 star 数量
     varStarCount: 50
     # true 表示启用 a 标签跳转时展示进度条
@@ -17,8 +17,8 @@ params:
     varStatsServiceEnable: false
     varStatsServiceUrl: https://meethigher.top/census/count
     # 使用说明参考 https://github.com/gitalk/gitalk/blob/master/readme-cn.md
-    varGitalkEnable: true
     varGitalk:
+      dev: true
       clientId: "e46f6dec7c07145c652c"
       clientSecret: "d1a0b627f9b76d21bd3080d1777d0aa0ad55dd83"
       accessToken: "6a2f4d91a1f188a2089e70c2a7b63628f3e9e664"
@@ -51,7 +51,7 @@ minify:
   minifyOutput: true
 # 分页设置
 pagination:
-  pagerSize: 7
+  pagerSize: 4
   path: page
 outputs:
   home:
@@ -91,7 +91,7 @@ markup:
     # true 表示使用内联样式。false 表示使用 css 类名
     noClasses: false
     # 展示行号
-    lineNos: false
+    lineNos: true
     # false 表示关闭语言自动检测
     guessSyntax: false
   goldmark:
