@@ -735,6 +735,40 @@
             self.imgObserver.observe(box);
         });
 
+        // 目录定位
+        const toc = document.getElementById("TableOfContents");
+        if (toc) {
+            const headings = document.querySelectorAll(
+                ".single-post h1, .single-post h2, .single-post h3, .single-post h4, .single-post h5, .single-post h6"
+            );
+
+            const links = toc.querySelectorAll("a");
+
+            headings.forEach((heading, index) => {
+                heading.dataset.index = index;
+            });
+
+            function updateActive() {
+                let current = null;
+                for (let i = headings.length - 1; i >= 0; i--) {
+                    const top = headings[i].getBoundingClientRect().top;
+                    // header 栏 60px，再加个 60
+                    if (top <= 120) {
+                        current = headings[i];
+                        break;
+                    }
+                }
+                if (!current) {
+                    return;
+                }
+                document.querySelectorAll("a.toc-active")
+                    .forEach(a => a.classList.remove("toc-active"));
+                links[current.dataset.index].classList.add("toc-active");
+            }
+
+            window.addEventListener("scroll", updateActive);
+            window.addEventListener("load", updateActive);
+        }
 
     };
 

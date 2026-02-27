@@ -235,6 +235,14 @@
       color: var(--color-text);
       text-decoration: none;
       border: none;
+      border-radius: $default-border-radius;
+      padding: 0.25rem 0.5rem;
+      display: block;
+      background-color: transparent;
+
+      &.toc-active {
+        background-color: var(--color-blockquote-bg);
+      }
 
       &:hover {
         color: var(--color-primary-hover);
@@ -262,6 +270,12 @@
   .main-container {
     .single {
       margin: 1rem auto;
+    }
+
+    .single-right {
+      a.toc-active {
+        background-color: transparent;
+      }
     }
 
     .single-left {
