@@ -32,6 +32,9 @@ params:
     # 统计服务接口地址（启用统计服务时生效）
     varStatsServiceUrl: https://meethigher.top/census/count
 
+    # 搜索索引 indexdb 缓存时效期，单位毫秒
+    varCacheExpire: 43200000
+
     # Gitalk 评论系统配置
     # 使用说明：https://github.com/gitalk/gitalk/blob/master/readme-cn.md
     varGitalk:
@@ -175,5 +178,5 @@ module:
     extended: true
 
     # 允许的 Hugo 版本范围
-    min: 0.154.5
-    max: 0.154.5
+    min: 0.154.0
+    max: 0.156.5

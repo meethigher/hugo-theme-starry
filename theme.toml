@@ -8,7 +8,7 @@ license = "MIT"
 licenselink = "https://github.com/meethigher/hugo-theme-starry/LICENSE"
 homepage = "https://github.com/meethigher/hugo-theme-starry"
 demosite    = "https://meethigher.github.io"
-min_version = "0.154.5"
+min_version = "0.154.0"
 
 tags = [ "blog", "personal", "light", "dark", "starry" ]
 

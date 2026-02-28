@@ -1,4 +1,3 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const starry = new Starry();
-    starry.funcInit();
+    new Starry().funcInit();
 });

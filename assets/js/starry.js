@@ -12,7 +12,7 @@
         this.starry = starry;
         this.indexUrl = this.starry.varConfiguration.varSearchIndex;
         this.maxDescLength = 100;
-        this.cacheExpire = 12 * 60 * 60 * 1000;
+        this.cacheExpire = starry.varConfiguration.varCacheExpire;
         this.dbName = "hugo-theme-starry";
         this.storeName = "starry";
         this.dbVersion = 1;
@@ -108,7 +108,7 @@
         this.updateState(this.states.LOADING_INDEX);
         const cache = await this.getCache("index");
         if (cache && Date.now() - cache.time < this.cacheExpire) {
-            this.starry.funcUtils.log(`${cache.data.length} cache expire time ${new Date(cache.time + this.cacheExpire)}`, "Search");
+            this.starry.funcUtils.log(`${cache.data.length} cache expire time ${new Date(cache.time + parseInt(this.cacheExpire))}`, "Search");
             this.searchIndex = cache.data;
             this.updateState(this.states.IDLE);
             return;
@@ -195,6 +195,7 @@
     }
 
     Starry.prototype.varConfiguration = {
+        varCacheExpire: 12 * 60 * 60 * 1000,
         varProgressEnable: false,
         varStarCount: 200,
         varStarBgEnable: false,
@@ -233,6 +234,7 @@
         this.funcUtils.log(`Theme configuration: varSiteBegin=${this.varConfiguration.varSiteBegin}`);
         this.funcUtils.log(`Theme configuration: varStatsServiceEnable=${this.varConfiguration.varStatsServiceEnable}`);
         this.funcUtils.log(`Theme configuration: varStatsServiceUrl=${this.varConfiguration.varStatsServiceUrl}`);
+        this.funcUtils.log(`Theme configuration: varCacheExpire=${this.varConfiguration.varCacheExpire} ms`);
         this.search.init();
     };
 
@@ -684,7 +686,7 @@
                     self.funcUtils.log("close", "Image Viewer");
                     self.funcUnlockScrollTop();
                 },
-                zIndex: 10000,
+                zIndex: 10000, // 该内容与 css 样式中的 zIndex 搭配使用
                 url: "data-src", // 查看器只给带有 src 的 img 添加监听。如果不通过 src 指定图片源的话，就需要额外使用该参数配置
                 button: true,
                 title: true,
@@ -815,7 +817,7 @@
             const loadTime = (performance.now() - startTime).toFixed(2);
             const info = {
                 author: "https://meethigher.top",
-                createdDate: "2026-02-02",
+                createdDate: "2024-12-01",
                 github: "https://github.com/meethigher/hugo-theme-starry",
                 loadTime: `${loadTime} ms`
             };
