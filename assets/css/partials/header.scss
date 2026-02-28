@@ -11,7 +11,13 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    a, a:hover {
+      border-bottom-color: transparent;
+      text-decoration: none;
+    }
   }
+
 
   .header-title {
     font-size: var(--default-font-size-0);

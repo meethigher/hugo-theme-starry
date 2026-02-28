@@ -161,19 +161,21 @@
       padding: 1rem 2rem;
 
 
-      .state-loading, .state-idle, .state-searching, .state-empty {
-        justify-content: center;
+      .state-loading, .state-idle, .state-searching, .state-empty, .state-success {
         display: none;
+        align-items: center;
       }
 
-      .state-loading, .state-idle, .state-searching, .state-empty, .result-inner {
+      .state-loading, .state-idle, .state-searching, .state-empty, .state-success {
         &.search-active {
           display: flex;
+          flex-direction: column;
+          gap: 1rem;
         }
       }
 
       .result-inner {
-        display: none;
+        display: flex;
         flex-direction: column;
         gap: 1rem;
 

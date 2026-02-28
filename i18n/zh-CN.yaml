@@ -1,100 +1,60 @@
-post_state_top:
-  other: "置顶"
-post_state_draft:
-  other: "未完成"
-search_button:
-  other: "搜索"
+post_state_top: "置顶"
+post_state_draft: "未完成"
+search_button: "搜索"
 header_menu:
-  list:
-    other: "打开菜单列表"
-  close:
-    other: "关闭菜单列表"
+  list: "打开菜单列表"
+  close: "关闭菜单列表"
 theme:
-  toggle:
-    other: "切换主题"
-  sun:
-    other: "浅色模式"
-  moon:
-    other: "深色模式"
-scroll_to_top:
-  other: "回到顶部"
-scroll_to_bottom:
-  other: "回到底部"
+  toggle: "切换主题"
+  sun: "浅色模式"
+  moon: "深色模式"
+scroll_to_top: "回到顶部"
+scroll_to_bottom: "回到底部"
 tool_menu:
-  expand:
-    other: "展开工具栏"
-  collapse:
-    other: "收起工具栏"
-  switcher:
-    other: "工具栏展开/收起"
+  expand: "展开工具栏"
+  collapse: "收起工具栏"
+  switcher: "工具栏展开/收起"
 page:
-  prev:
-    other: "上一页"
-  next:
-    other: "下一页"
+  prev: "上一页"
+  next: "下一页"
 footer:
   stats:
-    key:
-      other: "访客人数"
-    title:
-      other: "当前页面访客数（IP 去重）"
+    key: "访客人数"
+    title: "当前页面访客数（IP 去重）"
   time:
-    key:
-      other: "运行时间"
-    title:
-      other: "至今运行时间"
-    year:
-      other: "年"
-    day:
-      other: "天"
-    hour:
-      other: "时"
+    key: "运行时间"
+    title: "至今运行时间"
+    year: "年"
+    day: "天"
+    hour: "时"
 single:
-  toc:
-    other: "目录大纲"
-  prevPost:
-    other: "上一篇"
-  nextPost:
-    other: "下一篇"
-  reward:
-    other: "支持作者"
-  share:
-    other: "分享文章"
-  note:
-    other: "本文内容将不定期修订与完善，请以最新版本为准。转载或引用本文内容时，请明确注明作者及原文链接。"
-  createdTime:
-    other: "创建时间"
-  updatedTime:
-    other: "更新时间"
-  summary:
-    other: "摘要"
-  content:
-    other: "正文"
+  toc: "目录大纲"
+  prevPost: "上一篇"
+  nextPost: "下一篇"
+  reward: "支持作者"
+  share: "分享文章"
+  note: "本文内容将不定期修订与完善，请以最新版本为准。转载或引用本文内容时，请明确注明作者及原文链接。"
+  createdTime: "创建时间"
+  updatedTime: "更新时间"
+  summary: "摘要"
+  content: "正文"
 list:
   count:
     one: "{{ .Count }} 篇"
     other: "{{ .Count }} 篇"
   taxonomy:
-    countDesc:
-      other: "数量倒序"
-    nameAsc:
-      other: "名称升序"
+    countDesc: "数量倒序"
+    nameAsc: "名称升序"
   section:
-    timeDesc:
-      other: "时间倒序"
-    timeAsc:
-      other: "时间升序"
+    timeDesc: "时间倒序"
+    timeAsc: "时间升序"
 interaction:
   codeCopy:
-    success:
-      other: "复制成功"
-    error:
-      other: "复制失败，请重试或者更换浏览器"
+    success: "复制成功"
+    error: "复制失败，请重试或者更换浏览器"
   share:
-    success:
-      other: "链接已成功复制"
-    error:
-      other: "复制链接失败，请重试或者更换浏览器"
+    success: "链接已成功复制"
+    error: "复制链接失败，请重试或者更换浏览器"
   reward:
     title: "感谢您的认可"
     subtitle: "扫描二维码支持作者"
@@ -105,3 +65,4 @@ interaction:
     stateIdle: "请输入关键字开始搜索"
     stateEmpty: "暂无匹配结果"
     stateSearching: "正在搜索中……"
+    stateSuccess: "匹配结果数"

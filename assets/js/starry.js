@@ -24,10 +24,11 @@
             IDLE: "stateIdle",
             SEARCHING: "stateSearching",
             EMPTY: "stateEmpty",
-            SUCCESS: "result"
+            SUCCESS: "stateSuccess"
         };
         this.currentState = this.states.IDLE;
         this.resultEl = document.getElementById("result");
+        this.resultNumEl = document.getElementById("resultNum");
         this.inputEl = document.getElementById("searchInput");
     }
 
@@ -131,6 +132,7 @@
             <div class="result-desc">${this.truncateText(item.C)}</div>
         </div>
     `).join("");
+        this.resultNumEl.innerText = `${list.length} / ${this.searchIndex.length}`;
         this.resultEl.innerHTML = innerHTML;
         this.starry.funcUtils.log(`search render results consumed ${(performance.now() - t0).toFixed(2)} ms`, "Search");
     };

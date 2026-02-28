@@ -2,6 +2,8 @@
 # 自定义主题参数
 # ================================
 params:
+  # 站点地址
+  logoSite: "https://meethigher.top"
   # 站点左上角主标题
   logoTitle: "Hugo-Theme-Starry"
   # 站点副标题（支持较长文本描述）

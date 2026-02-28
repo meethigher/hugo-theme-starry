@@ -1,100 +1,60 @@
-post_state_top:
-  other: "Pinned"
-post_state_draft:
-  other: "WIP"
-search_button:
-  other: "Search"
+post_state_top: "Pinned"
+post_state_draft: "WIP"
+search_button: "Search"
 header_menu:
-  list:
-    other: "Open menu list"
-  close:
-    other: "Close menu list"
+  list: "Open menu list"
+  close: "Close menu list"
 theme:
-  toggle:
-    other: "Toggle theme"
-  sun:
-    other: "Sun mode"
-  moon:
-    other: "Moon mode"
-scroll_to_top:
-  other: "Scroll to top"
-scroll_to_bottom:
-  other: "Scroll to bottom"
+  toggle: "Toggle theme"
+  sun: "Sun mode"
+  moon: "Moon mode"
+scroll_to_top: "Scroll to top"
+scroll_to_bottom: "Scroll to bottom"
 tool_menu:
-  expand:
-    other: "Expand toolbar"
-  collapse:
-    other: "Collapse toolbar"
-  switcher:
-    other: "Expand/Collapse toolbar"
+  expand: "Expand toolbar"
+  collapse: "Collapse toolbar"
+  switcher: "Expand/Collapse toolbar"
 page:
-  prev:
-    other: "Previous page"
-  next:
-    other: "Next page"
+  prev: "Previous page"
+  next: "Next page"
 footer:
   stats:
-    key:
-      other: "Visitors"
-    title:
-      other: "Unique visitors on this page (IP deduplicated)"
+    key: "Visitors"
+    title: "Unique visitors on this page (IP deduplicated)"
   time:
-    key:
-      other: "Uptime"
-    title:
-      other: "Time running until now"
-    year:
-      other: "y"
-    day:
-      other: "d"
-    hour:
-      other: "h"
+    key: "Uptime"
+    title: "Time running until now"
+    year: "y"
+    day: "d"
+    hour: "h"
 single:
-  toc:
-    other: "Outline"
-  prevPost:
-    other: "Previous"
-  nextPost:
-    other: "Next"
-  reward:
-    other: "Donate"
-  share:
-    other: "Share"
-  note:
-    other: "This article is continuously updated and revised. The latest version shall prevail. Reproduction or citation requires clear attribution to the author and a link to the original source."
-  createdTime:
-    other: "Published"
-  updatedTime:
-    other: "Updated"
-  summary:
-    other: "Summary"
-  content:
-    other: "Content"
+  toc: "Outline"
+  prevPost: "Previous"
+  nextPost: "Next"
+  reward: "Donate"
+  share: "Share"
+  note: "This article is continuously updated and revised. The latest version shall prevail. Reproduction or citation requires clear attribution to the author and a link to the original source."
+  createdTime: "Published"
+  updatedTime: "Updated"
+  summary: "Summary"
+  content: "Content"
 list:
   count:
-    one: "{{ .Count }} article"
-    other: "{{ .Count }} articles"
+    one: "{{ .Count }} result"
+    other: "{{ .Count }} results"
   taxonomy:
-    countDesc:
-      other: "Desc by Quantity"
-    nameAsc:
-      other: "Asc by Name"
+    countDesc: "Desc by Quantity"
+    nameAsc: "Asc by Name"
   section:
-    timeDesc:
-      other: "Desc by Date"
-    timeAsc:
-      other: "Asc by Date"
+    timeDesc: "Desc by Date"
+    timeAsc: "Asc by Date"
 interaction:
   codeCopy:
-    success:
-      other: "Copied successfully"
-    error:
-      other: "Copy failed. Please try again or use a different browser"
+    success: "Copied successfully"
+    error: "Copy failed. Please try again or use a different browser"
   share:
-    success:
-      other: "Link copied successfully"
-    error:
-      other: "Failed to copy the link. Please try again or use a different browser"
+    success: "Link copied successfully"
+    error: "Failed to copy the link. Please try again or use a different browser"
   reward:
     title: "Thank you for your support"
     subtitle: "Scan the QR code to support the author"
@@ -105,3 +65,4 @@ interaction:
     stateIdle: "Please enter keywords to start searching"
     stateEmpty: "No matching results found"
     stateSearching: "Searching..."
+    stateSuccess: "Matched results"
