@@ -1,10 +1,32 @@
 {{- printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" | safeHTML -}}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {{- /* 1. 筛选符合条件的页面 */}}
     {{- $pages := where .Site.Pages "Type" "post" }}
     {{- $pages = where $pages "Draft" "eq" false }}
     {{- $pages = where $pages "PublishDate" "<=" now }}
-    {{- $pages = sort $pages "Lastmod" "desc" }}
+    {{- $pages = where $pages "File" "ne" nil }}
+
+    {{- /* 2. 一次性获取并格式化修改时间，避免重复IO操作 */}}
+    {{- $sortedPages := slice }}
     {{- range $pages }}
-    {{- printf "\n<url>\n  <loc>%s</loc>\n  <lastmod>%s</lastmod>\n</url>" .Permalink (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTML -}}
+    {{- $fileInfo := os.Stat .File.Path }}
+    {{- if $fileInfo }}
+    {{- /* 提前格式化时间，避免后续重复计算 */}}
+    {{- $modTimeFormatted := $fileInfo.ModTime.Format "2006-01-02T15:04:05Z07:00" }}
+    {{- /* 一次性存储所有需要的信息：页面、修改时间（原始）、格式化时间 */}}
+    {{- $sortedPages = $sortedPages | append (dict
+    "Page" .
+    "ModTime" $fileInfo.ModTime
+    "ModTimeFormatted" $modTimeFormatted
+    ) }}
+    {{- end }}
+    {{- end }}
+
+    {{- /* 3. 按文件修改时间倒序排序 */}}
+    {{- $sortedPages = sort $sortedPages "ModTime" "desc" }}
+
+    {{- /* 4. 生成sitemap条目（直接使用预格式化的时间） */}}
+    {{- range $sortedPages }}
+    {{- printf "\n<url>\n <loc>%s</loc>\n <lastmod>%s</lastmod>\n</url>" .Page.Permalink .ModTimeFormatted | safeHTML -}}
     {{- end }}
 </urlset>
