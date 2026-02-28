@@ -2,13 +2,16 @@
 # 自定义主题参数
 # ================================
 params:
+  # 开发模式下，会在文章标题显示 Dev 按钮，点击可通过该服务快速打开 markdown 文件
+  # 配套实现：https://github.com/meethigher/hfopener
+  debug: false
+  debugServer: http://127.0.0.1:13131
   # 站点地址
   logoSite: "https://meethigher.top"
   # 站点左上角主标题
   logoTitle: "Hugo-Theme-Starry"
   # 站点副标题（支持较长文本描述）
   logoSubTitle: "The night sky hides all the light away, leaving only the stars to think of you again and again in the darkness."
-
   starry:
     # 是否启用粒子星空背景（true 启用 / false 关闭）
     varStarBgEnable: true
@@ -28,7 +31,7 @@ params:
     varSiteBegin: "2019/09/15 19:57:09"
 
     # 是否启用站点统计服务
-    # 配套后端实现：https://github.com/meethigher/count-for-page
+    # 配套实现：https://github.com/meethigher/count-for-page
     varStatsServiceEnable: false
 
     # 统计服务接口地址（启用统计服务时生效）

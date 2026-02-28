@@ -100,6 +100,15 @@ a:hover {
   border-bottom-color: var(--color-primary-hover);
 }
 
+// 调试样式
+.debug {
+  display: inline-block;
+  color: var(--color-primary) !important;
+  text-decoration: none !important;
+  border-bottom: $default-border-size solid transparent !important;
+}
+
+
 code {
   overflow-x: auto;
 }

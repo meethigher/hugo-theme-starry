@@ -81,7 +81,9 @@
 {{ with .Params.categories }}
 <div class="single-categories">{{ partial "tag-terms.html" (dict "taxonomy" "categories" "page" $ctx) }}</div>
 {{ end }}
-<div class="single-title">{{ .Title }}</div>
+<div class="single-title">{{ .Title }}{{ if and hugo.IsServer site.Params.debug }}
+    <a class="debug" target="_blank" href="{{ site.Params.debugServer }}/?path={{ .File.Filename }}">Debug</a>
+    {{ end }}</div>
 <div class="single-divider"></div>
 <div class="single-meta">
     <div class="single-dates">

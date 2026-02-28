@@ -10,7 +10,9 @@
                     {{ partial "tag-terms.html" (dict "taxonomy" "categories" "page" $ctx) }}
                 </div>
                 {{ end }}
-                <a class="post-title" href="{{ .RelPermalink }}">{{ if eq .Params.state "top" }}[{{ i18n "post_state_top" }}] {{ end }}{{ if eq .Params.state "draft" }}[{{ i18n "post_state_draft" }}] {{ end }}{{ .LinkTitle }}</a>
+                <a class="post-title" href="{{ .RelPermalink }}">{{ if eq .Params.state "top" }}[{{ i18n "post_state_top" }}] {{ end }}{{ if eq .Params.state "draft" }}[{{ i18n "post_state_draft" }}] {{ end }}{{ .LinkTitle }}{{ if and hugo.IsServer site.Params.debug }}
+                    <a class="debug" target="_blank" href="{{ site.Params.debugServer }}/?path={{ .File.Filename }}">Debug</a>
+                    {{ end }}</a>
 
                 {{ with .Params.tags }}
                 <div class="post-tags">
