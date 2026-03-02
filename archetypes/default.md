@@ -11,17 +11,18 @@ state: none
 weight: 999999
 ---
 
-参数说明如下
-
-* categories: [] 表示该文章的分类，英文逗号分隔
-* tags: [] 表示该文章的标签，英文逗号分隔
-* type: post 为主题定义值，表示在 home.html、list.html、以及查询结果中展示。
-* draft: true 表示该文章不生成 html
-* comments: false 表示该文章不启用 gitalk
-* mathjax: true 表示开启数学公式功能
-* state: none 表示默认、draft 文章标题会显示未完成、top 文章标题会显示置顶（置顶需与weight配合使用）
-* weight: 数字越小，文章列表越靠前
+summary
 
 <!--more-->
 
-content
+Parameter Description
+
+-   **categories**: `[]` Indicates the categories of the article
+-   **tags**: `[]` Indicates the tags of the article
+-   **type**: `post` A theme-defined value indicating that the article will be displayed in home.html, list.html, and search results.
+-   **draft**: `true` Indicates that the article will not generate an HTML file.
+-   **comments**: `false` Indicates that Gitalk is disabled for this article.
+-   **mathjax**: `true` Enables mathematical formula rendering.
+-   **state**: `none` Indicates default status. If set to `draft`, the article title will display "WIP". If set to `top`, the article title will display "Pinned" (must be used together with weight).
+-   **weight**: The smaller the number, the higher the article appears in the list.
+

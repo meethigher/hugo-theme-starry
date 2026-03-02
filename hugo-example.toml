@@ -1,0 +1,144 @@
+# ================================
+# Hugo built-in parameters
+# Official documentation: https://gohugo.io/configuration/all/#all-configuration-settings
+# ================================
+# Site title (displayed in the webpage title)
+title = "Hugo-Theme-Starry"
+# Base URL of the site (please ensure correctness in production)
+baseURL = "https://meethigher.github.io/"
+# HTML lang attribute and i18n language setting. Built-in zh-CN/en
+languageCode = "en"
+# Whether to use ugly URLs
+# false: pretty URLs (/index/)
+# true : ugly URLs (/index.html)
+# Note: This setting affects static resource relative paths; false is recommended
+uglyURLs = false
+# Disable Hugo's automatic injection of generator meta tag
+disableHugoGeneratorInject = true
+# When debugging the theme, you can comment this line and start the server directly in the theme root
+theme = "starry"
+
+[minify]
+# Whether to minify HTML output
+# true  Enable minification
+# false Original formatting (useful for debugging)
+minifyOutput = true
+
+# ================================
+# Pagination configuration
+# ================================
+[pagination]
+# Number of posts per page
+pagerSize = 4
+# Pagination path, e.g., /page/2
+path = "page"
+
+[outputs]
+# Homepage output formats
+home = ["html", "json"]
+
+[permalinks]
+# URL pattern for archives type pages
+# Example: /2024/article-name/
+archives = "/:year/:contentbasename/"
+
+# ================================
+# Menu configuration
+# ================================
+[[menus.main]]
+name = "Home"
+pageRef = "/"
+weight = 10
+[[menus.main]]
+name = "Tags"
+pageRef = "/tags"
+weight = 20
+[[menus.main]]
+name = "Categories"
+pageRef = "/categories"
+weight = 19
+# Custom pages (pageRef corresponds to content directory or file name)
+[[menus.main]]
+name = "Archives"
+pageRef = "/archives"
+weight = 30
+[[menus.main]]
+name = "About"
+pageRef = "/about"
+weight = 40
+
+# ================================
+# Markdown rendering & code highlighting configuration
+# ================================
+# Header level range for auto-generated table of contents [startLevel, endLevel]
+[markup.tableOfContents]
+startLevel = 1
+endLevel = 6
+[markup.highlight]
+# Enable code block highlighting
+codeFences = true
+# true  Use inline styles
+# false Use CSS classes (recommended for theme consistency)
+# This theme only supports false
+noClasses = false
+# Show line numbers
+lineNos = true
+# Enable automatic language detection
+guessSyntax = false
+[markup.goldmark.renderer]
+# Allow rendering raw HTML/script in Markdown
+unsafe = true
+[markup.goldmark.extensions]
+# Enable smart typography (-- → –, ... → …, etc.)
+# false means disabled
+typographer = false
+
+[module.hugoVersion]
+# Use Hugo Extended version (supports SCSS)
+extended = true
+# Allowed Hugo version range
+min = "0.154.0"
+
+[params]
+# In dev mode, show Dev button in article titles to quickly open markdown files via this service
+# Implementation: https://github.com/meethigher/hfopener
+debug = false
+debugServer = "http://127.0.0.1:13131"
+# Site URL
+logoSite = "https://meethigher.top"
+# Main title at the top-left of the site
+logoTitle = "Starry"
+# Subtitle (supports longer descriptive text)
+logoSubTitle = "Starry Nights. Calm Reading."
+# SEO keywords (for meta keywords)
+seoTags = ["hugo", "blog", "developer", "programmer", "life"]
+[params.starry]
+# Enable particle starry background (true enable / false disable)
+varStarBgEnable = true
+# Number of particles (stars), effective only if starry background is enabled
+varStarCount = 50
+# Show top loading progress bar when clicking a link
+varProgressEnable = true
+# Default expand right-side toolbar
+varToolExpanded = false
+# Site start time (for showing running duration)
+# Format: "yyyy/MM/dd HH:mm:ss"
+# Leave empty to default to "2019/09/15 19:57:09"
+varSiteBegin = "2019/09/15 19:57:09"
+# Enable site analytics service
+# Implementation: https://github.com/meethigher/count-for-page
+varStatsServiceEnable = false
+# Analytics service API URL (effective when analytics enabled)
+varStatsServiceUrl = "https://meethigher.top/census/count"
+# Search index IndexedDB cache expiration, in milliseconds
+varCacheExpire = 43_200_000
+# Gitalk comment system configuration
+# Usage: https://github.com/gitalk/gitalk/blob/master/readme-cn.md
+[params.starry.varGitalk]
+# Enable Gitalk (true in dev, false in production)
+dev = true
+clientId = "e46f6dec7c07145c652c"
+clientSecret = "d1a0b627f9b76d21bd3080d1777d0aa0ad55dd83"
+repo = "gitalk"
+owner = "gitalk"
+admin = ["booxood", "mamborer"]

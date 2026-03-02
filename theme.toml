@@ -3,25 +3,27 @@
 
 
 name = "Starry"
-description = "Clean Hugo. Calm Reading."
-license = "MIT"
-licenselink = "https://github.com/meethigher/hugo-theme-starry/LICENSE"
+description = "Starry Nights. Calm Reading."
+license = "GPL-3.0"
+licenselink = "https://github.com/meethigher/hugo-theme-starry/blob/main/LICENSE"
 homepage = "https://github.com/meethigher/hugo-theme-starry"
-demosite    = "https://meethigher.github.io"
+demosite = "https://meethigher.github.io"
 min_version = "0.154.0"
 
-tags = [ "blog", "personal", "light", "dark", "starry" ]
+tags = ["blog", "personal", "light", "dark", "starry"]
 
 features = [
-  "card-style layout",
-  "responsive design",
-  "light/dark mode",
-  "table of contents",
-  "image lazy loading",
-  "image viewer",
-  "mathjax lazy rendering",
-  "indexdb fast search",
-  "gitalk comments"
+    "card-style layout",
+    "responsive design",
+    "starry particle effect",
+    "light/dark mode toggle",
+    "table of contents",
+    "lazy image loading",
+    "image viewer",
+    "mathJax lazy rendering",
+    "indexeddb fast search",
+    "gitalk comments integration",
+    "open markdown in browser (dev mode)"
 ]
 
 [author]
